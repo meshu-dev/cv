@@ -1,0 +1,61 @@
+body {
+    font: 400 14px/1.6 "Open Sans",sans-serif;
+    color: rgb(3, 6, 11);
+}
+
+#wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#profile {
+	display: flex;
+}
+
+#profile h1 {
+	margin: 0 0 10px;
+	font-size: 48px;
+}
+
+#profile span {
+	font-weight: bold;
+}
+
+#profile-pic-wrapper {
+	flex:  1;
+}
+
+#profile-pic {
+	width:  200px;
+}
+
+#profile-info {
+	flex: 2;
+}
+
+section {
+	margin-top: 80px;
+}
+
+section h2 {
+	border-bottom: 1px solid #CCC;
+	padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+section p {
+	color: rgb(45, 70, 101);
+}
+
+#skills-sections {
+	display:  flex;
+	justify-content: space-between;
+}
+
+.skills-section {
+	flex: 1;
+}
+
+.skills-section li {
+	margin-bottom: 5px;
+}
