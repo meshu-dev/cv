@@ -1,7 +1,16 @@
+:root {
+  --page-width: 700px;
+  --border-style: 1px solid #CCC;
+}
+
 body {
     font: 400 14px/1.6 "Open Sans",sans-serif;
     font-size: 16px;
     color: rgb(3, 6, 11);
+}
+
+a {
+	text-decoration: none;
 }
 
 h2 {
@@ -9,12 +18,14 @@ h2 {
 }
 
 #wrapper {
-    max-width: 700px;
+    max-width: var(--page-width);
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 #profile {
 	display: flex;
+	flex-direction: row;
 }
 
 #profile h1 {
@@ -36,6 +47,16 @@ h2 {
 
 #profile-info {
 	flex: 2;
+	margin: 0;
+}
+
+#profile-links img {
+	width:  30px;
+	height:  30px;
+}
+
+#profile-links a {
+	margin-right: 10px;
 }
 
 section {
@@ -43,7 +64,7 @@ section {
 }
 
 section h2 {
-	border-bottom: 1px solid #CCC;
+	border-bottom: var(--border-style);
 	padding-bottom: 10px;
     margin-bottom: 10px;
 }
@@ -54,11 +75,15 @@ section p {
 
 #skills-sections {
 	display:  flex;
+	flex-direction: row;
 	justify-content: space-between;
+	flex-wrap: nowrap;
 }
 
 .skills-section {
 	flex: 1;
+	min-width: 180px;
+	max-width: 200px;
 }
 
 .skills-section li {
@@ -67,7 +92,7 @@ section p {
 
 .workexp-entry {
 	padding-bottom: 20px;
-	border-bottom: 1px solid #CCC;
+	border-bottom: var(--border-style);
 	margin-bottom:  20px;
 }
 
@@ -78,6 +103,7 @@ section p {
 .workexp-entry-title {
 	font-size: 20px;
     margin-bottom: 5px;
+    text-decoration: underline;
 }
 
 .workexp-entry-company {
@@ -86,4 +112,23 @@ section p {
 
 .workexp-entry-date {
 	margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+	#profile {
+		flex-direction: column;
+	}
+
+	#profile-pic-wrapper {
+		display: flex;
+		justify-content: center;
+	}
+
+	#profile-info {
+		margin-top: 40px;
+	}
+
+	#skills-sections {
+		flex-wrap: wrap;
+	}
 }

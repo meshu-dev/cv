@@ -1,3 +1,3 @@
 # CV
 
-Website version of CV
+Website version of my CV
