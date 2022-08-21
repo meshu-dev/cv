@@ -4,7 +4,10 @@
         <title>Harmesh Uppal - CV</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./styles/main.css">
+        <link rel="stylesheet" href="./styles/main.css" />
+        <link rel="stylesheet" href="./styles/sweetalert2.min.css" />
+        <script type="text/javascript" src="./scripts/sweetalert2.all.min.js"></script>
+        <script type="text/javascript" src="./scripts/main.js"></script>
     </head>
     <body>
         <header>
@@ -12,11 +15,11 @@
                 <div id="header-logo">Curriculum Vitae</div>
                 <div id="header-links">
                     <a href="https://github.com/meshu-dev" target="_blank" class="header-link">Download</a>
-                    <span class="header-link">Contact</span>
+                    <span class="header-link" onclick="showContactPopup()">Contact</span>
                 </div>
             </div>
         </header>
-        <div id="body-wrapper">
+        <main id="body-wrapper">
             <section id="profile">
                 <div id="profile-pic-wrapper">
                     <img id="profile-pic" src="https://cdn.vectorstock.com/i/1000x1000/17/59/default-placeholder-businessman-half-length-portr-vector-21181759.webp" />
@@ -190,6 +193,22 @@
                     </div>
                 </div>
             </section>
+        </main>
+        <div id="contactform-content">
+            <div id="contactform">
+                <div class="contactform-row">
+                    <span>Name:</span>
+                    <input type="text" name="" value="" />
+                </div>
+                <div class="contactform-row">
+                    <span>Email:</span>
+                    <input type="text" name="" value="" />
+                </div>
+                <div class="contactform-row">
+                    <span>Message:</span>
+                    <textarea></textarea>
+                </div>
+            </div>
         </div>
     </body>
 </html>

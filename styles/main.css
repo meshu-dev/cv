@@ -149,6 +149,33 @@ section p {
 	margin-bottom: 5px;
 }
 
+#contactform-content {
+	display: none;
+}
+
+#contactform {
+	width: 400px;
+	margin: 0 auto;
+}
+
+.contactform-row {
+	width: 400px;
+	margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactform-row input,
+.contactform-row textarea {
+	width: 300px;
+	margin-bottom: 15px;
+}
+
+.contactform-row textarea {
+	min-height:  300px;
+	resize: none;
+}
+
 @media only screen and (max-width: 800px) {
 	#profile {
 		flex-direction: column;
