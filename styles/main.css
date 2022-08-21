@@ -37,6 +37,7 @@ header {
 }
 
 .header-link {
+	color: #FFF;
 	padding: 5px;
 	margin:  0 5px;
 }
@@ -138,7 +139,6 @@ section p {
 .workexp-entry-title {
 	font-size: 20px;
     margin-bottom: 5px;
-    text-decoration: underline;
 }
 
 .workexp-entry-company {
