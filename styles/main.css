@@ -1,6 +1,11 @@
 body {
     font: 400 14px/1.6 "Open Sans",sans-serif;
+    font-size: 16px;
     color: rgb(3, 6, 11);
+}
+
+h2 {
+	font-size:  30px;
 }
 
 #wrapper {
@@ -57,5 +62,28 @@ section p {
 }
 
 .skills-section li {
+	margin-bottom: 5px;
+}
+
+.workexp-entry {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #CCC;
+	margin-bottom:  20px;
+}
+
+.workexp-entry:last-child {
+	border-bottom: none;
+}
+
+.workexp-entry-title {
+	font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.workexp-entry-company {
+	margin-bottom: 5px;
+}
+
+.workexp-entry-date {
 	margin-bottom: 5px;
 }
