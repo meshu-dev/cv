@@ -7,17 +7,52 @@ body {
     font: 400 14px/1.6 "Open Sans",sans-serif;
     font-size: 16px;
     color: rgb(3, 6, 11);
+    margin:  0;
 }
 
 a {
 	text-decoration: none;
 }
 
+header {
+	background-color: #211E2F;
+	color: #FFF;
+	min-height: 50px;
+}
+
+#header-wrapper {
+	max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-logo {
+	font-size: 30px;
+}
+
+#header-links {
+	margin-top: 10px;
+}
+
+.header-link {
+	padding: 5px;
+	margin:  0 5px;
+}
+
+.header-link:hover {
+	background-color: #E5E7EB;
+	color: #000;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 h2 {
 	font-size:  30px;
 }
 
-#wrapper {
+#body-wrapper {
     max-width: var(--page-width);
     margin: 0 auto;
     padding: 0 20px;
