@@ -149,11 +149,11 @@ section p {
 	margin-bottom: 5px;
 }
 
-#contactform-content {
+.contactform-content {
 	display: none;
 }
 
-#contactform {
+.contactform {
 	width: 400px;
 	margin: 0 auto;
 }
