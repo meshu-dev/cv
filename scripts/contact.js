@@ -47,7 +47,7 @@ const sendMsgRequest = (result) => {
       if (response.ok == false) {
         //throw new Error(response.statusText);
       }
-      return response.json();
+      return response;
     });
 
     /*
