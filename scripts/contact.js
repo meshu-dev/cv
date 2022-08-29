@@ -27,7 +27,7 @@ const getFormParams = () => {
 };
 
 const sendMsgRequest = (result) => {
-  const url = 'https://5d942gl0d8.execute-api.eu-west-2.amazonaws.com/dev';
+  const url = 'https://lc8divnhwl.execute-api.eu-west-2.amazonaws.com/dev/';
 
   let params = getFormParams();
   params = {
