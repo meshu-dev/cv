@@ -12,7 +12,7 @@ const showContactPopup = () => {
     allowOutsideClick: () => Swal.isLoading() == true ? false : true
   };
 
-  Swal.fire(params).then(popUpResponse);
+  Swal.fire(params);
 };
 
 const getFormParams = () => {
@@ -39,8 +39,10 @@ const sendMsgRequest = (result) => {
 
 
   return fetch(url, params)
-    .then(response => {
-      console.log('response', response, response.json());
+    .then(async (response) => {
+      let json = await response.json();
+
+      console.log('response', json, response);
 
       if (response.ok == false) {
         throw new Error(response.statusText);
@@ -58,9 +60,10 @@ const popUpResponse = (result) => {
   console.log('popUpResponse', result);
 
   if (result.isConfirmed) {
-    Swal.fire({
-      title: `${result.value.login}'s avatar`,
-      imageUrl: result.value.avatar_url
-    });
+    Swal.fire(
+      'Message sent!',
+      'I will respond back to you soon',
+      'success'
+    );
   }
 };
