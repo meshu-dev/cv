@@ -70,8 +70,8 @@ const sentMsg = () => {
 
 const notSentMsg = () => {
   Swal.fire(
-    'Message sent!',
-    'I will respond back to you soon',
-    'success'
+    'Error occurred',
+    'Please try sending the message again later',
+    'error'
   );
 };
