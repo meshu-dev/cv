@@ -37,35 +37,41 @@ const sendMsgRequest = (result) => {
 
   console.log('params', params);
 
-
   return fetch(url, params)
     .then(async (response) => {
-      let json = await response.json();
+      if (response.ok === true) {
+        let json = await response.json();
 
-      console.log('response', json, response);
-
-      if (response.ok == false) {
-        //throw new Error(response.statusText);
+        if (json.isSent === true) {
+          sentMsg();
+        } else {
+          notSentMsg();
+        }
+      } else {
+        errorMsg(response.statusText);
       }
       return json;
     });
-
-    /*
-    .catch(error => {
-      Swal.showValidationMessage(
-        `Request failed: ${error}`
-      )
-    }); */
 };
 
-const popUpResponse = (result) => {
-  console.log('popUpResponse', result);
+const errorMsg = (msg) => {
+  Swal.showValidationMessage(
+    `Request failed: ${msg}`
+  );
+};
 
-  if (result.isConfirmed) {
-    Swal.fire(
-      'Message sent!',
-      'I will respond back to you soon',
-      'success'
-    );
-  }
+const sentMsg = () => {
+  Swal.fire(
+    'Message sent!',
+    'I will respond back to you soon',
+    'success'
+  );
+};
+
+const notSentMsg = () => {
+  Swal.fire(
+    'Message sent!',
+    'I will respond back to you soon',
+    'success'
+  );
 };
