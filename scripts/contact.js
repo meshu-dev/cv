@@ -27,17 +27,20 @@ const getFormParams = () => {
 };
 
 const sendMsgRequest = (result) => {
-  const url = 'http://api.github.com/users/meshu-dev';
+  const url = 'https://5d942gl0d8.execute-api.eu-west-2.amazonaws.com/dev';
   const params = getFormParams();
 
   console.log('params', params);
 
-  return fetch(url)
+  return fetch(url, params)
     .then(response => {
+      console.log('response', response, response.json());
+
+      /*
       if (response.ok == false) {
         throw new Error(response.statusText);
       }
-      return response.json();
+      return response.json(); */
     })
     .catch(error => {
       Swal.showValidationMessage(
@@ -47,10 +50,13 @@ const sendMsgRequest = (result) => {
 };
 
 const popUpResponse = (result) => {
+  console.log('popUpResponse', result);
+
+  /*
   if (result.isConfirmed) {
     Swal.fire({
       title: `${result.value.login}'s avatar`,
       imageUrl: result.value.avatar_url
     });
-  }
+  } */
 };
