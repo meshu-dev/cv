@@ -35,8 +35,6 @@ const sendMsgRequest = (result) => {
     body: JSON.stringify(params)
   };
 
-  console.log('params', params);
-
   return fetch(url, params)
     .then(async (response) => {
       if (response.ok === true) {
@@ -50,7 +48,7 @@ const sendMsgRequest = (result) => {
       } else {
         errorMsg(response.statusText);
       }
-      return json;
+      return;
     });
 };
 
