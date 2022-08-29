@@ -28,7 +28,12 @@ const getFormParams = () => {
 
 const sendMsgRequest = (result) => {
   const url = 'https://5d942gl0d8.execute-api.eu-west-2.amazonaws.com/dev';
-  const params = getFormParams();
+
+  let params = getFormParams();
+  params = {
+    method: 'POST',
+    body: JSON.stringify(params)
+  };
 
   console.log('params', params);
 
