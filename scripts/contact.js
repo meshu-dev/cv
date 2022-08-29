@@ -45,15 +45,17 @@ const sendMsgRequest = (result) => {
       console.log('response', json, response);
 
       if (response.ok == false) {
-        throw new Error(response.statusText);
+        //throw new Error(response.statusText);
       }
       return response.json();
-    })
+    });
+
+    /*
     .catch(error => {
       Swal.showValidationMessage(
         `Request failed: ${error}`
       )
-    });
+    }); */
 };
 
 const popUpResponse = (result) => {
