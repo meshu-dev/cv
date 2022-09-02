@@ -26,11 +26,11 @@
         <main id="body-wrapper">
             <section id="profile">
                 <div id="profile-pic-wrapper">
-                    <img id="profile-pic" src="https://cdn.vectorstock.com/i/1000x1000/17/59/default-placeholder-businessman-half-length-portr-vector-21181759.webp" />
+                    <img id="profile-pic" src="./images/profile-picture.jpg" />
                 </div>
                 <div id="profile-info">
                     <h1>Harmesh Uppal</h1>
-                    <p>Full-stack developer with over 10 years experience who mainly specialises in PHP and JavaScript</p>
+                    <p>Full-stack developer with over 10 years experience who specialises in PHP and JavaScript</p>
                     <p>
                         <span>Location:&nbsp;</span>West Bromwich, UK
                     </p>
@@ -71,16 +71,16 @@
                             <li>Laravel</li>
                             <li>Symfony</li>
                             <li>Express</li>
-                            <li>Custom / Legacy</li>
+                            <li>Legacy</li>
                         </ul>   
                     </div>
                     <div class="skills-section">
                         <h3>Other</h3>
                         <ul>
                             <li>Amazon AWS</li>
-                            <li>Ionic Framework</li>
+                            <li>Mobile app development</li>
+                            <li>Unit testing</li>
                             <li>Docker</li>
-                            <li>MacOS / Linux</li>
                         </ul>
                     </div>
                 </div>
@@ -88,85 +88,124 @@
             <section id="workexp">
                 <h2>Work Experience</h2>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">PHP Developer - Tucasi</h3>
-                    <div class="workexp-entry-company">Eastleigh, Hampshire</div>
-                    <div class="workexp-entry-date">November 2020 – Present</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">PHP Developer - Tucasi</h3>
+                        <div class="workexp-entry-datelocation">
+                            Eastleigh
+                            <span class="workexp-entry-separator"></span>
+                            Nov 20 – Present
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">Worked on MintClass which is a seat planner app for high schools.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
-                            <li>Worked on the main product which is a school seating module built in a custom PHP framework.</li>
-                            <li>Worked on a REST API built in Laravel to centralise management of school data which is used for all apps.</li>
-                            <li>Used Angular to develop homework and detention frontend apps, both these apps would also interact with the Laravel API.</li>
-                            <li>Built an Android / iOS web homework app using Ionic framework used by students and parents.</li>
+                            <li>Mainly worked on seating plan app built in a custom PHP framework.</li>
+                            <li>Worked on a laravel REST API to centralise school data.</li>
+                            <li>Developed Angular frontend school apps which interact with API.</li>
+                            <li>Built an Android / iOS homework web app using Ionic framework.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">PHP Developer - Castleton Technology</h3>
-                    <div class="workexp-entry-company">Sutton Coldfield, West Midlands</div>
-                    <div class="workexp-entry-date">July 2019 – October 2020</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">PHP Developer - MRI Software</h3>
+                        <div class="workexp-entry-datelocation">
+                            Sutton Coldfield
+                            <span class="workexp-entry-separator"></span>
+                            Jul 19 – Oct 20
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">Worked in the housing repair services team for MRI software.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
-                            <li>Worked on projects and support tickets for the House repairs PHP system which provides services to multiple clients.</li>
-                            <li>Developed a REST API in PHP using Laravel to modernise and migrate functionality off of the House repairs system.</li>
-                            <li>Tasks are worked on in two week sprints with code committed with SVN and GIT version control.</li>
-                            <li>Trained in and worked with C# and Angular to support other apps written with those technologies.</li>
+                            <li>Worked on the House repairs PHP system which provides services to multiple clients.</li>
+                            <li>Developed a REST API in PHP using Laravel to modernise and migrate functionality off of legacy system.</li>
+                            <li>Trained in and worked with C# and Angular to support other apps.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">Senior Developer - MoreNiche</h3>
-                    <div class="workexp-entry-company">Nottingham, Nottinghamshire</div>
-                    <div class="workexp-entry-date">January 2018 – July 2019</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">Senior Developer - MoreNiche</h3>
+                        <div class="workexp-entry-datelocation">
+                            Nottingham
+                            <span class="workexp-entry-separator"></span>
+                            Jan 18 – Jul 19
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">MoreNiche is an affiliate network that specialise in fitness products.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
-                            <li>Created and developed a Laravel API to manage affiliate data, also API testing was run to ensure integrity of the API.</li>
-                            <li>Worked on features for the affiliate dashboard and tracking server built with the Silex PHP framework.</li>
+                            <li>Developed a Laravel API to manage data, also included API testing.</li>
+                            <li>Worked on a high traffic tracking server built with the Silex PHP framework.</li>
                             <li>Worked with both Scrum and Kanban.</li>
                             <li>Been on-call outside of work hours to maintain uptime of servers.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">Web Developer - FPS Distribution</h3>
-                    <div class="workexp-entry-company">Stratford-upon-Avon, Warwickshire</div>
-                    <div class="workexp-entry-date">November 2020 – Present</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">Web Developer - FPS Distribution</h3>
+                        <div class="workexp-entry-datelocation">
+                            Stratford-upon-Avon
+                            <span class="workexp-entry-separator"></span>
+                            Jun 16 – Jan 18
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">FPS distribution is a b2b company providing car parts to their clients.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
-                            <li>Built and migrated features to a new Laravel API to replace the previous one built in NodeJS.</li>
-                            <li>Worked on tasks and fixed issues for the company's ticketing system and company portal by programming PHP modules for Drupal.</li>
+                            <li>Built and migrated features to a new Laravel API to replace the previous one built in NodeJS and Express.</li>
+                            <li>Worked on Drupal PHP modules for the company's ticketing system and company portal.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">Software Developer - Carphone Warehouse</h3>
-                    <div class="workexp-entry-company">Loughborough, Leicestershire</div>
-                    <div class="workexp-entry-date">June 2015 – April 2016</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">Software Developer -<br /> Carphone Warehouse</h3>
+                        <div class="workexp-entry-datelocation">
+                            Loughborough
+                            <span class="workexp-entry-separator"></span>
+                            Jun 15 – Apr 16
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">This carphone Warehouse branch involved work with TalkTalk, E2Save and Mobiles.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
-                            <li>Worked on the main product which is a school seating module built in a custom PHP framework.</li>
-                            <li>Worked on a REST API built in Laravel to centralise management of school data which is used for all apps.</li>
-                            <li>Used Angular to develop homework and detention frontend apps, both these apps would also interact with the Laravel API.</li>
-                            <li>Built an Android / iOS web homework app using Ionic framework used by students and parents.</li>
+                            <li>Worked on PHP e-commerce and backend management systems.</li>
+                            <li>Also worked on an in-store BackboneJS SPA app providing phone deals.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">Web Developer - Twist Digital</h3>
-                    <div class="workexp-entry-company">Nottingham, Nottinghamshire</div>
-                    <div class="workexp-entry-date">April 2013 – June 2015</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">Web Developer - Twist Digital</h3>
+                        <div class="workexp-entry-datelocation">
+                            Nottingham
+                            <span class="workexp-entry-separator"></span>
+                            Apr 13 – Jun 15
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">Twist Digital was an affiliate network that provided health, beauty, fitness and adult products.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
-                            <li>Worked on the company’s affiliate network website and tracking app built with Zend, Silex and MongoDB.</li>
-                            <li>Maintained uptime of servers ensuring uptime, performed live releases and updated live data.</li>
+                            <li>Worked on the company’s dashboard and tracking apps built with Zend, Silex and MongoDB.</li>
+                            <li>Maintained uptime of live servers.</li>
                             <li>Supported and mentored junior web developers.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">Web Developer - Mesh Web Studio</h3>
-                    <div class="workexp-entry-company">Nottingham, Nottinghamshire</div>
-                    <div class="workexp-entry-date">March 2012 – March 2013</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">Freelance Web Developer</h3>
+                        <div class="workexp-entry-datelocation">
+                            West Bromwich
+                            <span class="workexp-entry-separator"></span>
+                            Mar 12 – Mar 13
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">Worked freelance on varying projects with clients all over the UK.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
                             <li>Designed and coded bespoke websites for clients in PHP.</li>
                             <li>Conducted work remotely with clients located all over the UK.</li>
@@ -175,10 +214,16 @@
                     </div>
                 </div>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">Web Developer - Turn90</h3>
-                    <div class="workexp-entry-company">Birmingham, West Midlands</div>
-                    <div class="workexp-entry-date">January 2011 - March 2012</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">Web Developer - Turn90</h3>
+                        <div class="workexp-entry-datelocation">
+                            Birmingham
+                            <span class="workexp-entry-separator"></span>
+                            Jan 11 - Mar 12
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">Turn90 sold electrical goods and acted as a digital agency for other e-commerce websites.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
                             <li>Implemented features for numerous PHP e-commerce websites that were built with Interspire shopping cart.</li>
                             <li>Converted templates from Photoshop to HTML, CSS & JavaScript.</li>
@@ -186,13 +231,19 @@
                     </div>
                 </div>
                 <div class="workexp-entry">
-                    <h3 class="workexp-entry-title">Web Developer - Clownfish Design</h3>
-                    <div class="workexp-entry-company">Birmingham, West Midlands</div>
-                    <div class="workexp-entry-date">January 2011 - March 2012</div>
-                    <div class="workexp-entry-content">
+                    <div class="workexp-entry-header">
+                        <h3 class="workexp-entry-title">Web Developer - Clownfish Design</h3>
+                        <div class="workexp-entry-datelocation">
+                            Birmingham
+                            <span class="workexp-entry-separator"></span>
+                            Jan 11 - Mar 12
+                        </div>
+                    </div>
+                    <div class="workexp-entry-info">A digital agency with all clients in Birmingham.</div>
+                    <div class="workexp-entry-tasks">
                         <ul>
-                            <li>Received task requests from clients to work on various PHP websites.</li>
-                            <li>Worked on templating by converting Photoshop designs to HTML/CSS.</li>
+                            <li>Worked on various PHP websites both front and backend.</li>
+                            <li>Converted Photoshop designs to HTML/CSS.</li>
                         </ul>
                     </div>
                 </div>

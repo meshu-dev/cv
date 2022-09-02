@@ -136,17 +136,45 @@ section p {
 	border-bottom: none;
 }
 
+.workexp-entry-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
 .workexp-entry-title {
-	font-size: 20px;
-    margin-bottom: 5px;
+	font-size: 22px;
+    margin: 0;
+}
+
+.workexp-entry-separator::after {
+	padding: 0 2px;
+	content: "|";
+}
+
+.workexp-entry-datelocation {
+	padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #A1A1A1;
+    color: #FFF;
+    font-weight: bold;
+    max-height: 25px;
 }
 
 .workexp-entry-company {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 .workexp-entry-date {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.workexp-entry-tasks {
+	margin-left: 40px;
+}
+
+.workexp-entry-tasks ul li {
+	margin-bottom: 10px;
 }
 
 .contactform-content {
