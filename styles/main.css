@@ -1,6 +1,7 @@
 :root {
   --page-width: 700px;
   --border-style: 1px solid #CCC;
+  --theme-colour: #211E2F;
 }
 
 body {
@@ -15,7 +16,7 @@ a {
 }
 
 header {
-	background-color: #211E2F;
+	background-color: var(--theme-colour);
 	color: #FFF;
 	min-height: 50px;
 }
@@ -147,9 +148,13 @@ section p {
     margin: 0;
 }
 
-.workexp-entry-separator::after {
-	padding: 0 2px;
-	content: "|";
+.workexp-entry-location {
+	display: inline-block;
+	text-align: center;
+}
+
+.workexp-entry-location::after {
+	content: " |";
 }
 
 .workexp-entry-datelocation {
@@ -158,7 +163,8 @@ section p {
     background-color: #A1A1A1;
     color: #FFF;
     font-weight: bold;
-    max-height: 25px;
+    height: 25px;
+    min-width: auto;
 }
 
 .workexp-entry-company {
@@ -204,6 +210,10 @@ section p {
 	resize: none;
 }
 
+.swal2-actions .contactform-confirm-btn {
+	background-color: var(--theme-colour);
+}
+
 @media only screen and (max-width: 800px) {
 	#profile {
 		flex-direction: column;
@@ -220,5 +230,23 @@ section p {
 
 	#skills-sections {
 		flex-wrap: wrap;
+	}
+
+	.workexp-entry-datelocation {
+		text-align: center;
+		height: 52px;
+    	min-width: 160px;
+	}
+
+	.workexp-entry-location {
+		display: block;
+	}
+
+	.workexp-entry-location::after {
+		content: "";
+	}
+
+	.workexp-entry-tasks {
+		margin-left: 20px;
 	}
 }

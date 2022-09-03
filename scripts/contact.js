@@ -1,11 +1,13 @@
 const showContactPopup = () => {
   const formHtml = document.querySelector('.contactform-content').innerHTML;
+  const themeColour = getComputedStyle(document.documentElement).getPropertyValue('--theme-colour');
 
   const params = {
     title: 'Send me a message',
     html: formHtml,
     showCancelButton: true,
     confirmButtonText: 'Send',
+    confirmButtonColor: themeColour,
     showLoaderOnConfirm: true,
     preConfirm: sendMsgRequest,
     backdrop: true,
