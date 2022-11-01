@@ -1,0 +1,144 @@
+{
+	"profile": {
+		"name": "Harmesh Uppal",
+		"description": "Full-stack developer with over 10 years experience specialising in PHP and JavaScript",
+		"location": "West Bromwich, UK",
+		"image": "/assets/images/profile-picture.jpg",
+		"icons": [
+			{
+				"filename": "/assets/images/github-icon.png",
+				"url": "https://github.com/meshu-dev"
+			},
+			{
+				"filename": "/assets/images/linkedin-icon.png",
+				"url": "https://www.linkedin.com/in/harmeshuppal"
+			}
+		]
+	},
+	"skills": [
+		{
+			"name": "Backend",
+			"list": ["PHP", "MySQL", "NodeJS", "MongoDB"]
+		},
+		{
+			"name": "Frontend",
+			"list": ["React", "Angular", "Vue.js", "Gatsby"]
+		},
+		{
+			"name": "Frameworks",
+			"list": ["Laravel", "Symfony", "Express", "Legacy"]
+		},
+		{
+			"name": "Other",
+			"list": ["Amazon AWS", "Mobile app development", "Unit testing", "Docker"]
+		}
+	],
+	"workExperience": [
+		{
+			"title": "PHP Developer",
+			"company": "Tucasi",
+			"location": "Eastleigh",
+			"date": "Nov 20 – Present",
+			"description": "Worked on MintClass which is a seat planner app for high schools.",
+			"tasks": [
+				"Mainly worked on seating plan app built in a custom PHP framework.",
+				"Worked on a laravel REST API to centralise school data.",
+				"Developed Angular frontend school apps which interact with API.",
+				"Built an Android / iOS homework web app using Ionic framework."
+			]
+		},
+		{
+			"title": "PHP Developer",
+			"company": "MRI Software",
+			"location": "Sutton Coldfield",
+			"date": "Jul 19 – Oct 20",
+			"description": "Worked in the housing repair services team for MRI software.",
+			"tasks": [
+				"Worked on the House repairs PHP system which provides services to multiple clients.",
+				"Developed a REST API in PHP using Laravel to modernise and migrate functionality off of legacy system.",
+				"Trained in and worked with C# and Angular to support other apps."
+			]
+		},
+		{
+			"title": "Senior Developer",
+			"company": "MoreNiche",
+			"location": "Nottingham",
+			"date": "Jan 18 – Jul 19",
+			"description": "MoreNiche is an affiliate network that specialise in fitness products.",
+			"tasks": [
+				"Developed a Laravel API to manage data, also included API testing.",
+				"Worked on a high traffic tracking server built with the Silex PHP framework.",
+				"Worked with both Scrum and Kanban.",
+				"Been on-call outside of work hours to maintain uptime of servers."
+			]
+		},
+		{
+			"title": "Web Developer",
+			"company": "FPS Distribution",
+			"location": "Stratford-upon-Avon",
+			"date": "Jun 16 – Jan 18",
+			"description": "FPS distribution is a b2b company providing car parts to their clients.",
+			"tasks": [
+				"Built and migrated features to a new Laravel API to replace the previous one built in NodeJS and Express.",
+				"Worked on Drupal PHP modules for the company's ticketing system and company portal."
+			]
+		},
+		{
+			"title": "Software Developer",
+			"company": "Carphone Warehouse",
+			"location": "Loughborough",
+			"date": "Jun 15 – Apr 16",
+			"description": "This carphone Warehouse branch involved work with TalkTalk, E2Save and Mobiles.",
+			"tasks": [
+				"Worked on PHP e-commerce and backend management systems.",
+				"Also worked on an in-store BackboneJS SPA app providing phone deals."
+			]
+		},
+		{
+			"title": "Web Developer",
+			"company": "Twist Digital",
+			"location": "Nottingham",
+			"date": "Apr 13 – Jun 15",
+			"description": "Twist Digital was an affiliate network that provided health, beauty, fitness and adult products.",
+			"tasks": [
+				"Worked on the company’s dashboard and tracking apps built with Zend, Silex and MongoDB.",
+				"Maintained uptime of live servers.",
+				"Supported and mentored junior web developers."
+			]
+		},
+		{
+			"title": "Freelance Web Developer",
+			"company": "",
+			"location": "West Bromwich",
+			"date": "Mar 12 – Mar 13",
+			"description": "Worked freelance on varying projects with clients all over the UK.",
+			"tasks": [
+				"Designed and coded bespoke websites for clients in PHP.",
+				"Conducted work remotely with clients located all over the UK.",
+				"Communicated regularly with clients to give progress updates and ensure satisfaction with work produced."
+			]
+		},
+		{
+			"title": "Web Developer",
+			"company": "Turn90",
+			"location": "Birmingham",
+			"date": "Jan 11 - Mar 12",
+			"description": "Turn90 sold electrical goods and acted as a digital agency for other e-commerce websites.",
+			"tasks": [
+				"Implemented features for numerous PHP e-commerce websites that were built with Interspire shopping cart.",
+				"Converted templates from Photoshop to HTML, CSS & JavaScript."
+			]
+		},
+		{
+			"title": "Web Developer",
+			"company": "Clownfish Design",
+			"location": "Birmingham",
+			"date": "May 10 – Aug 10",
+			"description": "A digital agency with all clients in Birmingham.",
+			"tasks": [
+				"Worked on various PHP websites both front and backend.",
+				"Converted Photoshop designs to HTML/CSS."
+			]
+		}
+	]
+}

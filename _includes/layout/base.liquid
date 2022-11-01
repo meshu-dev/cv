@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ '/assets/styles/sweetalert2.min.css' | url }}" />
+        <link rel="stylesheet" href="{{ '/assets//styles/main.css' | url }}" />
+        <script type="application/javascript"
+                src="https://www.google.com/recaptcha/api.js?render=6LfRZrUhAAAAAJ5O2p0hgsE0uFStSIeOz1aemopm"></script>
+        <script type="text/javascript" src="{{ '/assets/scripts/sweetalert2.all.min.js' | url }}"></script>
+        <script type="text/javascript" src="{{ '/assets/scripts/recaptcha.js' | url }}"></script>
+        <script type="text/javascript" src="{{ '/assets/scripts/contact.js' | url }}"></script>
+        <script type="text/javascript" src="{{ '/assets/scripts/main.js' | url }}"></script>
+    </head>
+    <body>
+        {% include 'layout/header' %}
+        {{ content }}
+	</body>
+</html>

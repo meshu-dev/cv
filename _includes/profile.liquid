@@ -1,0 +1,19 @@
+<section id="profile">
+    <div id="profile-pic-wrapper">
+        <img id="profile-pic" src="{{ cv.profile.image | url }}" />
+    </div>
+    <div id="profile-info">
+        <h1>{{ cv.profile.name }}</h1>
+        <p>{{ cv.profile.description }}</p>
+        <p>
+            <span>Location:&nbsp;</span>{{ cv.profile.location }}
+        </p>
+        <div id="profile-links">
+            {% for icon in cv.profile.icons %}
+                <a href="{{ icon.url }}" target="_blank">
+                    <img src="{{ icon.filename | url }}" />
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
