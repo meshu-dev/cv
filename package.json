@@ -1,12 +1,10 @@
 {
-  "name": "CV",
+  "name": "Mesh's CV",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "eleventy && cp -r assets _site/",
-    "tidy": "npm run minify && npm run prettify",
-    "minify": "npx minify _site/index.html > _site/index-clean.html",
     "prettify": "npx prettier --write _site/index.html",
     "start": "eleventy --serve",
     "dev": "eleventy --serve --watch"
