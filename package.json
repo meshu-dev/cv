@@ -1,0 +1,23 @@
+{
+  "name": "CV",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy && cp -r assets _site/",
+    "tidy": "npm run minify && npm run prettify",
+    "minify": "npx minify _site/index.html > _site/index-clean.html",
+    "prettify": "npx prettier --write _site/index.html",
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "liquidjs": "^9.42.1",
+    "path": "^0.12.7",
+    "prettier": "^2.7.1"
+  }
+}
