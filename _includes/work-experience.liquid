@@ -1,27 +1,27 @@
 <section id="workexp">
-    <h2>Work Experience</h2>
-    {% for workExp in cv.workExperience %}
-        <div class="workexp-entry">
-            <div class="workexp-entry-header">
-                <h3 class="workexp-entry-title">
-                    {{ workExp.title }}
-                    {% if workExp.company != '' %}
-                        {% echo " - " | append: workExp.company %}
-                    {% endif %}
-                </h3>
-                <div class="workexp-entry-datelocation">
-                    <span class="workexp-entry-location">{{ workExp.location }}</span>
-                    {{ workExp.date }}
-                </div>
-            </div>
-            <div class="workexp-entry-info">{{ workExp.description }}</div>
-            <div class="workexp-entry-tasks">
-                <ul>
-                    {% for task in workExp.tasks %}
-                        <li>{{ task }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    {% endfor %}
+  <h2>Work Experience</h2>
+  {% for workExp in cv.workExperience %}
+  <div class="workexp-entry">
+    <div class="workexp-entry-header">
+      <h3 class="workexp-entry-title">
+      {{ workExp.title }}
+      {% if workExp.company != '' %}
+        {% echo " - " | append: workExp.company %}
+      {% endif %}
+      </h3>
+      <div class="workexp-entry-datelocation">
+        <span class="workexp-entry-location">{{ workExp.location }}</span>
+        {{ workExp.date }}
+      </div>
+    </div>
+    <div class="workexp-entry-info">{{ workExp.description }}</div>
+    <div class="workexp-entry-tasks">
+      <ul>
+          {% for task in workExp.tasks %}
+              <li>{{ task }}</li>
+          {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
 </section>

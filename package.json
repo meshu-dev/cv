@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy && cp -r assets _site/",
+    "tidy": "npm run minify && npm run prettify",
+    "minify": "npx minify _site/index.html > _site/index-clean.html",
+    "prettify": "npx prettier --write _site/index-clean.html",
     "start": "eleventy --serve",
     "dev": "eleventy --serve --watch"
   },
@@ -13,7 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^1.0.2",
+    "beautify": "^0.0.8",
     "liquidjs": "^9.42.1",
+    "minify": "^9.1.0",
     "path": "^0.12.7",
     "prettier": "^2.7.1"
   }
