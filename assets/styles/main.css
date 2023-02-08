@@ -183,6 +183,10 @@ section p {
 	margin-bottom: 10px;
 }
 
+#workexp-entry-carphone .workexp-entry-datelocation {
+	width: 280px;
+}
+
 .contactform-content {
 	display: none;
 }

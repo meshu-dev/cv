@@ -35,6 +35,7 @@
 	],
 	"workExperience": [
 		{
+			"key": "tucasi",
 			"title": "PHP Developer",
 			"company": "Tucasi",
 			"location": "Eastleigh",
@@ -48,6 +49,7 @@
 			]
 		},
 		{
+			"key": "mri",
 			"title": "PHP Developer",
 			"company": "MRI Software",
 			"location": "Sutton Coldfield",
@@ -60,6 +62,7 @@
 			]
 		},
 		{
+			"key": "moreniche",
 			"title": "Senior Developer",
 			"company": "MoreNiche",
 			"location": "Nottingham",
@@ -73,6 +76,7 @@
 			]
 		},
 		{
+			"key": "fps",
 			"title": "Web Developer",
 			"company": "FPS Distribution",
 			"location": "Stratford-upon-Avon",
@@ -84,6 +88,7 @@
 			]
 		},
 		{
+			"key": "carphone",
 			"title": "Software Developer",
 			"company": "Carphone Warehouse",
 			"location": "Loughborough",
@@ -95,6 +100,7 @@
 			]
 		},
 		{
+			"key": "twist",
 			"title": "Web Developer",
 			"company": "Twist Digital",
 			"location": "Nottingham",
@@ -107,6 +113,7 @@
 			]
 		},
 		{
+			"key": "freelance",
 			"title": "Freelance Web Developer",
 			"company": "",
 			"location": "West Bromwich",
@@ -119,6 +126,7 @@
 			]
 		},
 		{
+			"key": "turn90",
 			"title": "Web Developer",
 			"company": "Turn90",
 			"location": "Birmingham",
@@ -130,6 +138,7 @@
 			]
 		},
 		{
+			"key": "clownfish",
 			"title": "Web Developer",
 			"company": "Clownfish Design",
 			"location": "Birmingham",
