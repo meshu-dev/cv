@@ -1,7 +1,7 @@
 {
 	"profile": {
 		"name": "Harmesh Uppal",
-		"description": "Full-stack developer with over 12 years experience specialising in PHP and JavaScript",
+		"description": "Full-stack developer with over 12 years experience in PHP and JavaScript",
 		"location": "West Bromwich, UK",
 		"image": "/assets/images/profile-picture.jpg",
 		"icons": [
@@ -42,11 +42,11 @@
 			"date": "Nov 20 – Present",
 			"description": "Currently working on school payment apps, previously worked on a seat planner app.",
 			"tasks": [
-				"Majority of work has been on the seating plan app built in a custom PHP framework.",
+				"Majority of work has been on the seat planner app built in a custom PHP framework.",
 				"Worked on a laravel REST API to centralise school data.",
 				"Developed Angular frontend school apps which interact with API.",
 				"Built an Android / iOS homework web app using Ionic framework.",
-				"Recently switched from PHP to Java as school payment apps are built with Java."
+				"Recently switched to Java as school payment apps are built with it."
 			]
 		},
 		{
@@ -58,7 +58,7 @@
 			"description": "Worked in the housing repair services team for MRI software.",
 			"tasks": [
 				"Worked on the House repairs PHP system which provides services to multiple clients.",
-				"Developed a REST API in PHP using Laravel to modernise and migrate functionality off of legacy system.",
+				"Developed a REST API in PHP using Laravel to modernise and migrate functionality off of the legacy system.",
 				"Trained in and worked with C# and Angular to support other apps."
 			]
 		},
