@@ -1,7 +1,7 @@
 {
 	"profile": {
 		"name": "Harmesh Uppal",
-		"description": "Full-stack developer with over 10 years experience specialising in PHP and JavaScript",
+		"description": "Full-stack developer with over 12 years experience specialising in PHP and JavaScript",
 		"location": "West Bromwich, UK",
 		"image": "/assets/images/profile-picture.jpg",
 		"icons": [
@@ -22,11 +22,11 @@
 		},
 		{
 			"name": "Frontend",
-			"list": ["React", "Angular", "Vue.js", "Gatsby"]
+			"list": ["Angular", "Backbone.js", "jQuery", "SASS"]
 		},
 		{
 			"name": "Frameworks",
-			"list": ["Laravel", "Symfony", "Express", "Legacy"]
+			"list": ["Laravel", "Symfony", "Express.js", "Legacy"]
 		},
 		{
 			"name": "Other",
@@ -36,16 +36,17 @@
 	"workExperience": [
 		{
 			"key": "tucasi",
-			"title": "PHP Developer",
+			"title": "Software Developer",
 			"company": "Tucasi",
 			"location": "Eastleigh",
 			"date": "Nov 20 – Present",
-			"description": "Worked on MintClass which is a seat planner app for high schools.",
+			"description": "Currently working on school payment apps, previously worked on a seat planner app.",
 			"tasks": [
-				"Mainly worked on seating plan app built in a custom PHP framework.",
+				"Majority of work has been on the seating plan app built in a custom PHP framework.",
 				"Worked on a laravel REST API to centralise school data.",
 				"Developed Angular frontend school apps which interact with API.",
-				"Built an Android / iOS homework web app using Ionic framework."
+				"Built an Android / iOS homework web app using Ionic framework.",
+				"Recently switched from PHP to Java as school payment apps are built with Java."
 			]
 		},
 		{
