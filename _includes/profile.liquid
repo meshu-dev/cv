@@ -10,7 +10,7 @@
     </p>
     <div id="profile-links">
     {% for icon in cv.profile.icons %}
-      <a href="{{ icon.url }}" target="_blank">
+      <a href="{{ icon.url }}" target="_blank" title="{{ icon.tooltip }}">
         <img src="{{ icon.filename | url }}" />
       </a>
     {% endfor %}

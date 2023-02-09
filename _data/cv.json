@@ -7,11 +7,13 @@
 		"icons": [
 			{
 				"filename": "/assets/images/github-icon.png",
-				"url": "https://github.com/meshu-dev"
+				"url": "https://github.com/meshu-dev",
+				"tooltip": "Github Profile"
 			},
 			{
 				"filename": "/assets/images/linkedin-icon.png",
-				"url": "https://www.linkedin.com/in/harmeshuppal"
+				"url": "https://www.linkedin.com/in/harmeshuppal",
+				"tooltip": "LinkedIn"
 			}
 		]
 	},
