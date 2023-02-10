@@ -12,6 +12,10 @@
 			{
 				"filename": "/assets/images/linkedin-icon.png",
 				"url": "https://www.linkedin.com/in/harmeshuppal"
+			},
+			{
+				"filename": "/assets/images/site-icon.png",
+				"url": "https://portfolio.meshu.app"
 			}
 		]
 	},
