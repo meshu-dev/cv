@@ -25,7 +25,7 @@
 	"skills": [
 		{
 			"name": "Backend",
-			"list": ["PHP", "MySQL", "NodeJS", "MongoDB"]
+			"list": ["PHP", "MySQL", "NodeJS", "Java"]
 		},
 		{
 			"name": "Frontend",
