@@ -1,21 +1,24 @@
 {
 	"profile": {
 		"name": "Harmesh Uppal",
-		"description": "Full-stack developer with over 10 years experience specialising in PHP and JavaScript",
+		"description": "Full-stack developer with over 12 years experience in PHP and JavaScript",
 		"location": "West Bromwich, UK",
 		"image": "/assets/images/profile-picture.jpg",
 		"icons": [
 			{
 				"filename": "/assets/images/github-icon.png",
-				"url": "https://github.com/meshu-dev"
+				"url": "https://github.com/meshu-dev",
+				"tooltip": "Github"
 			},
 			{
 				"filename": "/assets/images/linkedin-icon.png",
-				"url": "https://www.linkedin.com/in/harmeshuppal"
+				"url": "https://www.linkedin.com/in/harmeshuppal",
+				"tooltip": "LinkedIn"
 			},
 			{
 				"filename": "/assets/images/site-icon.png",
-				"url": "https://portfolio.meshu.app"
+				"url": "https://portfolio.meshu.app",
+				"tooltip": "Portfolio"
 			}
 		]
 	},
@@ -26,11 +29,11 @@
 		},
 		{
 			"name": "Frontend",
-			"list": ["React", "Angular", "Vue.js", "Gatsby"]
+			"list": ["Angular", "Backbone.js", "jQuery", "SASS"]
 		},
 		{
 			"name": "Frameworks",
-			"list": ["Laravel", "Symfony", "Express", "Legacy"]
+			"list": ["Laravel", "Symfony", "Express.js", "Legacy"]
 		},
 		{
 			"name": "Other",
@@ -39,19 +42,22 @@
 	],
 	"workExperience": [
 		{
-			"title": "PHP Developer",
+			"key": "tucasi",
+			"title": "Software Developer",
 			"company": "Tucasi",
 			"location": "Eastleigh",
 			"date": "Nov 20 – Present",
-			"description": "Worked on MintClass which is a seat planner app for high schools.",
+			"description": "Currently working on school payment apps, previously worked on a seat planner app.",
 			"tasks": [
-				"Mainly worked on seating plan app built in a custom PHP framework.",
+				"Majority of work has been on the seat planner app built in a custom PHP framework.",
 				"Worked on a laravel REST API to centralise school data.",
 				"Developed Angular frontend school apps which interact with API.",
-				"Built an Android / iOS homework web app using Ionic framework."
+				"Built an Android / iOS homework web app using Ionic framework.",
+				"Recently switched to Java as school payment apps are built with it."
 			]
 		},
 		{
+			"key": "mri",
 			"title": "PHP Developer",
 			"company": "MRI Software",
 			"location": "Sutton Coldfield",
@@ -59,11 +65,12 @@
 			"description": "Worked in the housing repair services team for MRI software.",
 			"tasks": [
 				"Worked on the House repairs PHP system which provides services to multiple clients.",
-				"Developed a REST API in PHP using Laravel to modernise and migrate functionality off of legacy system.",
+				"Developed a REST API in PHP using Laravel to modernise and migrate functionality off of the legacy system.",
 				"Trained in and worked with C# and Angular to support other apps."
 			]
 		},
 		{
+			"key": "moreniche",
 			"title": "Senior Developer",
 			"company": "MoreNiche",
 			"location": "Nottingham",
@@ -77,6 +84,7 @@
 			]
 		},
 		{
+			"key": "fps",
 			"title": "Web Developer",
 			"company": "FPS Distribution",
 			"location": "Stratford-upon-Avon",
@@ -88,6 +96,7 @@
 			]
 		},
 		{
+			"key": "carphone",
 			"title": "Software Developer",
 			"company": "Carphone Warehouse",
 			"location": "Loughborough",
@@ -99,6 +108,7 @@
 			]
 		},
 		{
+			"key": "twist",
 			"title": "Web Developer",
 			"company": "Twist Digital",
 			"location": "Nottingham",
@@ -111,6 +121,7 @@
 			]
 		},
 		{
+			"key": "freelance",
 			"title": "Freelance Web Developer",
 			"company": "",
 			"location": "West Bromwich",
@@ -123,6 +134,7 @@
 			]
 		},
 		{
+			"key": "turn90",
 			"title": "Web Developer",
 			"company": "Turn90",
 			"location": "Birmingham",
@@ -134,6 +146,7 @@
 			]
 		},
 		{
+			"key": "clownfish",
 			"title": "Web Developer",
 			"company": "Clownfish Design",
 			"location": "Birmingham",

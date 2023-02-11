@@ -1,7 +1,8 @@
 <section id="workexp">
   <h2>Work Experience</h2>
   {% for workExp in cv.workExperience %}
-  <div class="workexp-entry">
+  {% assign key = "workexp-entry-" | concat: workExp.key %}
+  <div id="{{ key }}" class="workexp-entry">
     <div class="workexp-entry-header">
       <h3 class="workexp-entry-title">
       {{ workExp.title }}
@@ -11,7 +12,7 @@
       </h3>
       <div class="workexp-entry-datelocation">
         <span class="workexp-entry-location">{{ workExp.location }}</span>
-        {{ workExp.date }}
+        <span>{{ workExp.date }}</span>
       </div>
     </div>
     <div class="workexp-entry-info">{{ workExp.description }}</div>
