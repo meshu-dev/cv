@@ -87,13 +87,15 @@ h2 {
 	margin: 0;
 }
 
+#profile-links {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+
 #profile-links img {
 	width:  30px;
 	height:  30px;
-}
-
-#profile-links a {
-	margin-right: 10px;
 }
 
 section {
