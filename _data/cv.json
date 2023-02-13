@@ -54,7 +54,8 @@
 				"Developed Angular frontend school apps which interact with API.",
 				"Built an Android / iOS homework web app using Ionic framework.",
 				"Recently switched to Java as school payment apps are built with it."
-			]
+			],
+			"isActive": true 
 		},
 		{
 			"key": "mri",
@@ -67,7 +68,8 @@
 				"Worked on the House repairs PHP system which provides services to multiple clients.",
 				"Developed a REST API in PHP using Laravel to modernise and migrate functionality off of the legacy system.",
 				"Trained in and worked with C# and Angular to support other apps."
-			]
+			],
+			"isActive": true 
 		},
 		{
 			"key": "moreniche",
@@ -81,7 +83,8 @@
 				"Worked on a high traffic tracking server built with the Silex PHP framework.",
 				"Worked with both Scrum and Kanban.",
 				"Been on-call outside of work hours to maintain uptime of servers."
-			]
+			],
+			"isActive": true 
 		},
 		{
 			"key": "fps",
@@ -93,7 +96,8 @@
 			"tasks": [
 				"Built and migrated features to a new Laravel API to replace the previous one built in NodeJS and Express.",
 				"Worked on Drupal PHP modules for the company's ticketing system and company portal."
-			]
+			],
+			"isActive": true 
 		},
 		{
 			"key": "carphone",
@@ -105,7 +109,8 @@
 			"tasks": [
 				"Worked on PHP e-commerce and backend management systems.",
 				"Also worked on an in-store BackboneJS SPA app providing phone deals."
-			]
+			],
+			"isActive": true 
 		},
 		{
 			"key": "twist",
@@ -118,7 +123,8 @@
 				"Worked on the company’s dashboard and tracking apps built with Zend, Silex and MongoDB.",
 				"Maintained uptime of live servers.",
 				"Supported and mentored junior web developers."
-			]
+			],
+			"isActive": true 
 		},
 		{
 			"key": "freelance",
@@ -131,7 +137,8 @@
 				"Designed and coded bespoke websites for clients in PHP.",
 				"Conducted work remotely with clients located all over the UK.",
 				"Communicated regularly with clients to give progress updates and ensure satisfaction with work produced."
-			]
+			],
+			"isActive": true 
 		},
 		{
 			"key": "turn90",
@@ -143,7 +150,8 @@
 			"tasks": [
 				"Implemented features for numerous PHP e-commerce websites that were built with Interspire shopping cart.",
 				"Converted templates from Photoshop to HTML, CSS & JavaScript."
-			]
+			],
+			"isActive": false
 		},
 		{
 			"key": "clownfish",
@@ -155,7 +163,8 @@
 			"tasks": [
 				"Worked on various PHP websites both front and backend.",
 				"Converted Photoshop designs to HTML/CSS."
-			]
+			],
+			"isActive": false
 		}
 	]
 }
