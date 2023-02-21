@@ -138,7 +138,7 @@
 				"Conducted work remotely with clients located all over the UK.",
 				"Communicated regularly with clients to give progress updates and ensure satisfaction with work produced."
 			],
-			"isActive": true 
+			"isActive": false
 		},
 		{
 			"key": "turn90",
