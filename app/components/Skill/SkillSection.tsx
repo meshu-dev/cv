@@ -1,41 +1,30 @@
 import SkillList from './SkillList';
-
 import SkillGroup from '../../interfaces/skill-group.interface';
-import Skill from '../../interfaces/skill.interface';
 
-const skillGroupElements: React.ReactElement[] = [];
+export interface Props {
+  skillGroups: SkillGroup[]
+};
 
-const skills: Skill[] = [
-  { name: 'PHP' },
-  { name: 'PHP' },
-  { name: 'PHP' },
-  { name: 'PHP' }
-];
+const SkillSection: React.FC<Props> = ({ skillGroups }) => {
+  if (skillGroups) {
+    const skillGroupElements: React.ReactElement[] = [];
 
-const skillGroups: SkillGroup[] = [
-  { title: 'Backend', list: skills },
-  { title: 'Frontend', list: skills },
-  { title: 'Frameworks', list: skills },
-  { title: 'Other', list: skills }
-];
+    for (let skillGroup of skillGroups) {
+      skillGroupElements.push(
+        <SkillList key={ skillGroup.title } skillGroup={ skillGroup } />
+      );
+    }
 
-if (skillGroups) {
-  for (let skillGroup of skillGroups) {
-    skillGroupElements.push(
-      <SkillList skillGroup={ skillGroup } />
+    return (
+      <section id="skills">
+        <h2>Skills</h2>
+        <div id="skills-sections">
+          { skillGroupElements }
+        </div>
+      </section>
     );
   }
-}
-
-const SkillSection: React.FC = () => {
-  return (
-    <section id="skills">
-      <h2>Skills</h2>
-      <div id="skills-sections">
-        { skillGroupElements }
-      </div>
-    </section>
-  );
+  return null;
 };
 
 export default SkillSection;

@@ -1,6 +1,5 @@
 import ProfileIconView from './ProfileIconView';
 import Profile from '../../interfaces/profile.interface';
-import ProfileIcon from '../../interfaces/profile-icon.interface';
 
 export interface Props {
   profile: Profile
@@ -16,12 +15,10 @@ const ProfileSection: React.FC<Props> = ({ profile }) => {
   if (profile.icons) {
     for (const profileIcon of profile.icons) {
       iconElements.push(
-        <ProfileIconView profileIcon={ profileIcon } />
+        <ProfileIconView key={ profileIcon.title } profileIcon={ profileIcon } />
       );
     }
   }
-
-  console.log('TEST 4', profile);
 
   return (
     <section id="profile">

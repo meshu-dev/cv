@@ -38,13 +38,14 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+  --page-width: 700px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 240, 240, 240;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
@@ -86,13 +87,14 @@ body {
 }
 
 body {
+  /*
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 a {
@@ -100,8 +102,291 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
+}
+
+
+
+
+
+
+
+:root {
+  --page-width: 700px;
+  --border-style: 1px solid #CCC;
+  --theme-colour: #211E2F;
+}
+
+body {
+    font: 400 14px/1.6 "Open Sans",sans-serif;
+    font-size: 16px;
+    color: rgb(3, 6, 11);
+    margin:  0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+  padding-left: 40px;
+}
+
+p {
+  margin: 1em 0;
+}
+
+header {
+	background-color: var(--theme-colour);
+	color: #FFF;
+	min-height: 50px;
+}
+
+#header-wrapper {
+	max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-logo {
+	font-size: 30px;
+}
+
+#header-links {
+	margin-top: 10px;
+}
+
+.header-link {
+	color: #FFF;
+	padding: 5px;
+	margin:  0 5px;
+}
+
+.header-link:hover {
+	background-color: #E5E7EB;
+	color: #000;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+h2 {
+	font-size:  30px;
+}
+
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+#body-wrapper {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#profile {
+	display: flex;
+	flex-direction: row;
+}
+
+#profile h1 {
+	margin: 0 0 10px;
+	font-size: 48px;
+}
+
+#profile span {
+	font-weight: bold;
+}
+
+#profile-pic-wrapper {
+	flex:  1;
+}
+
+#profile-pic {
+	width:  200px;
+}
+
+#profile-info {
+	flex: 2;
+	margin: 0;
+}
+
+#profile-links {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+
+#profile-links img {
+	width:  30px;
+	height:  30px;
+}
+
+section {
+	margin-top: 80px;
+}
+
+section h2 {
+	border-bottom: var(--border-style);
+	padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+section p {
+	color: rgb(45, 70, 101);
+}
+
+#skills-sections {
+	display:  flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+}
+
+.skills-section {
+	flex: 1;
+	min-width: 180px;
+	max-width: 200px;
+}
+
+.skills-section li {
+	margin-bottom: 5px;
+}
+
+.workexp-entry {
+	padding-bottom: 20px;
+	border-bottom: var(--border-style);
+	margin-bottom:  20px;
+}
+
+.workexp-entry:last-child {
+	border-bottom: none;
+}
+
+.workexp-entry-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.workexp-entry-title {
+	font-size: 22px;
+    margin: 0;
+}
+
+.workexp-entry-location {
+	display: inline-block;
+	text-align: center;
+}
+
+.workexp-entry-location::after {
+	content: " |";
+}
+
+.workexp-entry-datelocation {
+	padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #A1A1A1;
+  color: #FFF;
+  font-weight: bold;
+  height: 35px;
+  min-width: auto;
+}
+
+.workexp-entry-company {
+	margin-bottom: 10px;
+}
+
+.workexp-entry-date {
+	margin-bottom: 10px;
+}
+
+.workexp-entry-tasks {
+	margin-left: 40px;
+}
+
+.workexp-entry-tasks ul li {
+	margin-bottom: 10px;
+}
+
+#workexp-entry-carphone .workexp-entry-datelocation {
+	width: 280px;
+}
+
+.contactform-content {
+	display: none;
+}
+
+.contactform {
+	width: 400px;
+	margin: 0 auto;
+}
+
+.contactform-row {
+	width: 400px;
+	margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactform-row input,
+.contactform-row textarea {
+	width: 300px;
+	margin-bottom: 15px;
+}
+
+.contactform-row textarea {
+	min-height:  300px;
+	resize: none;
+}
+
+.swal2-actions .contactform-confirm-btn {
+	background-color: var(--theme-colour);
+}
+
+@media only screen and (max-width: 800px) {
+	#profile {
+		flex-direction: column;
+	}
+
+	#profile-pic-wrapper {
+		display: flex;
+		justify-content: center;
+	}
+
+	#profile-info {
+		margin-top: 40px;
+	}
+
+	#skills-sections {
+		flex-wrap: wrap;
+	}
+
+	.workexp-entry-datelocation {
+		text-align: center;
+		height: 52px;
+    min-width: 160px;
+	}
+
+	.workexp-entry-location {
+		display: block;
+	}
+
+	.workexp-entry-location::after {
+		content: "";
+	}
+
+	.workexp-entry-tasks {
+		margin-left: 20px;
+	}
 }
