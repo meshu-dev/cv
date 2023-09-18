@@ -1,3 +1,9 @@
+import WorkExperienceTask from './work-experience-task.interface';
+
 export default interface WorkExperience {
-  name: string;
+  title: string,
+  description: string,
+  location: string,
+  date: string,
+  tasks: WorkExperienceTask[]
 }
