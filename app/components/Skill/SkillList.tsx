@@ -8,16 +8,16 @@ const SkillList: React.FC<Props> = ({ skillGroup }) => {
   const skillElements: React.ReactElement[] = [];
 
   if (skillGroup.list) {
-    for (const skill of skillGroup.list) {
+    for (const skillName of skillGroup.list) {
       skillElements.push(
-        <li>{ skill.name }</li>
+        <li>{ skillName }</li>
       );
     }
   }
 
   return (
     <div className="skills-section">
-      <h3>{ skillGroup.title }</h3>
+      <h3>{ skillGroup.name }</h3>
       <ul>
         { skillElements }
       </ul>

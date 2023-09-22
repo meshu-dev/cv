@@ -10,7 +10,7 @@ const WorkExperienceEntry: React.FC<Props> = ({ workExperience }) => {
   if (workExperience.tasks) {
     for (const task of workExperience.tasks) {
       taskElements.push(
-        <li>{ task.text }</li>
+        <li>{ task }</li>
       );
     }
   }
@@ -21,6 +21,7 @@ const WorkExperienceEntry: React.FC<Props> = ({ workExperience }) => {
         <h3 className="workexp-entry-title">{ workExperience.title }</h3>
         <div className="workexp-entry-datelocation">
           <span className="workexp-entry-location">{ workExperience.location }</span>
+          &nbsp;
           <span>{ workExperience.date }</span>
         </div>
       </div>

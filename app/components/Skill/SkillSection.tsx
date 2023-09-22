@@ -11,7 +11,7 @@ const SkillSection: React.FC<Props> = ({ skillGroups }) => {
 
     for (let skillGroup of skillGroups) {
       skillGroupElements.push(
-        <SkillList key={ skillGroup.title } skillGroup={ skillGroup } />
+        <SkillList key={ skillGroup.name } skillGroup={ skillGroup } />
       );
     }
 

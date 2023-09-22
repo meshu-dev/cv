@@ -8,6 +8,7 @@ export interface Props {
 const WorkExperienceSection: React.FC<Props> = ({ workExperiences }) => {
   if (workExperiences) {
     const workExpElements: React.ReactElement[] = [];
+    workExperiences = workExperiences.filter((workExp: WorkExperience) => workExp.isActive);
 
     for (const workExperience of workExperiences) {
       workExpElements.push(

@@ -1,46 +1,41 @@
+import Cv from '../app/interfaces/cv.interface';
+import CvService from '../app/services/cv.service';
 import ProfileSection from '../app/components/Profile/ProfileSection';
 import SkillSection from '../app/components/Skill/SkillSection';
 import WorkExperienceSection from '../app/components/WorkExperience/WorkExperienceSection';
-import Profile from '../app/interfaces/profile.interface';
-import SkillGroup from '../app/interfaces/skill-group.interface';
-import WorkExperience from '../app/interfaces/work-experience.interface';
-import CvService from '../app/services/cv.service';
+
+interface Props {
+  cv: Cv
+};
 
 export async function getStaticProps() {
+  const cv: Cv = await CvService.getData(`${process.env.API_URL}/cv`);
+
   return {
     props: {
-      profile: CvService.getProfile(),
-      skillGroups: CvService.getSkillGroups(),
-      workExperienceEntries: CvService.getWorkExperiences()
+      cv
     }
   }
 };
 
-export interface Props {
-  profile: Profile,
-  skillGroups: SkillGroup[]
-  workExperienceEntries: WorkExperience[]
-};
-
 export default (props: Props) => {
-
   const sectionElements: React.ReactElement[] = [];
 
-  if (props.profile) {
+  if (props.cv.profile) {
     sectionElements.push(
-      <ProfileSection profile={ props.profile } />
+      <ProfileSection profile={ props.cv.profile } />
     );
   }
 
-  if (props.skillGroups) {
+  if (props.cv.skills) {
     sectionElements.push(
-      <SkillSection skillGroups={ props.skillGroups } />
+      <SkillSection skillGroups={ props.cv.skills } />
     );
   }
 
-  if (props.workExperienceEntries) {
+  if (props.cv.workExperience) {
     sectionElements.push(
-      <WorkExperienceSection workExperiences={ props.workExperienceEntries } />
+      <WorkExperienceSection workExperiences={ props.cv.workExperience } />
     );
   }
 
