@@ -24,7 +24,7 @@ import {
 
 interface Props {
   isOpen: boolean,
-  onClose: object;
+  onClose: any;
 };
 
 const ContactForm: React.FC<Props> = ({ isOpen, onClose }) => {
