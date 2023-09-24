@@ -194,6 +194,34 @@ h3 {
     padding: 0 20px;
 }
 
+.chakra-ui-light {
+  width: 100%;
+}
+
+.chakra-modal__content {
+  border-radius: 12px !important;
+}
+
+.chakra-modal__content header {
+  border-radius: 6px 6px 0 0;
+}
+
+.chakra-modal__content textarea {
+  resize: none;
+  min-height: 200px;
+}
+
+.chakra-modal__close-btn {
+  margin-top: 6px;
+  color: #FFF;
+}
+
+.chakra-modal__footer {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 12px;
+}
+
 #profile {
 	display: flex;
 	flex-direction: row;

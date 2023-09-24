@@ -1,7 +1,7 @@
 import ProfileIconView from './ProfileIconView';
 import Profile from '../../interfaces/profile.interface';
 
-export interface Props {
+interface Props {
   profile: Profile
 };
 

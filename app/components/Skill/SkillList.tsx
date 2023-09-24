@@ -1,6 +1,6 @@
 import SkillGroup from '../../interfaces/skill-group.interface';
 
-export interface Props {
+interface Props {
   skillGroup: SkillGroup;
 };
 

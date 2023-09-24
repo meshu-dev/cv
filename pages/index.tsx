@@ -9,7 +9,7 @@ interface Props {
 };
 
 export async function getStaticProps() {
-  const cv: Cv = await CvService.getData(`${process.env.API_URL}/cv`);
+  const cv: Cv = await CvService.getData(`${process.env.CV_API_URL}/cv`);
 
   return {
     props: {
@@ -23,19 +23,19 @@ export default (props: Props) => {
 
   if (props.cv.profile) {
     sectionElements.push(
-      <ProfileSection profile={ props.cv.profile } />
+      <ProfileSection key="profile" profile={ props.cv.profile } />
     );
   }
 
   if (props.cv.skills) {
     sectionElements.push(
-      <SkillSection skillGroups={ props.cv.skills } />
+      <SkillSection key="skills" skillGroups={ props.cv.skills } />
     );
   }
 
   if (props.cv.workExperience) {
     sectionElements.push(
-      <WorkExperienceSection workExperiences={ props.cv.workExperience } />
+      <WorkExperienceSection key="workExperience" workExperiences={ props.cv.workExperience } />
     );
   }
 

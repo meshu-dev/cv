@@ -1,6 +1,6 @@
 import WorkExperience from '../../interfaces/work-experience.interface';
 
-export interface Props {
+interface Props {
   workExperience: WorkExperience;
 };
 

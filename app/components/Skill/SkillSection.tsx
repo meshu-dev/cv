@@ -1,7 +1,7 @@
 import SkillList from './SkillList';
 import SkillGroup from '../../interfaces/skill-group.interface';
 
-export interface Props {
+interface Props {
   skillGroups: SkillGroup[]
 };
 

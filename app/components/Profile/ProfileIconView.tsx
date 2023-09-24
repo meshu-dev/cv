@@ -1,6 +1,6 @@
 import ProfileIcon from '../../interfaces/profile-icon.interface';
 
-export interface Props {
+interface Props {
   profileIcon: ProfileIcon
 };
 
