@@ -14,11 +14,9 @@ jobs:
 
       - name: Install and build
         run: |
-          npm ci
           npm run build
-          npm run prettify
 
       - name: Deploy to Github Pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: _site
+          folder: .exnt/server/pages
