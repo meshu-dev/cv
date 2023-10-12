@@ -49,7 +49,7 @@ const ContactForm: React.FC<Props> = ({ isOpen, onClose }) => {
       !hasEmailFieldError &&
       !hasMessageFieldError
     ) {
-      const url = process.env.CONTACT_API_URL;
+      const url = process.env.REACT_APP_CONTACT_API_URL;
 
       if (url) {
         const response = await ContactService.sendMessage(url, name, email, message);

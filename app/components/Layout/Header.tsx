@@ -35,7 +35,7 @@ const Header: React.FC = () => {
     handleReCaptchaVerify();
   }, [handleReCaptchaVerify]);
  */
-  const googleKey: string = process.env.GOOGLE_RECAPTCHA_KEY || '';
+  const googleKey: string = process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY || '';
 
   return (
     <>
