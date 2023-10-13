@@ -37,6 +37,9 @@ const Header: React.FC = () => {
  */
   const googleKey: string = process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY || '';
 
+  console.log('googleKey', googleKey);
+  console.log('process.env', process.env);
+
   return (
     <>
       <header>
