@@ -7,7 +7,7 @@ import {
   useGoogleReCaptcha
 } from 'react-google-recaptcha-v3';
 
-const googleKey: string = process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY || '';
+const googleKey: string = process.env.GOOGLE_RECAPTCHA_KEY || '';
 
 const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
