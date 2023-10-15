@@ -9,7 +9,7 @@ interface Props {
 };
 
 export async function getStaticProps() {
-  const cv: Cv = await CvService.getData(`${process.env.REACT_APP_CV_API_URL}/cv`);
+  const cv: Cv = await CvService.getData(`${process.env.CV_API_URL}/cv`);
 
   return {
     props: {

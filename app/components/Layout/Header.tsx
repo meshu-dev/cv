@@ -3,11 +3,8 @@ import { useDisclosure } from '@chakra-ui/react';
 import { useCallback, useEffect } from 'react';
 import {
   GoogleReCaptchaProvider,
-  GoogleReCaptcha,
   useGoogleReCaptcha
 } from 'react-google-recaptcha-v3';
-
-const googleKey: string = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY || '';
 
 const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -16,30 +13,15 @@ const Header: React.FC = () => {
     console.log('Google Token', token);
   };
 
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const googleKey: string = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY || '';
 
-  /*
-  // Create an event handler so you can call the verification on button click event or form submit
-  const handleReCaptchaVerify = useCallback(async () => {
-    if (!executeRecaptcha) {
-      console.log('Execute recaptcha not yet available');
-      return;
-    }
+  let googleRecaptcha: React.ReactElement = <></>;
 
-    if (executeRecaptcha) {
-      const token = await executeRecaptcha('yourAction');
-      // Do whatever you want with the token
-    }
-  }, [executeRecaptcha]);
-
-  // You can use useEffect to trigger the verification as soon as the component being loaded
-  useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
- */
-
-  console.log('googleKey', googleKey);
-  console.log('process.env', process.env);
+  if (googleKey) {
+    googleRecaptcha = <GoogleReCaptchaProvider reCaptchaKey={ googleKey }>
+                        <ContactForm isOpen={ isOpen } onClose={ onClose } />
+                      </GoogleReCaptchaProvider>;
+  }
 
   return (
     <>
@@ -52,9 +34,7 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
-      <GoogleReCaptchaProvider reCaptchaKey={ googleKey }>
-        <ContactForm isOpen={ isOpen } onClose={ onClose } />
-      </GoogleReCaptchaProvider>
+      { googleRecaptcha }
     </>
   );
 };

@@ -16,11 +16,7 @@ import {
 } from "@chakra-ui/react";
 import ContactService from '../../services/contact.service';
 import { useCallback, useEffect } from 'react';
-import {
-  GoogleReCaptchaProvider,
-  GoogleReCaptcha,
-  useGoogleReCaptcha
-} from 'react-google-recaptcha-v3';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 interface Props {
   isOpen: boolean,
@@ -49,7 +45,7 @@ const ContactForm: React.FC<Props> = ({ isOpen, onClose }) => {
       !hasEmailFieldError &&
       !hasMessageFieldError
     ) {
-      const url = process.env.REACT_APP_CONTACT_API_URL;
+      const url = process.env.CONTACT_API_URL;
 
       if (url) {
         const response = await ContactService.sendMessage(url, name, email, message);
