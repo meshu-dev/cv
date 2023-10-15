@@ -40,12 +40,16 @@ const ContactForm: React.FC<Props> = ({ isOpen, onClose }) => {
   const onSubmit = async () => {
     setIsSubmittedClicked(true);
 
+    console.log('onSubmit');
+
     if (
       !hasNameFieldError &&
       !hasEmailFieldError &&
       !hasMessageFieldError
     ) {
-      const url = process.env.CONTACT_API_URL;
+      const url = process.env.NEXT_PUBLIC_CONTACT_API_URL;
+
+      console.log('URL', url);
 
       if (url) {
         const response = await ContactService.sendMessage(url, name, email, message);
