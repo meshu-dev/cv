@@ -6,7 +6,7 @@ import {
   useGoogleReCaptcha
 } from 'react-google-recaptcha-v3';
 
-const Header: React.FC = () => {
+const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleVerify = (token: any) => {

@@ -5,7 +5,7 @@ interface Props {
   profile: Profile
 };
 
-const ProfileSection: React.FC<Props> = ({ profile }) => {
+const ProfileSection = ({ profile }: Props) => {
   if (!profile) {
     return null;
   }

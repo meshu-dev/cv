@@ -5,7 +5,7 @@ interface Props {
   skillGroups: SkillGroup[]
 };
 
-const SkillSection: React.FC<Props> = ({ skillGroups }) => {
+const SkillSection = ({ skillGroups }: Props) => {
   if (skillGroups) {
     const skillGroupElements: React.ReactElement[] = [];
 

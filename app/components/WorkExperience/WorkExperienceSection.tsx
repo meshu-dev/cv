@@ -5,7 +5,7 @@ interface Props {
   workExperiences: WorkExperience[]
 };
 
-const WorkExperienceSection: React.FC<Props> = ({ workExperiences }) => {
+const WorkExperienceSection = ({ workExperiences }: Props) => {
   if (workExperiences) {
     const workExpElements: React.ReactElement[] = [];
     workExperiences = workExperiences.filter((workExp: WorkExperience) => workExp.isActive);

@@ -4,7 +4,7 @@ interface Props {
   workExperience: WorkExperience;
 };
 
-const WorkExperienceEntry: React.FC<Props> = ({ workExperience }) => {
+const WorkExperienceEntry = ({ workExperience }: Props) => {
   const taskElements: React.ReactElement[] = [];
 
   if (workExperience.tasks) {

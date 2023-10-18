@@ -23,7 +23,7 @@ interface Props {
   onClose: any;
 };
 
-const ContactForm: React.FC<Props> = ({ isOpen, onClose }) => {
+const ContactForm = ({ isOpen, onClose }: Props) => {
   const [isSubmitClicked, setIsSubmittedClicked] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -47,13 +47,18 @@ const ContactForm: React.FC<Props> = ({ isOpen, onClose }) => {
       !hasEmailFieldError &&
       !hasMessageFieldError
     ) {
-      const url = process.env.NEXT_PUBLIC_CONTACT_API_URL;
+      const url = `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`; 
 
       console.log('URL', url);
 
       if (url) {
-        const response = await ContactService.sendMessage(url, name, email, message);
-        console.log('sendMessage', response);
+        try {
+          const response = await ContactService.sendMessage(url, name, email, message);
+          console.log('sendMessage', response);
+        } catch (e) {
+          console.log('Exception', e);
+        }
+
       }
     }
   };
@@ -70,6 +75,8 @@ const ContactForm: React.FC<Props> = ({ isOpen, onClose }) => {
     if (executeRecaptcha) {
       const token = await executeRecaptcha('yourAction');
       // Do whatever you want with the token
+
+      console.log('token', token);
     }
   }, [executeRecaptcha]);
 

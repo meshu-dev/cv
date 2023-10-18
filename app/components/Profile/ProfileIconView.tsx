@@ -4,7 +4,7 @@ interface Props {
   profileIcon: ProfileIcon
 };
 
-const ProfileIconView: React.FC<Props> = ({ profileIcon }) => {
+const ProfileIconView = ({ profileIcon }: Props) => {
   return (
     <a href={ profileIcon.url } target="_blank" title={ profileIcon.title }>
       <img src={ profileIcon.imageUrl } />

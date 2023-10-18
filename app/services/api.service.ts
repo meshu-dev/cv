@@ -1,5 +1,8 @@
 const sendRequest = async <TypedResponse>(url: string, config?: RequestInit): Promise<TypedResponse> => {
   const response = await fetch(url, config);
+
+  console.log('sendRequest', response);
+
   return await response.json();
 }
 
