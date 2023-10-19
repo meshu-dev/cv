@@ -3,6 +3,4 @@ _site
 .next
 out
 .env
-
-# Local Netlify folder
-.netlify
+.vercel

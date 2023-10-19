@@ -40,8 +40,6 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
   const onSubmit = async () => {
     setIsSubmittedClicked(true);
 
-    console.log('onSubmit');
-
     if (
       !hasNameFieldError &&
       !hasEmailFieldError &&
@@ -54,6 +52,15 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
       if (url) {
         try {
           const response = await ContactService.sendMessage(url, name, email, message);
+
+          if (response) {
+            onClose();
+
+            setName('');
+            setEmail('');
+            setMessage('');
+          }
+
           console.log('sendMessage', response);
         } catch (e) {
           console.log('Exception', e);
