@@ -1,33 +1,62 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import Mailer from '../../lib/mailer';
+import Recaptcha from '../../lib/recaptcha';
 import { render } from '@react-email/render';
-import ContactEmail, { ContactParams } from '../../components/Email/ContactEmail';
+import ContactEmail from '../../components/Email/ContactEmail';
 
 export const dynamic = 'force-static';
 
-export async function POST(request: NextRequest) {
-	const body: ContactParams = await request.json();
-  
-	console.log(body);
+export interface RequestParams {
+  token: string,
+  name: string,
+  email: string,
+  message: string
+}
 
-  await Mailer.sendMail({
-    host: process.env.MAILER_HOST,
-    port: process.env.MAILER_PORT,
-    user: process.env.MAILER_USERNAME,
-    password: process.env.MAILER_PASSWORD
-  },
-  {
-    from: process.env.MAILER_FROM,
-    to: process.env.MAILER_TO,
-    subject: process.env.MAILER_SUBJECT,
-    html: render(ContactEmail(body))
-  });
+export async function POST(request: NextRequest) {
+  const env = process.env.NODE_ENV;
+  const body: RequestParams = await request.json();
+
+  let sendEmail: boolean = false;
+  let response: any = {};
+
+  if (env === 'production') {
+    sendEmail = await Recaptcha.isTokenValid(body.token);
+  } else {
+    sendEmail = true;
+  }
+
+	if (sendEmail) {
+    const viewParams = {
+      name: body.name,
+      message: body.message
+    };
+  
+    console.log('Contact API - Request Params', body, process.env.NODE_ENV);
+  
+    const isEmailSent = await Mailer.sendMail({
+      host: process.env.MAILER_HOST,
+      port: process.env.MAILER_PORT,
+      user: process.env.MAILER_USERNAME,
+      password: process.env.MAILER_PASSWORD
+    },
+    {
+      from: `${body.name} <${body.email}>`,
+      to: process.env.MAILER_TO,
+      subject: process.env.MAILER_SUBJECT,
+      html: render(ContactEmail(viewParams))
+    });
+  
+    console.log('Contact API - Email Result', isEmailSent);
+
+    response['success'] = isEmailSent;
+  } else {
+    response['success'] = false;
+  }
 
   return NextResponse.json(
-    body,
-    {
-      status: 200,
-    },
+    response,
+    { status: 200 }
   );
 }

@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer'
-import SMTPConnection from 'nodemailer/lib/smtp-connection';
-import SMTPTransport from 'nodemailer/lib/smtp-transport';
+import SMTPTransport from 'nodemailer/lib/smtp-transport'
 
 export interface SmtpServerParams {
   host?:     string,
@@ -31,19 +30,18 @@ const getSmtpTransporter = (params: SmtpServerParams): nodemailer.Transporter<SM
   });
 };
 
-const sendMail = async (serverParams: SmtpServerParams, mailParams: MailParams) => {
+const sendMail = async (serverParams: SmtpServerParams, mailParams: MailParams): Promise<boolean> => {
   let transporter = getSmtpTransporter(serverParams);
   let info: SMTPTransport.SentMessageInfo = await transporter.sendMail(mailParams);
 
+  let isEmailSend: boolean = false;
+
   if (info.accepted) {
     const receiverEmail: string = String(info.accepted[0]);
-    console.log('receiverEmail', receiverEmail, mailParams.from);
+    isEmailSend = String(mailParams.to).includes(receiverEmail);
   }
 
-  console.log('A', serverParams);
-  console.log('B', mailParams);
-
-  console.log('response', info.response, info.accepted);
+  return isEmailSend;
 }
 
 const Mailer = {

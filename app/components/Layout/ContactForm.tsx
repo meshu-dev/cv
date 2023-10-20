@@ -25,6 +25,7 @@ interface Props {
 
 const ContactForm = ({ isOpen, onClose }: Props) => {
   const [isSubmitClicked, setIsSubmittedClicked] = useState(false);
+  const [token, setToken] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -51,7 +52,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
 
       if (url) {
         try {
-          const response = await ContactService.sendMessage(url, name, email, message);
+          const response = await ContactService.sendMessage(url, token, name, email, message);
 
           if (response) {
             onClose();
@@ -80,10 +81,10 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
     }
 
     if (executeRecaptcha) {
-      const token = await executeRecaptcha('yourAction');
-      // Do whatever you want with the token
-
+      const token = await executeRecaptcha('contact');
       console.log('token', token);
+
+      setToken(token);
     }
   }, [executeRecaptcha]);
 

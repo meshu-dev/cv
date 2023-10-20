@@ -5,16 +5,15 @@ import { Container } from "@react-email/container";
 
 export interface ContactParams {
   name: string,
-  email: string,
   message: string
 }
 
-export default function ContactEmail({ name, email, message }: ContactParams) {
+export default function ContactEmail({ name, message }: ContactParams) {
   return (
     <Html>
       <Section style={ main }>
         <Container style={ container }>
-          <Text style={ heading }>Contact message from { name } ({ email })</Text>
+          <Text style={ heading }>Contact message from { name }</Text>
           <Text style={ paragraph }>{ message }</Text>
         </Container>
       </Section>
@@ -34,14 +33,14 @@ const container = {
 };
 
 const heading = {
-  fontSize: "32px",
-  lineHeight: "1.3",
+  fontSize: "30px",
+  lineHeight: "1.2",
   fontWeight: "700",
   color: "#484848",
 };
 
 const paragraph = {
-  fontSize: "18px",
-  lineHeight: "1.4",
+  fontSize: "24px",
+  lineHeight: "1.2",
   color: "#484848",
 };

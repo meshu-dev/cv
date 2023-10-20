@@ -3,6 +3,7 @@ import ApiService from './api.service';
 
 const sendMessage = async (
   url: string,
+  token: string,
   name: string,
   email: string,
   message: string
@@ -12,7 +13,7 @@ const sendMessage = async (
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, email, message }),
+    body: JSON.stringify({ token, name, email, message }),
   };
   return await ApiService.sendRequest<any>(url, requestInit);
 };
