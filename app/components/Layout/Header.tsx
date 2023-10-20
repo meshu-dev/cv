@@ -1,18 +1,11 @@
 import ContactForm from './ContactForm';
 import { useDisclosure } from '@chakra-ui/react';
-import { useCallback, useEffect } from 'react';
 import {
-  GoogleReCaptchaProvider,
-  useGoogleReCaptcha
+  GoogleReCaptchaProvider
 } from 'react-google-recaptcha-v3';
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleVerify = (token: any) => {
-    console.log('Google Token', token);
-  };
-
   const googleKey: string = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY || '';
 
   let googleRecaptcha: React.ReactElement = <></>;
