@@ -8,11 +8,11 @@ const SkillList = ({ skillGroup }: Props) => {
   const skillElements: React.ReactElement[] = [];
 
   if (skillGroup.list) {
-    for (const skillName of skillGroup.list) {
+    skillGroup.list.forEach((skillName, skillNameIndex) => {
       skillElements.push(
-        <li>{ skillName }</li>
+        <li key={ `skill-${skillNameIndex}` }>{ skillName }</li>
       );
-    }
+    })
   }
 
   return (

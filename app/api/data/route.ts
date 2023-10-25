@@ -1,11 +1,14 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '@/app/lib/mongoDb';
+import MongoApiService from '../../services/mongoApi.service';
 
 export async function GET() {
-  const client: any = await clientPromise;
+  const url: string        = process.env.MONGODB_URL as string;
+  const token: string      = process.env.MONGODB_TOKEN as string;
+  const database: string   = process.env.MONGODB_DATABASE as string;
+  const collection: string = process.env.MONGODB_COLLECTION as string;
+  const dataSource: string = process.env.MONGODB_DATA_SOURCE as string;
 
-  const db = client.db(process.env.MONGODB_COLLECTION);
-  const data = await db.collection('cvs').findOne();
+  const cvData = await MongoApiService.getData(url, token, database, collection, dataSource);
 
-  return NextResponse.json(data);
+  return NextResponse.json(cvData);
 }

@@ -8,11 +8,9 @@ const WorkExperienceEntry = ({ workExperience }: Props) => {
   const taskElements: React.ReactElement[] = [];
 
   if (workExperience.tasks) {
-    for (const task of workExperience.tasks) {
-      taskElements.push(
-        <li>{ task }</li>
-      );
-    }
+    workExperience.tasks.forEach((task, taskIndex) => {
+      taskElements.push(<li key={ `task-${taskIndex}` }>{ task }</li>)
+    })
   }
 
   return (
