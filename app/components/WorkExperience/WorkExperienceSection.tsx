@@ -15,9 +15,11 @@ const WorkExperienceSection = ({ workExperiences }: Props) => {
       const elementKey = `workExperienceEntry${entryCount}`;
       const workExperience = workExperiences[workExperienceIndex];
 
-      workExpElements.push(
-        <WorkExperienceEntry key={ elementKey } workExperience={ workExperience } />
-      );
+      if (workExperience.isActive) {
+        workExpElements.push(
+          <WorkExperienceEntry key={ elementKey } workExperience={ workExperience } />
+        );
+      }
     }
 
     return (

@@ -33,8 +33,6 @@ export async function POST(request: NextRequest) {
       message: body.message
     };
   
-    console.log('Contact API - Request Params', body, process.env.NODE_ENV);
-  
     const isEmailSent = await Mailer.sendMail({
       host: process.env.MAILER_HOST,
       port: process.env.MAILER_PORT,
