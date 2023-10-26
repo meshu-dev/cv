@@ -5,7 +5,7 @@ import Recaptcha from '../../lib/recaptcha';
 import { render } from '@react-email/render';
 import ContactEmail from '../../components/Email/ContactEmail';
 
-//export const dynamic = 'force-static';
+export const dynamic = 'force-static';
 
 export interface RequestParams {
   token: string,
