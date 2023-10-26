@@ -14,6 +14,20 @@ export interface RequestParams {
   message: string
 }
 
+export function GET(request: NextRequest) {
+  return NextResponse.json(
+    {
+      body: request.body,
+      path: request.nextUrl.pathname,
+      query: request.nextUrl.search,
+      cookies: request.cookies.getAll(),
+    },
+    {
+      status: 200,
+    },
+  );
+}
+
 export async function POST(request: NextRequest) {
   console.log('Contact API - Request received');
 
