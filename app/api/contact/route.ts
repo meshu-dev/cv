@@ -15,6 +15,8 @@ export interface RequestParams {
 }
 
 export async function POST(request: NextRequest) {
+  console.log('Contact API - Request received');
+
   const env = process.env.NODE_ENV;
   const body: RequestParams = await request.json();
 
