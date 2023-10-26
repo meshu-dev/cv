@@ -18,7 +18,7 @@ export interface MailParams {
 const getSmtpTransporter = (params: SmtpServerParams): nodemailer.Transporter<SMTPTransport.SentMessageInfo> => {
   return nodemailer.createTransport({
     host: params.host,
-    port: params.port,
+    port: Number(params.port),
     secure: false, // true for 465, false for other ports
     auth: {
       user: params.user, //testAccount.user, // generated ethereal user
