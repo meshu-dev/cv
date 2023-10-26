@@ -17,6 +17,9 @@ const getData = async (
     body: JSON.stringify({ database, collection, dataSource })
   };
   const response = await ApiService.sendRequest<any>(url, requestInit);
+
+  console.log('MongoDB Data API', response);
+
   return response['document'] ?? null;
 };
 
