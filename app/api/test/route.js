@@ -1,17 +1,5 @@
-
-export default (req, res) => {
-  const { method } = req;
-
-  switch (method) {
-    case 'GET':
-      res.json({ method: 'GET', endpoint: 'Users' });
-      break;
-    case 'POST':
-      res.json({ method: 'POST', endpoint: 'Users' });
-      break;
-    default:
-      res.setHeader('Allow', ['GET', 'POST']);
-      res.status(405).end(`Method ${method} Not Allowed`);
-      break;
-  }
+export async function GET(request, { params }) {
+  // we will use params to access the data passed to the dynamic route
+  //const user = params.user;
+  return new Response(`Welcome to my Next application`);
 }
