@@ -46,13 +46,13 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
       !hasEmailFieldError &&
       !hasMessageFieldError
     ) {
-      const url = `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`; 
+      const contactUrl = process.env.NEXT_PUBLIC_MAILER_URL; 
 
-      console.log('URL', url);
+      console.log('URL', contactUrl);
 
-      if (url) {
+      if (contactUrl) {
         try {
-          const response = await ContactService.sendMessage(url, token, name, email, message);
+          const response = await ContactService.sendMessage(contactUrl, token, name, email, message);
 
           if (response) {
             onClose();
@@ -75,16 +75,18 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
 
   // Create an event handler so you can call the verification on button click event or form submit
   const handleReCaptchaVerify = useCallback(async () => {
-    if (!executeRecaptcha) {
-      console.log('Execute recaptcha not yet available');
-      return;
-    }
-
-    if (executeRecaptcha) {
-      const token = await executeRecaptcha('contact');
-      console.log('token', token);
-
-      setToken(token);
+    if (!token) {
+      if (!executeRecaptcha) {
+        console.log('Execute recaptcha not yet available');
+        return;
+      }
+  
+      if (executeRecaptcha) {
+        const token = await executeRecaptcha('contact');
+        console.log('token', token);
+  
+        setToken(token);
+      }
     }
   }, [executeRecaptcha]);
 
