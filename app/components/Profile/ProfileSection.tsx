@@ -15,7 +15,7 @@ const ProfileSection = ({ profile }: Props) => {
   if (profile.icons) {
     for (const profileIcon of profile.icons) {
       iconElements.push(
-        <ProfileIconView key={ profileIcon.title } profileIcon={ profileIcon } />
+        <ProfileIconView key={profileIcon.title} profileIcon={profileIcon} />
       );
     }
   }
@@ -23,11 +23,11 @@ const ProfileSection = ({ profile }: Props) => {
   return (
     <section id="profile">
       <div id="profile-info">
-        <h1>{ profile.name }</h1>
-        <p>{ profile.description }</p>
-        <p><span>Location:&nbsp;</span>{ profile.location }</p>
+        <h1>{profile.name}</h1>
+        <p>{profile.description}</p>
+        <p><span>Location:&nbsp;</span>{profile.location}</p>
         <div id="profile-links">
-          { iconElements }
+          {iconElements}
         </div>
       </div>
     </section>

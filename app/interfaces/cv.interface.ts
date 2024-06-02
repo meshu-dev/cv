@@ -3,7 +3,7 @@ import SkillGroup from './skill-group.interface';
 import WorkExperience from './work-experience.interface';
 
 export default interface Cv {
-  profile: Profile;
-  skills: SkillGroup[];
-  workExperience: WorkExperience[];
+  profile: Profile
+  skills: SkillGroup[]
+  workExperience: WorkExperience[]
 }
