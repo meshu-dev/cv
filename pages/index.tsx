@@ -1,12 +1,11 @@
 
 
-import Cv from '../app/interfaces/cv.interface';
-import CvService from '../app/services/cv.service';
-import ProfileSection from '../app/components/Profile/ProfileSection';
-import SkillSection from '../app/components/Skill/SkillSection';
-import WorkExperienceSection from '../app/components/WorkExperience/WorkExperienceSection';
+import Cv from '@/interfaces/cv.interface'
+import ProfileSection from '@/components/Profile/ProfileSection'
+import SkillSection from '@/components/Skill/SkillSection'
+import WorkExperienceSection from '@/components/WorkExperience/WorkExperienceSection'
 
-import { getCv } from '@/app/actions'
+import { getCv } from '@/actions'
 
 interface Props {
   cv: Cv | null

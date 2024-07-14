@@ -11,9 +11,9 @@ const Header = () => {
   let googleRecaptcha: React.ReactElement = <></>;
 
   if (googleKey) {
-    googleRecaptcha = <GoogleReCaptchaProvider reCaptchaKey={ googleKey }>
-                        <ContactForm isOpen={ isOpen } onClose={ onClose } />
-                      </GoogleReCaptchaProvider>;
+    googleRecaptcha = <GoogleReCaptchaProvider reCaptchaKey={googleKey}>
+      <ContactForm isOpen={isOpen} onClose={onClose} />
+    </GoogleReCaptchaProvider>;
   }
 
   return (
@@ -23,11 +23,11 @@ const Header = () => {
           <div id="header-logo">Mesh's CV</div>
           <div id="header-links">
             <a href="/pdfs/cv.pdf" target="_blank" className="header-link">Download</a>
-            <span className="header-link" onClick={ onOpen }>Contact</span>
+            <span className="header-link" onClick={onOpen}>Contact</span>
           </div>
         </div>
       </header>
-      { googleRecaptcha }
+      {googleRecaptcha}
     </>
   );
 };

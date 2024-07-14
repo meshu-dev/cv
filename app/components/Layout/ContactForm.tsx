@@ -13,10 +13,10 @@ import {
   Input,
   Textarea,
   Button
-} from "@chakra-ui/react";
-import ContactService from '../../services/contact.service';
-import { useCallback, useEffect } from 'react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+} from "@chakra-ui/react"
+import ContactService from '@/services/contact.service'
+import { useCallback, useEffect } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 interface Props {
   isOpen: boolean,
@@ -34,8 +34,8 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
   const updateEmail = (e: any) => setEmail(e.target.value);
   const updateMessage = (e: any) => setMessage(e.target.value);
 
-  const hasNameFieldError    = name === '';
-  const hasEmailFieldError   = email === '';
+  const hasNameFieldError = name === '';
+  const hasEmailFieldError = email === '';
   const hasMessageFieldError = message === '';
 
   const onSubmit = async () => {
@@ -46,7 +46,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
       !hasEmailFieldError &&
       !hasMessageFieldError
     ) {
-      const contactUrl = process.env.NEXT_PUBLIC_MAILER_URL; 
+      const contactUrl = process.env.NEXT_PUBLIC_MAILER_URL;
 
       console.log('URL', contactUrl);
 
@@ -69,7 +69,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
 
       }
     }
-  };
+  }
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -80,11 +80,11 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
         console.log('Execute recaptcha not yet available');
         return;
       }
-  
+
       if (executeRecaptcha) {
         const token = await executeRecaptcha('contact');
         console.log('token', token);
-  
+
         setToken(token);
       }
     }
@@ -101,32 +101,32 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
 
   return (
     <>
-      <Modal isOpen={ isOpen } onClose={ onClose }>
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Send me a message</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Stack spacing='1rem'>
-              <FormControl isInvalid={ isSubmitClicked && hasNameFieldError }>
-                <Input placeholder="Name" value={ name } onChange={ updateName } />
+              <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
+                <Input placeholder="Name" value={name} onChange={updateName} />
                 <FormErrorMessage>Name is required.</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={ isSubmitClicked && hasNameFieldError }>
-                <Input type="email" value={ email } placeholder="Email address" onChange={ updateEmail } />
+              <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
+                <Input type="email" value={email} placeholder="Email address" onChange={updateEmail} />
                 <FormErrorMessage>Email is required.</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={ isSubmitClicked && hasNameFieldError }>
-                <Textarea placeholder="Message" onChange={ updateMessage } />
+              <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
+                <Textarea placeholder="Message" onChange={updateMessage} />
                 <FormErrorMessage>Message is required.</FormErrorMessage>
               </FormControl>
             </Stack>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='blue' ml={3} onClick={ onSubmit }>
+            <Button colorScheme='blue' ml={3} onClick={onSubmit}>
               Submit
             </Button>
-            <Button onClick={ onClose }>
+            <Button onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

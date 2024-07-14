@@ -1,13 +1,15 @@
-import Cv from '../interfaces/cv.interface'
-import Profile from '../interfaces/profile.interface'
-import ProfileIcon from '../interfaces/profile-icon.interface'
-import SkillGroup from '../interfaces/skill-group.interface'
-import WorkExperience from '../interfaces/work-experience.interface'
+import Cv from '@/interfaces/cv.interface'
+import Profile from '@/interfaces/profile.interface'
+import ProfileIcon from '@/interfaces/profile-icon.interface'
+import SkillGroup from '@/interfaces/skill-group.interface'
+import WorkExperience from '@/interfaces/work-experience.interface'
 
 const makeCv = (apiData: any): Cv => {
   const data = apiData.data
 
-  const apiProfileLinks = data.profile.links
+  console.log('data', data)
+
+  const apiProfileLinks = data.profile.icons
   const profileIcons: ProfileIcon[] = []
 
   for (const profileLink of apiProfileLinks) {
@@ -19,7 +21,7 @@ const makeCv = (apiData: any): Cv => {
   }
 
   const profile: Profile = {
-    name: data.profile.details.name,
+    name: data.profile.details.fullname,
     description: data.profile.details.intro,
     location: data.profile.details.location,
     icons: profileIcons
