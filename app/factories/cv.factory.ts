@@ -9,14 +9,14 @@ const makeCv = (apiData: any): Cv => {
 
   console.log('data', data)
 
-  const apiProfileLinks = data.profile.icons
+  const apiProfileLinks = data.profile.sites
   const profileIcons: ProfileIcon[] = []
 
   for (const profileLink of apiProfileLinks) {
     profileIcons.push({
       title: profileLink.name,
       url: profileLink.url,
-      imageUrl: profileLink.image_url
+      imageUrl: profileLink.image
     })
   }
 
@@ -31,16 +31,9 @@ const makeCv = (apiData: any): Cv => {
   const skills: SkillGroup[] = []
 
   for (const apiSkillGroup of apiSkillGroups) {
-    const technologies: string[] = []
-    const apiTechnologies = apiSkillGroup.technologies
-
-    for (const apiTechnology of apiTechnologies) {
-      technologies.push(apiTechnology.name)
-    }
-
     skills.push({
       name: apiSkillGroup.name,
-      list: technologies
+      list: apiSkillGroup.technologies
     })
   }
 
