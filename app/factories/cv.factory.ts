@@ -51,10 +51,13 @@ const makeCv = (apiData: any): Cv => {
     })
   }
 
+  const pdf: string = data['pdf']
+
   return {
     profile,
     skills,
-    workExperience
+    workExperience,
+    pdf
   } as Cv;
 }
 

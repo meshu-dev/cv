@@ -1,18 +1,20 @@
 
 
 import Cv from '@/interfaces/cv.interface'
+import Layout from '@/components/Layout/Layout'
 import ProfileSection from '@/components/Profile/ProfileSection'
 import SkillSection from '@/components/Skill/SkillSection'
 import WorkExperienceSection from '@/components/WorkExperience/WorkExperienceSection'
 
 import { getCv } from '@/actions'
+import Header from '@/components/Layout/Header'
 
 interface Props {
   cv: Cv | null
-};
+}
 
 export async function getStaticProps() {
-  let cv: Cv | null = null;
+  let cv: Cv | null = null
 
   try {
     cv = await getCv()
@@ -26,7 +28,7 @@ export async function getStaticProps() {
       cv
     }
   }
-};
+}
 
 export default (props: Props) => {
   const sectionElements: React.ReactElement[] = []
@@ -34,24 +36,27 @@ export default (props: Props) => {
   if (props.cv?.profile) {
     sectionElements.push(
       <ProfileSection key="profile" profile={props.cv.profile} />
-    );
+    )
   }
 
   if (props.cv?.skills) {
     sectionElements.push(
       <SkillSection key="skills" skillGroups={props.cv.skills} />
-    );
+    )
   }
 
   if (props.cv?.workExperience) {
     sectionElements.push(
       <WorkExperienceSection key="workExperience" workExperiences={props.cv.workExperience} />
-    );
+    )
   }
 
   return (
     <>
-      {sectionElements}
+      <Header cv={props.cv} />
+      <main id="body-wrapper">
+        {sectionElements}
+      </main>
     </>
   );
 };

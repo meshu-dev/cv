@@ -1,19 +1,22 @@
-import ContactForm from './ContactForm';
-import { useDisclosure } from '@chakra-ui/react';
-import {
-  GoogleReCaptchaProvider
-} from 'react-google-recaptcha-v3';
+import Cv from '@/interfaces/cv.interface'
+import ContactForm from './ContactForm'
+import { useDisclosure } from '@chakra-ui/react'
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 
-const Header = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const googleKey: string = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY || '';
+type Props = {
+  cv: Cv | null
+}
 
-  let googleRecaptcha: React.ReactElement = <></>;
+const Header = ({ cv }: Props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const googleKey: string = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY || ''
+
+  let googleRecaptcha: React.ReactElement = <></>
 
   if (googleKey) {
     googleRecaptcha = <GoogleReCaptchaProvider reCaptchaKey={googleKey}>
       <ContactForm isOpen={isOpen} onClose={onClose} />
-    </GoogleReCaptchaProvider>;
+    </GoogleReCaptchaProvider>
   }
 
   return (
@@ -22,14 +25,14 @@ const Header = () => {
         <div id="header-wrapper">
           <div id="header-logo">Mesh's CV</div>
           <div id="header-links">
-            <a href="/pdfs/cv.pdf" target="_blank" className="header-link">Download</a>
+            <a href={ cv?.pdf } target="_blank" className="header-link">Download</a>
             <span className="header-link" onClick={onOpen}>Contact</span>
           </div>
         </div>
       </header>
       {googleRecaptcha}
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

@@ -13,7 +13,7 @@ export default function RootLayout({
     <>
       <Header />
       <main id="body-wrapper">
-        { children }
+        {children}
       </main>
     </>
   )

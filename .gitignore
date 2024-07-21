@@ -4,3 +4,4 @@ _site
 out
 .env
 .vercel
+.DS_Store

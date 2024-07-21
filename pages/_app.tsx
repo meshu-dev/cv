@@ -1,13 +1,11 @@
-import type { AppProps } from 'next/app';
-import Layout from '../app/components/Layout/Layout';
-import { ChakraProvider } from '@chakra-ui/react';
- 
+import type { AppProps } from 'next/app'
+import { ChakraProvider } from '@chakra-ui/react'
+import '@/globals.css';
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
-      <Layout>
-        <Component { ...pageProps } />
-      </Layout>
+      <Component { ...pageProps } />
     </ChakraProvider>
   )
 };

@@ -6,4 +6,5 @@ export default interface Cv {
   profile: Profile
   skills: SkillGroup[]
   workExperience: WorkExperience[]
+  pdf: string
 }
