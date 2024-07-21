@@ -5,6 +5,6 @@ const sendRequest = async <TypedResponse>(url: string, config?: RequestInit): Pr
 
 const ApiService = {
   sendRequest
-};
+}
 
-export default ApiService;
+export default ApiService
