@@ -45,7 +45,8 @@ const makeCv = (apiData: any): Cv => {
       title: apiWorkExperience.title,
       description: apiWorkExperience.description,
       location: apiWorkExperience.location,
-      date: apiWorkExperience.date,
+      start_date: apiWorkExperience.start_date,
+      end_date: apiWorkExperience.end_date,
       tasks: apiWorkExperience.responsibilities,
       isActive: true
     })

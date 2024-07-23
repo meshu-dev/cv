@@ -1,10 +1,14 @@
-import WorkExperience from '../../interfaces/work-experience.interface';
+import WorkExperience from '../../interfaces/work-experience.interface'
+import dayjs from 'dayjs'
 
 interface Props {
   workExperience: WorkExperience;
 };
 
 const WorkExperienceEntry = ({ workExperience }: Props) => {
+  const startDate: string = dayjs(workExperience.start_date).format('MMM YY')
+  const endDate: string   = workExperience.end_date ? dayjs(workExperience.end_date).format('MMM YY') : 'Present'
+  
   const taskElements: React.ReactElement[] = [];
 
   if (workExperience.tasks) {
@@ -20,7 +24,7 @@ const WorkExperienceEntry = ({ workExperience }: Props) => {
         <div className="workexp-entry-datelocation">
           <span className="workexp-entry-location">{ workExperience.location }</span>
           &nbsp;
-          <span>{ workExperience.date }</span>
+          <span>{ `${startDate} - ${endDate}` }</span>
         </div>
       </div>
       <div className="workexp-entry-info">{ workExperience.description }</div>
