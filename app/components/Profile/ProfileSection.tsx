@@ -1,21 +1,22 @@
-import ProfileIconView from './ProfileIconView';
-import Profile from '../../interfaces/profile.interface';
+import ProfileIconView from './ProfileIconView'
+import { Profile } from '@/types'
 
-interface Props {
+type Props = {
   profile: Profile
-};
+}
 
 const ProfileSection = ({ profile }: Props) => {
   if (!profile) {
-    return null;
+    return null
   }
 
-  const iconElements: React.ReactElement[] = [];
+  const iconElements: React.ReactElement[] = []
 
-  if (profile.icons) {
-    for (const profileIcon of profile.icons) {
+  if (profile.sites) {
+    for (const site of profile.sites) {
+      console.log('profile.sites', profile.sites)
       iconElements.push(
-        <ProfileIconView key={profileIcon.title} profileIcon={profileIcon} />
+        <ProfileIconView key={site.name} profileSite={site} />
       );
     }
   }
@@ -23,9 +24,9 @@ const ProfileSection = ({ profile }: Props) => {
   return (
     <section id="profile">
       <div id="profile-info">
-        <h1>{profile.name}</h1>
-        <p>{profile.description}</p>
-        <p><span>Location:&nbsp;</span>{profile.location}</p>
+        <h1>{profile.details.fullname}</h1>
+        <p>{profile.details.intro}</p>
+        <p><span>Location:&nbsp;</span>{profile.details.location}</p>
         <div id="profile-links">
           {iconElements}
         </div>
@@ -34,4 +35,4 @@ const ProfileSection = ({ profile }: Props) => {
   );
 };
 
-export default ProfileSection;
+export default ProfileSection

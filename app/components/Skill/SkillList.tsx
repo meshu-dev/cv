@@ -1,28 +1,28 @@
-import SkillGroup from '../../interfaces/skill-group.interface';
+import { SkillGroup } from '@/types'
 
-interface Props {
-  skillGroup: SkillGroup;
-};
+type Props = {
+  skillGroup: SkillGroup
+}
 
 const SkillList = ({ skillGroup }: Props) => {
-  const skillElements: React.ReactElement[] = [];
+  const skillElements: React.ReactElement[] = []
 
-  if (skillGroup.list) {
-    skillGroup.list.forEach((skillName, skillNameIndex) => {
+  if (skillGroup.technologies) {
+    skillGroup.technologies.forEach((name: string, index: number) => {
       skillElements.push(
-        <li key={ `skill-${skillNameIndex}` }>{ skillName }</li>
+        <li key={`skill-${index}`}>{name}</li>
       );
     })
   }
 
   return (
     <div className="skills-section">
-      <h3>{ skillGroup.name }</h3>
+      <h3>{skillGroup.name}</h3>
       <ul>
-        { skillElements }
+        {skillElements}
       </ul>
     </div>
   );
 };
-  
-export default SkillList;
+
+export default SkillList

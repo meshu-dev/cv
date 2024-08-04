@@ -1,5 +1,5 @@
-import WorkExperienceEntry from './WorkExperienceEntry';
-import WorkExperience from '../../interfaces/work-experience.interface';
+import WorkExperienceEntry from './WorkExperienceEntry'
+import { WorkExperience } from '@/types'
 
 interface Props {
   workExperiences: WorkExperience[]
@@ -7,29 +7,26 @@ interface Props {
 
 const WorkExperienceSection = ({ workExperiences }: Props) => {
   if (workExperiences) {
-    const workExpElements: React.ReactElement[] = [];
-    workExperiences = workExperiences.filter((workExp: WorkExperience) => workExp.isActive);
+    const workExpElements: React.ReactElement[] = []
 
     for (const workExperienceIndex in workExperiences) {
       const entryCount = parseInt(workExperienceIndex) + 1;
       const elementKey = `workExperienceEntry${entryCount}`;
       const workExperience = workExperiences[workExperienceIndex];
 
-      if (workExperience.isActive) {
-        workExpElements.push(
-          <WorkExperienceEntry key={ elementKey } workExperience={ workExperience } />
-        );
-      }
+      workExpElements.push(
+        <WorkExperienceEntry key={elementKey} workExperience={workExperience} />
+      )
     }
 
     return (
       <section id="workexp">
         <h2>Work Experience</h2>
-        { workExpElements }
+        {workExpElements}
       </section>
     );
   }
   return null;
 };
 
-export default WorkExperienceSection;
+export default WorkExperienceSection

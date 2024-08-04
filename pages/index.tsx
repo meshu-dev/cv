@@ -1,25 +1,28 @@
 
 
-import Cv from '@/interfaces/cv.interface'
+import Header from '@/components/Layout/Header'
 import ProfileSection from '@/components/Profile/ProfileSection'
 import SkillSection from '@/components/Skill/SkillSection'
 import WorkExperienceSection from '@/components/WorkExperience/WorkExperienceSection'
+import MeshApiService from '@/services/meshApi.service'
+import { CV } from '@/types'
 
-import { getCv } from '@/actions'
-
-interface Props {
-  cv: Cv | null
-};
+type Props = {
+  cv: CV | null
+}
 
 export async function getStaticProps() {
-  let cv: Cv | null = null;
+  let cv: CV | null = null
 
   try {
-    cv = await getCv()
+    cv = await MeshApiService.getData()
   } catch (e) {
     // Exception
+    console.log('ERROR!')
     console.error(e)
   }
+
+  console.log('DATA!', cv)
 
   return {
     props: {
@@ -37,21 +40,24 @@ export default (props: Props) => {
     );
   }
 
-  if (props.cv?.skills) {
+  if (props.cv?.skill_groups) {
     sectionElements.push(
-      <SkillSection key="skills" skillGroups={props.cv.skills} />
+      <SkillSection key="skills" skillGroups={props.cv.skill_groups} />
     );
   }
 
-  if (props.cv?.workExperience) {
+  if (props.cv?.work_experiences) {
     sectionElements.push(
-      <WorkExperienceSection key="workExperience" workExperiences={props.cv.workExperience} />
+      <WorkExperienceSection key="workExperience" workExperiences={props.cv.work_experiences} />
     );
   }
 
   return (
     <>
-      {sectionElements}
+      <Header pdfUrl={props.cv?.pdf || null} />
+      <main id="body-wrapper">
+        {sectionElements}
+      </main>
     </>
   );
 };

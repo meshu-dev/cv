@@ -1,15 +1,15 @@
-import ProfileIcon from '../../interfaces/profile-icon.interface';
+import { ProfileSite } from '@/types'
 
-interface Props {
-  profileIcon: ProfileIcon
-};
+type Props = {
+  profileSite: ProfileSite
+}
 
-const ProfileIconView = ({ profileIcon }: Props) => {
+const ProfileIconView = ({ profileSite }: Props) => {
   return (
-    <a href={ profileIcon.url } target="_blank" title={ profileIcon.title }>
-      <img src={ profileIcon.imageUrl } />
+    <a href={profileSite.url} target="_blank" title={profileSite.name}>
+      <img src={profileSite.image} />
     </a>
   );
 };
 
-export default ProfileIconView;
+export default ProfileIconView

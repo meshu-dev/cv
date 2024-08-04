@@ -1,10 +1,14 @@
-import ContactForm from './ContactForm';
-import { useDisclosure } from '@chakra-ui/react';
+import ContactForm from './ContactForm'
+import { useDisclosure } from '@chakra-ui/react'
 import {
   GoogleReCaptchaProvider
-} from 'react-google-recaptcha-v3';
+} from 'react-google-recaptcha-v3'
 
-const Header = () => {
+type Props = {
+  pdfUrl: string | null
+}
+
+const Header = ({ pdfUrl }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const googleKey: string = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY || '';
 
@@ -22,7 +26,7 @@ const Header = () => {
         <div id="header-wrapper">
           <div id="header-logo">Mesh's CV</div>
           <div id="header-links">
-            <a href="/pdfs/cv.pdf" target="_blank" className="header-link">Download</a>
+            {pdfUrl ? <a href={pdfUrl} target="_blank" className="header-link">Download</a> : null}
             <span className="header-link" onClick={onOpen}>Contact</span>
           </div>
         </div>

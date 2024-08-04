@@ -1,30 +1,30 @@
-import SkillList from './SkillList';
-import SkillGroup from '../../interfaces/skill-group.interface';
+import SkillList from './SkillList'
+import { SkillGroup } from '@/types'
 
-interface Props {
+type Props = {
   skillGroups: SkillGroup[]
-};
+}
 
 const SkillSection = ({ skillGroups }: Props) => {
   if (skillGroups) {
-    const skillGroupElements: React.ReactElement[] = [];
+    const skillGroupElements: React.ReactElement[] = []
 
     for (let skillGroup of skillGroups) {
       skillGroupElements.push(
-        <SkillList key={ skillGroup.name } skillGroup={ skillGroup } />
-      );
+        <SkillList key={skillGroup.name} skillGroup={skillGroup} />
+      )
     }
 
     return (
       <section id="skills">
         <h2>Skills</h2>
         <div id="skills-sections">
-          { skillGroupElements }
+          {skillGroupElements}
         </div>
       </section>
     );
   }
-  return null;
-};
+  return null
+}
 
-export default SkillSection;
+export default SkillSection

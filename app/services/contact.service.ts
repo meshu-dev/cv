@@ -1,5 +1,4 @@
-import Cv from '../interfaces/cv.interface';
-import ApiService from './api.service';
+import ApiService from './api.service'
 
 const sendMessage = async (
   url: string,
@@ -13,13 +12,13 @@ const sendMessage = async (
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ token, name, email, message }),
-  };
-  return await ApiService.sendRequest<any>(url, requestInit);
-};
+    body: JSON.stringify({ token, name, email, message })
+  }
+  return await ApiService.sendRequest<any>(url, requestInit)
+}
 
 const ContactService = {
   sendMessage
-};
+}
 
-export default ContactService;
+export default ContactService
