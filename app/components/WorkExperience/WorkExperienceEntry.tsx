@@ -10,8 +10,6 @@ type Props = {
 const WorkExperienceEntry = ({ workExperience }: Props) => {
   const taskElements: React.ReactElement[] = []
 
-  console.log('workExperience', workExperience)
-
   if (workExperience.responsibilities) {
     workExperience.responsibilities.forEach((responsibility, taskIndex) => {
       taskElements.push(<li key={`task-${taskIndex}`}>{responsibility}</li>)
