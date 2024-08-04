@@ -15,28 +15,28 @@ import {
   Button
 } from "@chakra-ui/react"
 import ContactService from '@/services/contact.service'
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
-interface Props {
-  isOpen: boolean,
-  onClose: any;
-};
+type Props = {
+  isOpen: boolean
+  onClose: any
+}
 
 const ContactForm = ({ isOpen, onClose }: Props) => {
-  const [isSubmitClicked, setIsSubmittedClicked] = useState(false);
-  const [token, setToken] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [isSubmitClicked, setIsSubmittedClicked] = useState(false)
+  const [token, setToken] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
-  const updateName = (e: any) => setName(e.target.value);
-  const updateEmail = (e: any) => setEmail(e.target.value);
-  const updateMessage = (e: any) => setMessage(e.target.value);
+  const updateName = (e: any) => setName(e.target.value)
+  const updateEmail = (e: any) => setEmail(e.target.value)
+  const updateMessage = (e: any) => setMessage(e.target.value)
 
-  const hasNameFieldError = name === '';
-  const hasEmailFieldError = email === '';
-  const hasMessageFieldError = message === '';
+  const hasNameFieldError = name === ''
+  const hasEmailFieldError = email === ''
+  const hasMessageFieldError = message === ''
 
   const onSubmit = async () => {
     setIsSubmittedClicked(true);
@@ -46,13 +46,11 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
       !hasEmailFieldError &&
       !hasMessageFieldError
     ) {
-      const contactUrl = process.env.NEXT_PUBLIC_MAILER_URL;
-
-      console.log('URL', contactUrl);
+      const contactUrl = process.env.NEXT_PUBLIC_MESH_API_URL
 
       if (contactUrl) {
         try {
-          const response = await ContactService.sendMessage(contactUrl, token, name, email, message);
+          const response = await ContactService.sendMessage(contactUrl, token, name, email, message)
 
           if (response) {
             onClose();
@@ -62,41 +60,34 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
             setMessage('');
           }
 
-          console.log('sendMessage', response);
+          console.log('sendMessage', response)
         } catch (e) {
-          console.log('Exception', e);
+          console.log('Exception', e)
         }
 
       }
     }
   }
 
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   // Create an event handler so you can call the verification on button click event or form submit
-  const handleReCaptchaVerify = useCallback(async () => {
+  const handleReCaptchaVerify = useCallback(async (token: string) => {
     if (!token) {
       if (!executeRecaptcha) {
-        console.log('Execute recaptcha not yet available');
-        return;
+        console.warn('Execute recaptcha not yet available')
+        return
       }
 
       if (executeRecaptcha) {
-        const token = await executeRecaptcha('contact');
-        console.log('token', token);
-
-        setToken(token);
+        const token = await executeRecaptcha('contact')
+        setToken(token)
       }
     }
-  }, [executeRecaptcha]);
-
-  // You can use useEffect to trigger the verification as soon as the component being loaded
-  useEffect(() => {
-    handleReCaptchaVerify();
-  }, [handleReCaptchaVerify]);
+  }, [executeRecaptcha])
 
   if (isOpen) {
-    handleReCaptchaVerify();
+    handleReCaptchaVerify(token)
   }
 
   return (
@@ -136,4 +127,4 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
   );
 };
 
-export default ContactForm;
+export default ContactForm

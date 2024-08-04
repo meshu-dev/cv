@@ -1,7 +1,7 @@
 import ApiService from '@/services/api.service'
 import { ApiResponse, CV } from '@/types';
 
-const apiUrl: string = process.env.MESH_API_URL as string
+const apiUrl: string = process.env.NEXT_PUBLIC_MESH_API_URL as string
 
 const getData = async (): Promise<CV | null> => {
   const requestInit: RequestInit = {
