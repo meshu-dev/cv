@@ -29,7 +29,7 @@ export async function getStaticProps() {
       cv
     }
   }
-};
+}
 
 export default (props: Props) => {
   const sectionElements: React.ReactElement[] = []
@@ -37,7 +37,7 @@ export default (props: Props) => {
   if (props.cv?.profile) {
     sectionElements.push(
       <ProfileSection key="profile" profile={props.cv.profile} />
-    );
+    )
   }
 
   if (props.cv?.skill_groups) {
