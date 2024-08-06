@@ -12,7 +12,8 @@ import {
   Stack,
   Input,
   Textarea,
-  Button
+  Button,
+  useToast
 } from "@chakra-ui/react"
 import { useCallback } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
@@ -22,6 +23,8 @@ type Props = {
   isOpen: boolean
   onClose: any
 }
+
+type ToastStatus = "success" | "error" | "warning" | "info" | "loading"
 
 const ContactForm = ({ isOpen, onClose }: Props) => {
   const [token, setToken] = useState('')
@@ -51,6 +54,11 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
       !hasMessageFieldError
     ) {
       if (token) {
+        const toast = useToast()
+
+        let toastMessage: string = 'Error occurred, please try again later'
+        let toastStatus: ToastStatus = 'success'
+
         try {
           const response = await MeshApiService.sendMessage(token, name, email, message)
 
@@ -69,10 +77,23 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
           }
 
           console.log('sendMessage', response)
+
+          if (response['success']) {
+            toastMessage = 'Message sent! You will receive a reply shortly'
+          }
         } catch (e) {
           console.log('Exception', e)
+
+          toastMessage = (e as Error).message
+          toastStatus = 'error'
         }
 
+        toast({
+          description: toastMessage,
+          status: toastStatus,
+          position: 'top',
+          duration: 9000
+        })
       }
     }
   }
