@@ -27,6 +27,8 @@ type Props = {
 type ToastStatus = "success" | "error" | "warning" | "info" | "loading"
 
 const ContactForm = ({ isOpen, onClose }: Props) => {
+  const toast = useToast()
+
   const [token, setToken] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -42,8 +44,6 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
   const [hasMessageFieldError, setHasMessageFieldError] = useState(false)
 
   const onSubmit = async () => {
-    const toast = useToast()
-
     setIsSubmittedClicked(true)
 
     setHasNameFieldError(name === '')
@@ -84,7 +84,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
         } catch (e) {
           console.log('Exception', e)
 
-          //toastMessage = (e as Error).message
+          toastMessage = (e as Error).message
           toastStatus = 'error'
         }
 
