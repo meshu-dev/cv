@@ -24,7 +24,6 @@ type Props = {
 }
 
 const ContactForm = ({ isOpen, onClose }: Props) => {
-  const [isSubmitClicked, setIsSubmittedClicked] = useState(false)
   const [token, setToken] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -34,12 +33,17 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
   const updateEmail = (e: any) => setEmail(e.target.value)
   const updateMessage = (e: any) => setMessage(e.target.value)
 
-  const hasNameFieldError = name === ''
-  const hasEmailFieldError = email === ''
-  const hasMessageFieldError = message === ''
+  const [isSubmitClicked, setIsSubmittedClicked] = useState(false)
+  const [hasNameFieldError, setHasNameFieldError] = useState(false)
+  const [hasEmailFieldError, setHasEmailFieldError] = useState(false)
+  const [hasMessageFieldError, setHasMessageFieldError] = useState(false)
 
   const onSubmit = async () => {
-    setIsSubmittedClicked(true);
+    setIsSubmittedClicked(true)
+
+    setHasNameFieldError(name === '')
+    setHasEmailFieldError(email === '')
+    setHasMessageFieldError(message === '')
 
     if (
       !hasNameFieldError &&
@@ -53,9 +57,15 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
           if (response) {
             onClose();
 
-            setName('');
-            setEmail('');
-            setMessage('');
+            setName('')
+            setEmail('')
+            setMessage('')
+
+            setIsSubmittedClicked(false)
+
+            setHasNameFieldError(false)
+            setHasEmailFieldError(false)
+            setHasMessageFieldError(false)
           }
 
           console.log('sendMessage', response)
@@ -101,11 +111,11 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
                 <Input placeholder="Name" value={name} onChange={updateName} />
                 <FormErrorMessage>Name is required.</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
+              <FormControl isInvalid={isSubmitClicked && hasEmailFieldError}>
                 <Input type="email" value={email} placeholder="Email address" onChange={updateEmail} />
                 <FormErrorMessage>Email is required.</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
+              <FormControl isInvalid={isSubmitClicked && hasMessageFieldError}>
                 <Textarea placeholder="Message" onChange={updateMessage} />
                 <FormErrorMessage>Message is required.</FormErrorMessage>
               </FormControl>
