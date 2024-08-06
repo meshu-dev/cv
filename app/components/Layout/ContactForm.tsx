@@ -26,6 +26,8 @@ type Props = {
 
 type ToastStatus = "success" | "error" | "warning" | "info" | "loading"
 
+const toast = useToast()
+
 const ContactForm = ({ isOpen, onClose }: Props) => {
   const [token, setToken] = useState('')
   const [name, setName] = useState('')
@@ -54,8 +56,6 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
       !hasMessageFieldError
     ) {
       if (token) {
-        const toast = useToast()
-
         let toastMessage: string = 'Error occurred, please try again later'
         let toastStatus: ToastStatus = 'success'
 
