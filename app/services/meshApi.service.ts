@@ -16,8 +16,26 @@ const getData = async (): Promise<CV | null> => {
   return response.data as CV ?? null
 }
 
+const sendMessage = async (
+  token: string,
+  name: string,
+  email: string,
+  message: string
+): Promise<any> => {
+  const requestInit: RequestInit = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ token, name, email, message })
+  }
+  const contactUrl = `${apiUrl}/contact`
+  return await ApiService.sendRequest<any>(contactUrl, requestInit)
+}
+
 const MeshApiService = {
-  getData
+  getData,
+  sendMessage
 }
 
 export default MeshApiService

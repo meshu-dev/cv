@@ -14,9 +14,9 @@ import {
   Textarea,
   Button
 } from "@chakra-ui/react"
-import ContactService from '@/services/contact.service'
 import { useCallback } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import MeshApiService from "@/services/meshApi.service"
 
 type Props = {
   isOpen: boolean
@@ -46,11 +46,9 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
       !hasEmailFieldError &&
       !hasMessageFieldError
     ) {
-      const contactUrl = process.env.NEXT_PUBLIC_MESH_API_URL
-
-      if (contactUrl) {
+      if (token) {
         try {
-          const response = await ContactService.sendMessage(contactUrl, token, name, email, message)
+          const response = await MeshApiService.sendMessage(token, name, email, message)
 
           if (response) {
             onClose();
