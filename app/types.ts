@@ -35,3 +35,5 @@ export type WorkExperience = {
 }
 
 export type ApiResponse = Response & { data: any }
+
+export type ToastStatus = "success" | "error" | "warning" | "info" | "loading"

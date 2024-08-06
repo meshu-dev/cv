@@ -18,13 +18,12 @@ import {
 import { useCallback } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import MeshApiService from "@/services/meshApi.service"
+import { ToastStatus } from "@/types"
 
 type Props = {
   isOpen: boolean
   onClose: any
 }
-
-type ToastStatus = "success" | "error" | "warning" | "info" | "loading"
 
 const ContactForm = ({ isOpen, onClose }: Props) => {
   const toast = useToast()
@@ -42,6 +41,20 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
   const [hasNameFieldError, setHasNameFieldError] = useState(false)
   const [hasEmailFieldError, setHasEmailFieldError] = useState(false)
   const [hasMessageFieldError, setHasMessageFieldError] = useState(false)
+
+  const closeForm = () => {
+    onClose()
+
+    setName('')
+    setEmail('')
+    setMessage('')
+
+    setIsSubmittedClicked(false)
+
+    setHasNameFieldError(false)
+    setHasEmailFieldError(false)
+    setHasMessageFieldError(false)
+  }
 
   const onSubmit = async () => {
     setIsSubmittedClicked(true)
@@ -62,24 +75,10 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
         try {
           const response = await MeshApiService.sendMessage(token, name, email, message)
 
-          if (response) {
-            onClose();
-
-            setName('')
-            setEmail('')
-            setMessage('')
-
-            setIsSubmittedClicked(false)
-
-            setHasNameFieldError(false)
-            setHasEmailFieldError(false)
-            setHasMessageFieldError(false)
-          }
-
-          console.log('sendMessage', response)
-
           if (response['success']) {
             toastMessage = 'Message sent! You will receive a reply shortly'
+
+            closeForm()
           }
         } catch (e) {
           console.log('Exception', e)
