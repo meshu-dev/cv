@@ -70,21 +70,20 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
     ) {
       if (token) {
         let toastMessage: string = 'Error occurred, please try again later'
-        let toastStatus: ToastStatus = 'success'
+        let toastStatus: ToastStatus = 'error'
 
         try {
           const response = await MeshApiService.sendMessage(token, name, email, message)
 
           if (response['success']) {
             toastMessage = 'Message sent! You will receive a reply shortly'
+            toastStatus = 'success'
 
             closeForm()
           }
         } catch (e) {
           console.log('Exception', e)
-
           toastMessage = (e as Error).message
-          toastStatus = 'error'
         }
 
         toast({
