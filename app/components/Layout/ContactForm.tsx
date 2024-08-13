@@ -81,8 +81,11 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
 
             closeForm()
           }
+
+          if (response['message']) {
+            toastMessage = response['message']
+          }
         } catch (e) {
-          console.log('Exception', e)
           toastMessage = (e as Error).message
         }
 
