@@ -4,18 +4,26 @@ import Header from '@/components/Layout/Header'
 import ProfileSection from '@/components/Profile/ProfileSection'
 import SkillSection from '@/components/Skill/SkillSection'
 import WorkExperienceSection from '@/components/WorkExperience/WorkExperienceSection'
-import MeshApiService from '@/services/meshApi.service'
-import { CV } from '@/types'
+import PortfolioApiService from '@/services/portfolioApi.service'
+import { Auth, CV } from '@/types'
 
 type Props = {
   cv: CV | null
 }
 
 export async function getStaticProps() {
+  const userEmail: string = process.env.PORTFOLIO_API_EMAIL as string
+  const userPassword: string = process.env.PORTFOLIO_API_PASSWORD as string
+
+  let auth: Auth | null = null
   let cv: CV | null = null
 
   try {
-    cv = await MeshApiService.getData()
+    auth = await PortfolioApiService.login(userEmail, userPassword)
+
+    if (auth?.token) {
+      cv = await PortfolioApiService.getData(auth.token)
+    }
   } catch (e) {
     // Exception
     console.log('ERROR!')

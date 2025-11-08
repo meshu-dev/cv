@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react"
 import { useCallback } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
-import MeshApiService from "@/services/meshApi.service"
+import PortfolioApiService from "@/services/portfolioApi.service"
 import { ToastStatus } from "@/types"
 
 type Props = {
@@ -73,7 +73,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
         let toastStatus: ToastStatus = 'error'
 
         try {
-          const response = await MeshApiService.sendMessage(token, name, email, message)
+          const response = await PortfolioApiService.sendMessage(token, name, email, message)
 
           if (response['success']) {
             toastMessage = 'Message sent! You will receive a reply shortly'

@@ -1,3 +1,7 @@
+export type Auth = {
+  token: string
+}
+
 export type CV = {
   profile: Profile
   skill_groups: SkillGroup[]
