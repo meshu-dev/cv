@@ -24,9 +24,9 @@ const ProfileSection = ({ profile }: Props) => {
   return (
     <section id="profile">
       <div id="profile-info">
-        <h1>{profile.details.fullname}</h1>
-        <p>{profile.details.intro}</p>
-        <p><span>Location:&nbsp;</span>{profile.details.location}</p>
+        <h1>{profile.fullname}</h1>
+        <p>{profile.intro}</p>
+        <p><span>Location:&nbsp;</span>{profile.location}</p>
         <div id="profile-links">
           {iconElements}
         </div>

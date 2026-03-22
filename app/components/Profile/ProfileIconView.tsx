@@ -7,7 +7,7 @@ type Props = {
 const ProfileIconView = ({ profileSite }: Props) => {
   return (
     <a href={profileSite.url} target="_blank" title={profileSite.name}>
-      <img src={profileSite.image} />
+      <img src={profileSite.image_url} />
     </a>
   );
 };
