@@ -24,9 +24,9 @@ const WorkExperienceSection = ({ workExperiences }: Props) => {
         <h2>Work Experience</h2>
         {workExpElements}
       </section>
-    );
+    )
   }
   return null;
-};
+}
 
 export default WorkExperienceSection

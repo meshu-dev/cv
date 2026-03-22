@@ -154,7 +154,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
 export default ContactForm

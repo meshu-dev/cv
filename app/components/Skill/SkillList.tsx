@@ -22,7 +22,7 @@ const SkillList = ({ skillGroup }: Props) => {
         {skillElements}
       </ul>
     </div>
-  );
-};
+  )
+}
 
 export default SkillList

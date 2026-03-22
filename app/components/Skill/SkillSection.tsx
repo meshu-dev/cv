@@ -22,7 +22,7 @@ const SkillSection = ({ skillGroups }: Props) => {
           {skillGroupElements}
         </div>
       </section>
-    );
+    )
   }
   return null
 }

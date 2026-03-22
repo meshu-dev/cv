@@ -36,7 +36,7 @@ const WorkExperienceEntry = ({ workExperience }: Props) => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default WorkExperienceEntry

@@ -9,7 +9,7 @@ const ProfileIconView = ({ profileSite }: Props) => {
     <a href={profileSite.url} target="_blank" title={profileSite.name}>
       <img src={profileSite.image_url} />
     </a>
-  );
-};
+  )
+}
 
 export default ProfileIconView

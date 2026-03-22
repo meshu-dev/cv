@@ -32,7 +32,7 @@ const ProfileSection = ({ profile }: Props) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 export default ProfileSection
