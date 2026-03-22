@@ -10,18 +10,16 @@ export type CV = {
 }
 
 export type Profile = {
-  details: {
-    fullname: string
-    intro: string
-    location: string
-  }
+  fullname: string
+  intro: string
+  location: string
   sites: ProfileSite[]
 }
 
 export type ProfileSite = {
   name: string
   url: string
-  image: string
+  image_url: string
 }
 
 export type SkillGroup = {
