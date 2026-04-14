@@ -1,17 +1,17 @@
 import SkillList from './SkillList'
-import { SkillGroup } from '@/types'
+import type { Skill } from '@/types'
 
 type Props = {
-  skillGroups: SkillGroup[]
+  skills: Skill[]
 }
 
-const SkillSection = ({ skillGroups }: Props) => {
-  if (skillGroups) {
+const Skill = ({ skills }: Props) => {
+  if (skills) {
     const skillGroupElements: React.ReactElement[] = []
 
-    for (let skillGroup of skillGroups) {
+    for (let skill of skills) {
       skillGroupElements.push(
-        <SkillList key={skillGroup.name} skillGroup={skillGroup} />
+        <SkillList key={skill.name} skill={skill} />
       )
     }
 
@@ -27,4 +27,4 @@ const SkillSection = ({ skillGroups }: Props) => {
   return null
 }
 
-export default SkillSection
+export default Skill

@@ -14,7 +14,6 @@ const ProfileSection = ({ profile }: Props) => {
 
   if (profile.sites) {
     for (const site of profile.sites) {
-      console.log('profile.sites', profile.sites)
       iconElements.push(
         <ProfileIconView key={site.name} profileSite={site} />
       );

@@ -48,9 +48,9 @@ export default (props: Props) => {
     )
   }
 
-  if (props.cv?.skill_groups) {
+  if (props.cv?.skills) {
     sectionElements.push(
-      <SkillSection key="skills" skillGroups={props.cv.skill_groups} />
+      <SkillSection key="skills" skills={props.cv.skills} />
     );
   }
 

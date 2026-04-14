@@ -1,14 +1,14 @@
-import { SkillGroup } from '@/types'
+import { Skill } from '@/types'
 
 type Props = {
-  skillGroup: SkillGroup
+  skill: Skill
 }
 
-const SkillList = ({ skillGroup }: Props) => {
+const SkillList = ({ skill }: Props) => {
   const skillElements: React.ReactElement[] = []
 
-  if (skillGroup.technologies) {
-    skillGroup.technologies.forEach((name: string, index: number) => {
+  if (skill.technologies) {
+    skill.technologies.forEach((name: string, index: number) => {
       skillElements.push(
         <li key={`skill-${index}`}>{name}</li>
       );
@@ -17,7 +17,7 @@ const SkillList = ({ skillGroup }: Props) => {
 
   return (
     <div className="skills-section">
-      <h3>{skillGroup.name}</h3>
+      <h3>{skill.name}</h3>
       <ul>
         {skillElements}
       </ul>

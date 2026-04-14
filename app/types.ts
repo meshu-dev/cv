@@ -4,7 +4,7 @@ export type Auth = {
 
 export type CV = {
   profile: Profile
-  skill_groups: SkillGroup[]
+  skills: Skill[]
   work_experiences: WorkExperience[]
   pdf: string | null
 }
@@ -22,7 +22,7 @@ export type ProfileSite = {
   image_url: string
 }
 
-export type SkillGroup = {
+export type Skill = {
   name: string,
   technologies: string[]
 }
