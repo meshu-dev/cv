@@ -19,7 +19,7 @@ export type Profile = {
 export type ProfileSite = {
   name: string
   url: string
-  image_url: string
+  icon: string
 }
 
 export type Skill = {

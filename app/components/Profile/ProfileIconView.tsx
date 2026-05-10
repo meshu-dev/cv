@@ -1,3 +1,4 @@
+import { Icon } from '@iconify-icon/react'
 import { ProfileSite } from '@/types'
 
 type Props = {
@@ -7,7 +8,7 @@ type Props = {
 const ProfileIconView = ({ profileSite }: Props) => {
   return (
     <a href={profileSite.url} target="_blank" title={profileSite.name}>
-      <img src={profileSite.image_url} />
+      <Icon icon={profileSite.icon}  width="25" height="25" />
     </a>
   )
 }

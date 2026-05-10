@@ -130,15 +130,15 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
           <ModalBody>
             <Stack spacing='1rem'>
               <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
-                <Input placeholder="Name" value={name} onChange={updateName} />
+                <Input placeholder="Name" value={name} onChange={ updateName } />
                 <FormErrorMessage>Name is required.</FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={isSubmitClicked && hasEmailFieldError}>
-                <Input type="email" value={email} placeholder="Email address" onChange={updateEmail} />
+                <Input type="email" value={email} placeholder="Email address" onChange={ updateEmail } />
                 <FormErrorMessage>Email is required.</FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={isSubmitClicked && hasMessageFieldError}>
-                <Textarea placeholder="Message" onChange={updateMessage} />
+                <Textarea placeholder="Message" onChange={ updateMessage } />
                 <FormErrorMessage>Message is required.</FormErrorMessage>
               </FormControl>
             </Stack>
