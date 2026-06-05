@@ -2,7 +2,7 @@ A digital version of my CV.
 
 ## Setup
 
-This is a frontend app that requires use of the [Portfolio](https://github.com/meshu-dev/portfolio) app.
+This is a frontend app that requires use of the [Portfolio Admin](https://github.com/meshu-dev/portfolio-admin) app.
 
 Download the Porfolio app and then follow the setup guide to get it up and running.
 
