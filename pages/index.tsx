@@ -25,12 +25,8 @@ export async function getStaticProps() {
       cv = await PortfolioApiService.getData(auth.token)
     }
   } catch (e) {
-    // Exception
-    console.log('ERROR!')
-    console.error(e)
+    console.error('Failed to fetch CV data:', e)
   }
-
-  console.log('DATA!', cv)
 
   return {
     props: {
@@ -39,7 +35,7 @@ export async function getStaticProps() {
   }
 }
 
-export default (props: Props) => {
+export default function HomePage(props: Props) {
   const sectionElements: React.ReactElement[] = []
 
   if (props.cv?.profile) {
@@ -68,5 +64,5 @@ export default (props: Props) => {
       </main>
     </>
   );
-};
+}
 

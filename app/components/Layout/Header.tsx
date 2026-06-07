@@ -24,7 +24,7 @@ const Header = ({ pdfUrl }: Props) => {
     <>
       <header>
         <div id="header-wrapper">
-          <div id="header-logo">Mesh's CV</div>
+          <div id="header-logo">Mesh&apos;s CV</div>
           <div id="header-links">
             {pdfUrl ? <a href={pdfUrl} target="_blank" className="header-link">Download</a> : null}
             <span className="header-link" onClick={onOpen}>Contact</span>
