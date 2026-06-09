@@ -10,16 +10,6 @@ const ProfileSection = ({ profile }: Props) => {
     return null
   }
 
-  const iconElements: React.ReactElement[] = []
-
-  if (profile.sites) {
-    for (const site of profile.sites) {
-      iconElements.push(
-        <ProfileIconView key={site.name} profileSite={site} />
-      );
-    }
-  }
-
   return (
     <section id="profile">
       <div id="profile-info">
@@ -27,7 +17,9 @@ const ProfileSection = ({ profile }: Props) => {
         <p>{profile.intro}</p>
         <p><span>Location:&nbsp;</span>{profile.location}</p>
         <div id="profile-links">
-          {iconElements}
+          {profile.sites?.map((site) => (
+            <ProfileIconView key={site.name} profileSite={site} />
+          ))}
         </div>
       </div>
     </section>

@@ -1,23 +1,13 @@
 import { WorkExperience } from '@/types'
-import dayjs from 'dayjs';
-
-dayjs().format()
+import dayjs from 'dayjs'
 
 type Props = {
   workExperience: WorkExperience
-};
+}
 
 const WorkExperienceEntry = ({ workExperience }: Props) => {
-  const taskElements: React.ReactElement[] = []
-
-  if (workExperience.responsibilities) {
-    workExperience.responsibilities.forEach((responsibility, taskIndex) => {
-      taskElements.push(<li key={`task-${taskIndex}`}>{responsibility}</li>)
-    })
-  }
-
   return (
-    <div id="workexp-entry-tucasi" className="workexp-entry">
+    <div className="workexp-entry">
       <div className="workexp-entry-header">
         <h3 className="workexp-entry-title">{workExperience.title}</h3>
         <div className="workexp-entry-datelocation">
@@ -32,7 +22,9 @@ const WorkExperienceEntry = ({ workExperience }: Props) => {
       <div className="workexp-entry-info">{workExperience.description}</div>
       <div className="workexp-entry-tasks">
         <ul>
-          {taskElements}
+          {workExperience.responsibilities?.map((responsibility) => (
+            <li key={responsibility}>{responsibility}</li>
+          ))}
         </ul>
       </div>
     </div>

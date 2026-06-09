@@ -5,10 +5,35 @@
 }
 
 body {
-  font: 400 14px/1.6 "Open Sans", sans-serif;
   font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
   color: rgb(3, 6, 11);
   margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+  padding: 8px 16px;
+  background-color: var(--theme-colour);
+  color: #FFF;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  border-radius: 4px;
 }
 
 a {
@@ -49,6 +74,13 @@ header {
   color: #FFF;
   padding: 5px;
   margin: 0 5px;
+}
+
+button.header-link {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
 }
 
 .header-link:hover {
@@ -118,14 +150,6 @@ h3 {
 
 #profile span {
   font-weight: bold;
-}
-
-#profile-pic-wrapper {
-  flex: 1;
-}
-
-#profile-pic {
-  width: 200px;
 }
 
 #profile-info {
@@ -232,14 +256,19 @@ section p {
   margin-bottom: 10px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media only screen and (max-width: 800px) {
   #profile {
     flex-direction: column;
-  }
-
-  #profile-pic-wrapper {
-    display: flex;
-    justify-content: center;
   }
 
   #profile-info {

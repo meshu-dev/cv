@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect, ChangeEvent } from "react"
 import {
   Modal,
   ModalOverlay,
@@ -8,6 +8,7 @@ import {
   ModalBody,
   ModalCloseButton,
   FormControl,
+  FormLabel,
   FormErrorMessage,
   Stack,
   Input,
@@ -15,14 +16,13 @@ import {
   Button,
   useToast
 } from "@chakra-ui/react"
-import { useCallback } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import PortfolioApiService from "@/services/portfolioApi.service"
 import { ToastStatus } from "@/types"
 
 type Props = {
   isOpen: boolean
-  onClose: any
+  onClose: () => void
 }
 
 const ContactForm = ({ isOpen, onClose }: Props) => {
@@ -33,14 +33,11 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  const updateName = (e: any) => setName(e.target.value)
-  const updateEmail = (e: any) => setEmail(e.target.value)
-  const updateMessage = (e: any) => setMessage(e.target.value)
-
   const [isSubmitClicked, setIsSubmittedClicked] = useState(false)
   const [hasNameFieldError, setHasNameFieldError] = useState(false)
   const [hasEmailFieldError, setHasEmailFieldError] = useState(false)
   const [hasMessageFieldError, setHasMessageFieldError] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const closeForm = () => {
     onClose()
@@ -48,112 +45,134 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
     setName('')
     setEmail('')
     setMessage('')
+    setToken('')
 
     setIsSubmittedClicked(false)
-
     setHasNameFieldError(false)
     setHasEmailFieldError(false)
     setHasMessageFieldError(false)
-  }
-
-  const onSubmit = async () => {
-    setIsSubmittedClicked(true)
-
-    setHasNameFieldError(name === '')
-    setHasEmailFieldError(email === '')
-    setHasMessageFieldError(message === '')
-
-    if (
-      !hasNameFieldError &&
-      !hasEmailFieldError &&
-      !hasMessageFieldError
-    ) {
-      if (token) {
-        let toastMessage: string = 'Error occurred, please try again later'
-        let toastStatus: ToastStatus = 'error'
-
-        try {
-          const response = await PortfolioApiService.sendMessage(token, name, email, message)
-
-          if (response['success']) {
-            toastMessage = 'Message sent! You will receive a reply shortly'
-            toastStatus = 'success'
-
-            closeForm()
-          }
-
-          if (response['message']) {
-            toastMessage = response['message']
-          }
-        } catch (e) {
-          toastMessage = (e as Error).message
-        }
-
-        toast({
-          description: toastMessage,
-          status: toastStatus,
-          position: 'top',
-          duration: 9000
-        })
-      }
-    }
+    setIsSubmitting(false)
   }
 
   const { executeRecaptcha } = useGoogleReCaptcha()
 
-  // Create an event handler so you can call the verification on button click event or form submit
-  const handleReCaptchaVerify = useCallback(async (token: string) => {
-    if (!token) {
-      if (!executeRecaptcha) {
-        console.warn('Execute recaptcha not yet available')
-        return
-      }
+  useEffect(() => {
+    if (!isOpen || token) return
+    if (!executeRecaptcha) return
 
-      if (executeRecaptcha) {
-        const token = await executeRecaptcha('contact')
-        setToken(token)
+    executeRecaptcha('contact')
+      .then(setToken)
+      .catch(() => {
+        console.warn('reCAPTCHA verification failed')
+      })
+  }, [isOpen, token, executeRecaptcha])
+
+  const onSubmit = async () => {
+    setIsSubmittedClicked(true)
+
+    const nameError = name.trim() === ''
+    const emailError = email.trim() === ''
+    const messageError = message.trim() === ''
+
+    setHasNameFieldError(nameError)
+    setHasEmailFieldError(emailError)
+    setHasMessageFieldError(messageError)
+
+    if (nameError || emailError || messageError) return
+    if (!token) return
+
+    setIsSubmitting(true)
+
+    let toastMessage: string = 'Error occurred, please try again later'
+    let toastStatus: ToastStatus = 'error'
+
+    try {
+      const response = await PortfolioApiService.sendMessage(token, name, email, message)
+
+      if (response.success) {
+        toastMessage = 'Message sent! You will receive a reply shortly'
+        toastStatus = 'success'
+        closeForm()
+      } else if (response.message) {
+        toastMessage = response.message
       }
+    } catch (e) {
+      toastMessage = (e as Error).message
+    } finally {
+      setIsSubmitting(false)
     }
-  }, [executeRecaptcha])
 
-  if (isOpen) {
-    handleReCaptchaVerify(token)
+    toast({
+      description: toastMessage,
+      status: toastStatus,
+      position: 'top',
+      duration: 9000
+    })
   }
 
   return (
-    <>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Send me a message</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Stack spacing='1rem'>
-              <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
-                <Input placeholder="Name" value={name} onChange={ updateName } />
-                <FormErrorMessage>Name is required.</FormErrorMessage>
-              </FormControl>
-              <FormControl isInvalid={isSubmitClicked && hasEmailFieldError}>
-                <Input type="email" value={email} placeholder="Email address" onChange={ updateEmail } />
-                <FormErrorMessage>Email is required.</FormErrorMessage>
-              </FormControl>
-              <FormControl isInvalid={isSubmitClicked && hasMessageFieldError}>
-                <Textarea placeholder="Message" onChange={ updateMessage } />
-                <FormErrorMessage>Message is required.</FormErrorMessage>
-              </FormControl>
-            </Stack>
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme='blue' ml={3} onClick={onSubmit}>
-              Submit
-            </Button>
-            <Button onClick={onClose}>
-              Close
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
+    <Modal isOpen={isOpen} onClose={closeForm}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Send me a message</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <Stack spacing='1rem'>
+            <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
+              <FormLabel htmlFor="contact-name">Name</FormLabel>
+              <Input
+                id="contact-name"
+                name="name"
+                autoComplete="name"
+                placeholder="Name…"
+                value={name}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+              />
+              <FormErrorMessage>Name is required.</FormErrorMessage>
+            </FormControl>
+            <FormControl isInvalid={isSubmitClicked && hasEmailFieldError}>
+              <FormLabel htmlFor="contact-email">Email</FormLabel>
+              <Input
+                id="contact-email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                spellCheck={false}
+                placeholder="Email address…"
+                value={email}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+              />
+              <FormErrorMessage>Email is required.</FormErrorMessage>
+            </FormControl>
+            <FormControl isInvalid={isSubmitClicked && hasMessageFieldError}>
+              <FormLabel htmlFor="contact-message">Message</FormLabel>
+              <Textarea
+                id="contact-message"
+                name="message"
+                placeholder="Message…"
+                value={message}
+                onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
+              />
+              <FormErrorMessage>Message is required.</FormErrorMessage>
+            </FormControl>
+          </Stack>
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            colorScheme='blue'
+            ml={3}
+            onClick={onSubmit}
+            isLoading={isSubmitting}
+            loadingText="Sending…"
+          >
+            Submit
+          </Button>
+          <Button onClick={closeForm} isDisabled={isSubmitting}>
+            Close
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   )
 }
 

@@ -5,26 +5,21 @@ type Props = {
   skills: Skill[]
 }
 
-const Skill = ({ skills }: Props) => {
-  if (skills) {
-    const skillGroupElements: React.ReactElement[] = []
-
-    for (let skill of skills) {
-      skillGroupElements.push(
-        <SkillList key={skill.name} skill={skill} />
-      )
-    }
-
-    return (
-      <section id="skills">
-        <h2>Skills</h2>
-        <div id="skills-sections">
-          {skillGroupElements}
-        </div>
-      </section>
-    )
+const SkillSection = ({ skills }: Props) => {
+  if (!skills) {
+    return null
   }
-  return null
+
+  return (
+    <section id="skills">
+      <h2>Skills</h2>
+      <div id="skills-sections">
+        {skills.map((skill) => (
+          <SkillList key={skill.name} skill={skill} />
+        ))}
+      </div>
+    </section>
+  )
 }
 
-export default Skill
+export default SkillSection

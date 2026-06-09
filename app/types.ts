@@ -36,6 +36,13 @@ export type WorkExperience = {
   responsibilities: string[]
 }
 
-export type ApiResponse = Response & { data: any }
+export type ApiResponse<T = unknown> = {
+  data: T
+}
+
+export type ContactResponse = {
+  success?: boolean
+  message?: string
+}
 
 export type ToastStatus = "success" | "error" | "warning" | "info" | "loading"

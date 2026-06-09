@@ -1,5 +1,5 @@
 import ApiService from '@/services/api.service'
-import { ApiResponse, Auth, CV } from '@/types';
+import { ApiResponse, Auth, ContactResponse, CV } from '@/types';
 
 const apiUrl: string = process.env.NEXT_PUBLIC_PORTFOLIO_API_URL as string
 
@@ -17,8 +17,8 @@ const login = async (email: string, password: string): Promise<Auth | null> => {
   }
   const loginUrl = `${apiUrl}/auth/login`
 
-  const response = await ApiService.sendRequest<ApiResponse>(loginUrl, requestInit)
-  return response.data as Auth ?? null
+  const response = await ApiService.sendRequest<ApiResponse<Auth>>(loginUrl, requestInit)
+  return response.data ?? null
 }
 
 const getData = async (token: string): Promise<CV | null> => {
@@ -32,8 +32,8 @@ const getData = async (token: string): Promise<CV | null> => {
   }
   const cvUrl = `${apiUrl}/cv`
 
-  const response = await ApiService.sendRequest<ApiResponse>(cvUrl, requestInit)
-  return response.data as CV ?? null
+  const response = await ApiService.sendRequest<ApiResponse<CV>>(cvUrl, requestInit)
+  return response.data ?? null
 }
 
 const sendMessage = async (
@@ -41,7 +41,7 @@ const sendMessage = async (
   name: string,
   email: string,
   message: string
-): Promise<any> => {
+): Promise<ContactResponse> => {
   const requestInit: RequestInit = {
     method: "POST",
     headers: {
@@ -51,7 +51,7 @@ const sendMessage = async (
     body: JSON.stringify({ token, name, email, message })
   }
   const contactUrl = `${apiUrl}/contact`
-  return await ApiService.sendRequest<any>(contactUrl, requestInit)
+  return await ApiService.sendRequest<ContactResponse>(contactUrl, requestInit)
 }
 
 const PortfolioApiService = {
