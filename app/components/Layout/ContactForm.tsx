@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from "react"
+import { useState, useEffect, ChangeEvent } from 'react'
 import {
   Modal,
   ModalOverlay,
@@ -14,11 +14,11 @@ import {
   Input,
   Textarea,
   Button,
-  useToast
-} from "@chakra-ui/react"
+  useToast,
+} from '@chakra-ui/react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
-import PortfolioApiService from "@/services/portfolioApi.service"
-import { ToastStatus } from "@/types"
+import PortfolioApiService from '@/services/portfolioApi.service'
+import { ToastStatus } from '@/types'
 
 type Props = {
   isOpen: boolean
@@ -106,7 +106,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
       description: toastMessage,
       status: toastStatus,
       position: 'top',
-      duration: 9000
+      duration: 9000,
     })
   }
 
@@ -117,7 +117,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
         <ModalHeader>Send me a message</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Stack spacing='1rem'>
+          <Stack spacing="1rem">
             <FormControl isInvalid={isSubmitClicked && hasNameFieldError}>
               <FormLabel htmlFor="contact-name">Name</FormLabel>
               <Input
@@ -159,7 +159,7 @@ const ContactForm = ({ isOpen, onClose }: Props) => {
         </ModalBody>
         <ModalFooter>
           <Button
-            colorScheme='blue'
+            colorScheme="blue"
             ml={3}
             onClick={onSubmit}
             isLoading={isSubmitting}

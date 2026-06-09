@@ -1,7 +1,7 @@
 :root {
   --page-width: 700px;
-  --border-style: 1px solid #CCC;
-  --theme-colour: #211E2F;
+  --border-style: 1px solid #ccc;
+  --theme-colour: #211e2f;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
   z-index: 100;
   padding: 8px 16px;
   background-color: var(--theme-colour);
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
 }
 
@@ -50,7 +50,7 @@ p {
 
 header {
   background-color: var(--theme-colour);
-  color: #FFF;
+  color: #fff;
   min-height: 50px;
 }
 
@@ -71,7 +71,7 @@ header {
 }
 
 .header-link {
-  color: #FFF;
+  color: #fff;
   padding: 5px;
   margin: 0 5px;
 }
@@ -84,7 +84,7 @@ button.header-link {
 }
 
 .header-link:hover {
-  background-color: #E5E7EB;
+  background-color: #e5e7eb;
   color: #000;
   border-radius: 5px;
   cursor: pointer;
@@ -129,7 +129,7 @@ h3 {
 
 .chakra-modal__close-btn {
   margin-top: 6px;
-  color: #FFF;
+  color: #fff;
 }
 
 .chakra-modal__footer {
@@ -226,14 +226,14 @@ section p {
 }
 
 .workexp-entry-location::after {
-  content: " |";
+  content: ' |';
 }
 
 .workexp-entry-datelocation {
   padding: 5px 10px;
   border-radius: 4px;
-  background-color: #A1A1A1;
-  color: #FFF;
+  background-color: #a1a1a1;
+  color: #fff;
   font-weight: bold;
   height: 35px;
   min-width: auto;
@@ -290,7 +290,7 @@ section p {
   }
 
   .workexp-entry-location::after {
-    content: "";
+    content: '';
   }
 
   .workexp-entry-tasks {

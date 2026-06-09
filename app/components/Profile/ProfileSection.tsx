@@ -15,7 +15,10 @@ const ProfileSection = ({ profile }: Props) => {
       <div id="profile-info">
         <h1>{profile.fullname}</h1>
         <p>{profile.intro}</p>
-        <p><span>Location:&nbsp;</span>{profile.location}</p>
+        <p>
+          <span>Location:&nbsp;</span>
+          {profile.location}
+        </p>
         <div id="profile-links">
           {profile.sites?.map((site) => (
             <ProfileIconView key={site.name} profileSite={site} />

@@ -23,7 +23,7 @@ export type ProfileSite = {
 }
 
 export type Skill = {
-  name: string,
+  name: string
   technologies: string[]
 }
 
@@ -45,4 +45,4 @@ export type ContactResponse = {
   message?: string
 }
 
-export type ToastStatus = "success" | "error" | "warning" | "info" | "loading"
+export type ToastStatus = 'success' | 'error' | 'warning' | 'info' | 'loading'
