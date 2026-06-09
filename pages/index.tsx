@@ -1,5 +1,5 @@
 
-
+import Head from 'next/head'
 import Header from '@/components/Layout/Header'
 import ProfileSection from '@/components/Profile/ProfileSection'
 import SkillSection from '@/components/Skill/SkillSection'
@@ -35,34 +35,36 @@ export async function getStaticProps() {
   }
 }
 
-export default function HomePage(props: Props) {
-  const sectionElements: React.ReactElement[] = []
-
-  if (props.cv?.profile) {
-    sectionElements.push(
-      <ProfileSection key="profile" profile={props.cv.profile} />
-    )
-  }
-
-  if (props.cv?.skills) {
-    sectionElements.push(
-      <SkillSection key="skills" skills={props.cv.skills} />
-    );
-  }
-
-  if (props.cv?.work_experiences) {
-    sectionElements.push(
-      <WorkExperienceSection key="workExperience" workExperiences={props.cv.work_experiences} />
-    );
-  }
+export default function HomePage({ cv }: Props) {
+  const pageTitle = cv?.profile?.fullname ? `${cv.profile.fullname} — CV` : 'CV'
+  const pageDescription = cv?.profile?.intro || 'Professional CV'
 
   return (
     <>
-      <Header pdfUrl={props.cv?.pdf || null} />
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        {cv?.profile?.fullname && (
+          <meta property="og:title" content={pageTitle} />
+        )}
+        {cv?.profile?.intro && (
+          <meta property="og:description" content={cv.profile.intro} />
+        )}
+      </Head>
+      <Header pdfUrl={cv?.pdf || null} />
       <main id="body-wrapper">
-        {sectionElements}
+        {!cv ? (
+          <p>CV content is currently unavailable. Please try again later.</p>
+        ) : (
+          <>
+            {cv.profile && <ProfileSection profile={cv.profile} />}
+            {cv.skills && <SkillSection skills={cv.skills} />}
+            {cv.work_experiences && (
+              <WorkExperienceSection workExperiences={cv.work_experiences} />
+            )}
+          </>
+        )}
       </main>
     </>
-  );
+  )
 }
-

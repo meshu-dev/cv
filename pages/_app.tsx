@@ -7,8 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <div className={inter.className}>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </div>
   )
 }

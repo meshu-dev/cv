@@ -7,8 +7,14 @@ type Props = {
 
 const ProfileIconView = ({ profileSite }: Props) => {
   return (
-    <a href={profileSite.url} target="_blank" title={profileSite.name}>
-      <Icon icon={profileSite.icon}  width="25" height="25" />
+    <a
+      href={profileSite.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={profileSite.name}
+      aria-label={profileSite.name}
+    >
+      <Icon icon={profileSite.icon} width="25" height="25" aria-hidden="true" />
     </a>
   )
 }
