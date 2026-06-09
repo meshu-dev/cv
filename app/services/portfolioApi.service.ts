@@ -1,19 +1,19 @@
 import ApiService from '@/services/api.service'
-import { ApiResponse, Auth, ContactResponse, CV } from '@/types';
+import { ApiResponse, Auth, ContactResponse, CV } from '@/types'
 
 const apiUrl: string = process.env.NEXT_PUBLIC_PORTFOLIO_API_URL as string
 
 const login = async (email: string, password: string): Promise<Auth | null> => {
   const requestInit: RequestInit = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify({
-      "email": email,
-      "password": password,
-    })
+      email: email,
+      password: password,
+    }),
   }
   const loginUrl = `${apiUrl}/auth/login`
 
@@ -23,12 +23,12 @@ const login = async (email: string, password: string): Promise<Auth | null> => {
 
 const getData = async (token: string): Promise<CV | null> => {
   const requestInit: RequestInit = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-      "Authorization": `Bearer ${token}`, 
-    }
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
   }
   const cvUrl = `${apiUrl}/cv`
 
@@ -43,12 +43,12 @@ const sendMessage = async (
   message: string
 ): Promise<ContactResponse> => {
   const requestInit: RequestInit = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
-    body: JSON.stringify({ token, name, email, message })
+    body: JSON.stringify({ token, name, email, message }),
   }
   const contactUrl = `${apiUrl}/contact`
   return await ApiService.sendRequest<ContactResponse>(contactUrl, requestInit)
@@ -57,7 +57,7 @@ const sendMessage = async (
 const PortfolioApiService = {
   login,
   getData,
-  sendMessage
+  sendMessage,
 }
 
 export default PortfolioApiService

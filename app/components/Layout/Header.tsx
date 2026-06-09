@@ -14,7 +14,9 @@ const Header = ({ pdfUrl }: Props) => {
 
   return (
     <>
-      <a href="#body-wrapper" className="skip-link">Skip to content</a>
+      <a href="#body-wrapper" className="skip-link">
+        Skip to content
+      </a>
       <header>
         <div id="header-wrapper">
           <div id="header-logo">Mesh&apos;s CV</div>

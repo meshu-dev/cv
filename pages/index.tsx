@@ -1,4 +1,3 @@
-
 import Head from 'next/head'
 import Header from '@/components/Layout/Header'
 import ProfileSection from '@/components/Profile/ProfileSection'
@@ -30,8 +29,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      cv
-    }
+      cv,
+    },
   }
 }
 
@@ -44,12 +43,8 @@ export default function HomePage({ cv }: Props) {
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        {cv?.profile?.fullname && (
-          <meta property="og:title" content={pageTitle} />
-        )}
-        {cv?.profile?.intro && (
-          <meta property="og:description" content={cv.profile.intro} />
-        )}
+        {cv?.profile?.fullname && <meta property="og:title" content={pageTitle} />}
+        {cv?.profile?.intro && <meta property="og:description" content={cv.profile.intro} />}
       </Head>
       <Header pdfUrl={cv?.pdf || null} />
       <main id="body-wrapper">
@@ -59,9 +54,7 @@ export default function HomePage({ cv }: Props) {
           <>
             {cv.profile && <ProfileSection profile={cv.profile} />}
             {cv.skills && <SkillSection skills={cv.skills} />}
-            {cv.work_experiences && (
-              <WorkExperienceSection workExperiences={cv.work_experiences} />
-            )}
+            {cv.work_experiences && <WorkExperienceSection workExperiences={cv.work_experiences} />}
           </>
         )}
       </main>
