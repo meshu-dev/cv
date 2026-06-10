@@ -5,7 +5,7 @@ const eslintConfig = [
   ...nextCoreWebVitals,
   eslintConfigPrettier,
   {
-    ignores: ['.next/**', 'out/**', 'node_modules/**'],
+    ignores: ['.next/**', 'out/**', 'node_modules/**', 'coverage/**'],
   },
 ]
 
