@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run lint
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run format:check
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [lint, format]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run build
+        env:
+          PORTFOLIO_API_EMAIL: ${{ secrets.PORTFOLIO_API_EMAIL }}
+          PORTFOLIO_API_PASSWORD: ${{ secrets.PORTFOLIO_API_PASSWORD }}
+          NEXT_PUBLIC_PORTFOLIO_API_URL: ${{ secrets.NEXT_PUBLIC_PORTFOLIO_API_URL }}
+          NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY }}
