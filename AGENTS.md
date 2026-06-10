@@ -9,6 +9,9 @@ npm run build        # next build (static export to out/)
 npm run lint         # eslint . (flat config)
 npm run format       # prettier --write .
 npm run format:check # prettier --check .
+npm run test         # vitest run
+npm run test:watch   # vitest
+npm run test:coverage # vitest run --coverage
 ```
 
 ## Architecture
@@ -24,7 +27,7 @@ npm run format:check # prettier --check .
 
 ## Conventions
 
-- **No tests** exist in the repo.
+- **Vitest** + React Testing Library; config in `vitest.config.ts`, setup in `vitest.setup.ts`.
 - **Prettier** config in `.prettierrc.json`; run `npm run format` to apply.
 - **ESLint** uses `eslint-config-next/core-web-vitals` (flat config in `eslint.config.mjs`). Ignores `.next/`, `out/`, `node_modules/`.
 - **`next-env.d.ts`** is auto-generated — do not edit manually.
