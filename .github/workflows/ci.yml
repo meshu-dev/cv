@@ -37,7 +37,7 @@ jobs:
       - run: npm run lint
 
   format:
-    name: Run Prettier format check
+    name: Run Prettier check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
