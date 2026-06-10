@@ -9,7 +9,7 @@ const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testEnvironment: 'jest-environment-jsdom',
   collectCoverageFrom: ['app/**/*.tsx', 'pages/**/*.tsx', '!**/*.test.tsx', '!**/*.d.ts'],
-  coverageReporters: ['text', 'text-summary'],
+  coverageReporters: ['text', 'text-summary', 'lcov', 'json-summary'],
   coverageThreshold: {
     global: {
       lines: 80,
