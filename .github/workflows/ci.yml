@@ -51,7 +51,7 @@ jobs:
       - run: npm run format:check
 
   test:
-    name: Run tests
+    name: Run Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
