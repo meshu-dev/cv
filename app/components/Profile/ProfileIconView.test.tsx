@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import ProfileIconView from '@/components/Profile/ProfileIconView'
 
-describe('ProfileIconView', () => {
+describe('ProfileIconView tests', () => {
   it('renders profile icon', () => {
     render(
       <ProfileIconView
