@@ -14,7 +14,12 @@ const ProfileIconView = ({ profileSite }: Props) => {
       title={profileSite.name}
       aria-label={profileSite.name}
     >
-      <Icon icon={profileSite.icon} width="25" height="25" aria-hidden="true" />
+      <Icon
+        data-testid="profile-icon"
+        icon={profileSite.icon}
+        width="25"
+        height="25"
+        aria-hidden="true" />
     </a>
   )
 }
