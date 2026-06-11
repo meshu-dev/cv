@@ -3,6 +3,7 @@ _site
 .next
 out
 .env
+.env.test
 .vercel
 .DS_Store
 .agents

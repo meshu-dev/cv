@@ -6,10 +6,6 @@ type Props = {
 }
 
 const ProfileSection = ({ profile }: Props) => {
-  if (!profile) {
-    return null
-  }
-
   return (
     <section id="profile">
       <div id="profile-info">

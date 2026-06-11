@@ -22,8 +22,13 @@ const Header = ({ pdfUrl }: Props) => {
           <div id="header-logo">Mesh&apos;s CV</div>
           <div id="header-links">
             {pdfUrl ? (
-              <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="header-link">
-                Download
+              <a
+                href={pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-link"
+                data-testid="pdf-link">
+                  Download
               </a>
             ) : null}
             {googleKey ? (

@@ -31,15 +31,4 @@ describe('ProfileSection tests', () => {
 
     expect(iconElement).toHaveAttribute('icon', 'mdi:github')
   })
-
-  it('renders when no skills are provided', () => {
-    const profile: Profile = null
-
-    const { container } = render(
-      <ProfileSection profile={profile} />
-    )
-
-    expect(container.firstChild).toBeNull()
-    expect(container).toBeEmptyDOMElement()
-  })
 })

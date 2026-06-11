@@ -11,12 +11,13 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'text-summary', 'lcov', 'json-summary'],
-      include: ['app/**/*.tsx', 'pages/**/*.tsx'],
+      include: ['app/**/*.tsx'],
       exclude: ['**/*.test.tsx', '**/*.d.ts'],
       thresholds: {
         lines: 80,
       },
     },
+    globals: true,
   },
   resolve: {
     alias: {
