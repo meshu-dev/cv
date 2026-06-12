@@ -12,9 +12,7 @@ describe('Header tests', () => {
 
     vi.stubEnv('NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY', 'test-recaptcha-key')
 
-    render(
-      <Header pdfUrl={pdfUrl} />
-    )
+    render(<Header pdfUrl={pdfUrl} />)
 
     const pdfButton = screen.getByTestId('pdf-link')
     const contactButton = screen.getByTestId('contact-button')
@@ -24,9 +22,7 @@ describe('Header tests', () => {
   })
 
   it('renders header with no buttons', () => {
-    render(
-      <Header pdfUrl={null} />
-    )
+    render(<Header pdfUrl={null} />)
 
     const pdfButton = screen.queryByTestId('pdf-link')
     const contactButton = screen.queryByTestId('contact-button')

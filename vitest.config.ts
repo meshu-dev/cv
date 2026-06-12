@@ -18,7 +18,7 @@ export default defineConfig({
       },
     },
     /**
-     * Use 'globals: true' to unmount components after each test to 
+     * Use 'globals: true' to unmount components after each test to
      * ensure that tests are isolated from each other.
      **/
     globals: true,

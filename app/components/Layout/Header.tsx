@@ -26,8 +26,9 @@ const Header = ({ pdfUrl }: Props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="header-link"
-                data-testid="pdf-link">
-                  Download
+                data-testid="pdf-link"
+              >
+                Download
               </a>
             ) : null}
             {googleKey ? (
@@ -35,7 +36,8 @@ const Header = ({ pdfUrl }: Props) => {
                 type="button"
                 className="header-link"
                 onClick={onOpen}
-                data-testid="contact-button">
+                data-testid="contact-button"
+              >
                 Contact
               </button>
             ) : null}

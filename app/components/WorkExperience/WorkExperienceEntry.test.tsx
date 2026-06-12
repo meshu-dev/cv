@@ -21,11 +21,12 @@ describe('WorkExperienceEntry tests', () => {
   })
 
   it('renders work experience', ({ workExperience }: WorkExperienceContext) => {
-    render(
-      <WorkExperienceEntry workExperience={workExperience} />
-    )
+    render(<WorkExperienceEntry workExperience={workExperience} />)
 
-    const jobDate = dayjs(workExperience.start_date).format('MMM YY') + ' - ' + dayjs(workExperience.end_date).format('MMM YY')
+    const jobDate =
+      dayjs(workExperience.start_date).format('MMM YY') +
+      ' - ' +
+      dayjs(workExperience.end_date).format('MMM YY')
 
     expect(screen.getByRole('heading', { name: workExperience.title })).toBeInTheDocument()
     expect(screen.getByText(workExperience.location)).toBeInTheDocument()
@@ -38,9 +39,7 @@ describe('WorkExperienceEntry tests', () => {
   it('renders work experience with no end date', ({ workExperience }: WorkExperienceContext) => {
     workExperience.end_date = ''
 
-    render(
-      <WorkExperienceEntry workExperience={workExperience} />
-    )
+    render(<WorkExperienceEntry workExperience={workExperience} />)
 
     const jobDate = `${dayjs(workExperience.start_date).format('MMM YY')} - Present`
 

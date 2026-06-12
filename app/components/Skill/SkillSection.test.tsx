@@ -7,13 +7,16 @@ describe('SkillSection tests', () => {
   it('renders skills section', () => {
     render(
       <SkillSection
-        skills={[{
-          name: 'Frontend',
-          technologies: ['React', 'TypeScript'],
-        }, {
-          name: 'Backend',
-          technologies: ['Node.js', 'PHP'],
-        }]}
+        skills={[
+          {
+            name: 'Frontend',
+            technologies: ['React', 'TypeScript'],
+          },
+          {
+            name: 'Backend',
+            technologies: ['Node.js', 'PHP'],
+          },
+        ]}
       />
     )
 
@@ -29,9 +32,7 @@ describe('SkillSection tests', () => {
   it('renders when no skills are provided', () => {
     const skills: Skill[] = []
 
-    const { container } = render(
-      <SkillSection skills={skills} />
-    )
+    const { container } = render(<SkillSection skills={skills} />)
 
     expect(container.firstChild).toBeNull()
     expect(container).toBeEmptyDOMElement()

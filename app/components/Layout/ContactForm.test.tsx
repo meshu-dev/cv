@@ -35,11 +35,7 @@ describe('ContactForm tests', () => {
 
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(mockResponse))
 
-    render(
-      <ContactForm
-       isOpen={true}
-       onClose={() => {}} />
-    )
+    render(<ContactForm isOpen={true} onClose={() => {}} />)
 
     const nameInput = screen.getByRole('textbox', { name: /name/i })
     const emailInput = screen.getByRole('textbox', { name: /email/i })
@@ -70,18 +66,14 @@ describe('ContactForm tests', () => {
           token: 'mock-recaptcha-token',
           name: contactFormData.name,
           email: contactFormData.email,
-          message: contactFormData.message
-        })
+          message: contactFormData.message,
+        }),
       })
     )
   })
 
   it('hides form when isOpen is false', () => {
-    const { container } = render(
-      <ContactForm
-        isOpen={false}
-        onClose={() => {}} />
-    )
+    const { container } = render(<ContactForm isOpen={false} onClose={() => {}} />)
 
     expect(container.firstChild).toBeNull()
     expect(container).toBeEmptyDOMElement()

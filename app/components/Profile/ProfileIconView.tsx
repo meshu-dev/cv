@@ -19,7 +19,8 @@ const ProfileIconView = ({ profileSite }: Props) => {
         icon={profileSite.icon}
         width="25"
         height="25"
-        aria-hidden="true" />
+        aria-hidden="true"
+      />
     </a>
   )
 }

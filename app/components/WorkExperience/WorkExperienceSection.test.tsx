@@ -22,15 +22,16 @@ describe('WorkExperienceSection tests', () => {
         end_date: '2021-10-01',
         description: 'Worked on PHP development',
         responsibilities: ['Planned and created new features', 'Fixed bugs'],
-      }
+      },
     ]
 
-    render(
-      <WorkExperienceSection workExperiences={workExperiences} />
-    )
+    render(<WorkExperienceSection workExperiences={workExperiences} />)
 
     for (const workExperience of workExperiences) {
-      const jobDate = dayjs(workExperience.start_date).format('MMM YY') + ' - ' + dayjs(workExperience.end_date).format('MMM YY')
+      const jobDate =
+        dayjs(workExperience.start_date).format('MMM YY') +
+        ' - ' +
+        dayjs(workExperience.end_date).format('MMM YY')
 
       expect(screen.getByRole('heading', { name: workExperience.title })).toBeInTheDocument()
       expect(screen.getByText(workExperience.location)).toBeInTheDocument()
@@ -44,9 +45,7 @@ describe('WorkExperienceSection tests', () => {
   it('renders when no work experiences are provided', () => {
     const workExperiences: WorkExperience[] = []
 
-    const { container } = render(
-      <WorkExperienceSection workExperiences={workExperiences} />
-    )
+    const { container } = render(<WorkExperienceSection workExperiences={workExperiences} />)
 
     expect(container.firstChild).toBeNull()
     expect(container).toBeEmptyDOMElement()

@@ -9,16 +9,16 @@ describe('ProfileSection tests', () => {
       fullname: 'https://github.com',
       intro: 'GitHub',
       location: 'mdi:github',
-      sites: [{
-        url: 'https://github.com',
-        name: 'GitHub',
-        icon: 'mdi:github',
-      }],
+      sites: [
+        {
+          url: 'https://github.com',
+          name: 'GitHub',
+          icon: 'mdi:github',
+        },
+      ],
     }
 
-    render(
-      <ProfileSection profile={profile} />
-    )
+    render(<ProfileSection profile={profile} />)
 
     const linkElement = screen.getByRole('link')
 
