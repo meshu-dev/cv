@@ -6,7 +6,7 @@ type Props = {
 }
 
 const WorkExperienceSection = ({ workExperiences }: Props) => {
-  if (!workExperiences) {
+  if (workExperiences.length === 0) {
     return null
   }
 

@@ -17,6 +17,11 @@ export default defineConfig({
         lines: 80,
       },
     },
+    /**
+     * Use 'globals: true' to unmount components after each test to
+     * ensure that tests are isolated from each other.
+     **/
+    globals: true,
   },
   resolve: {
     alias: {
