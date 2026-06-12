@@ -1,9 +1,8 @@
 import ApiService from '@/services/api.service'
 import { ApiResponse, Auth, ContactResponse, CV } from '@/types'
 
-const apiUrl: string = process.env.NEXT_PUBLIC_PORTFOLIO_API_URL as string
-
 const login = async (email: string, password: string): Promise<Auth | null> => {
+  const apiUrl: string = process.env.NEXT_PUBLIC_PORTFOLIO_API_URL as string
   const requestInit: RequestInit = {
     method: 'POST',
     headers: {
@@ -22,6 +21,7 @@ const login = async (email: string, password: string): Promise<Auth | null> => {
 }
 
 const getData = async (token: string): Promise<CV | null> => {
+  const apiUrl: string = process.env.NEXT_PUBLIC_PORTFOLIO_API_URL as string
   const requestInit: RequestInit = {
     method: 'GET',
     headers: {
@@ -42,6 +42,7 @@ const sendMessage = async (
   email: string,
   message: string
 ): Promise<ContactResponse> => {
+  const apiUrl: string = process.env.NEXT_PUBLIC_PORTFOLIO_API_URL as string
   const requestInit: RequestInit = {
     method: 'POST',
     headers: {

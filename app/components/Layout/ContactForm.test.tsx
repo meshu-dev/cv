@@ -1,8 +1,7 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ContactForm from './ContactForm'
-import { vi } from 'vitest'
 
 describe('ContactForm tests', () => {
   beforeEach(() => {
@@ -18,7 +17,24 @@ describe('ContactForm tests', () => {
     })
   })
 
+  afterEach(() => {
+    vi.resetAllMocks()
+    vi.unstubAllEnvs()
+  })
+
   it('renders form and submits a contact message', async () => {
+    const apiUrl = 'https://example.com'
+
+    vi.stubEnv('NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY', 'test-recaptcha-key')
+    vi.stubEnv('NEXT_PUBLIC_PORTFOLIO_API_URL', apiUrl)
+
+    const mockResponse = {
+      ok: true,
+      json: async () => ({ success: true, message: 'Message sent successfully' }),
+    }
+
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(mockResponse))
+
     render(
       <ContactForm
        isOpen={true}
@@ -30,18 +46,37 @@ describe('ContactForm tests', () => {
     const messageInput = screen.getByRole('textbox', { name: /message/i })
     const submitButton = screen.getByRole('button', { name: /submit/i })
 
-    fireEvent.change(nameInput, { target: { value: 'John Doe' } })
-    fireEvent.change(emailInput, { target: { value: 'john.doe@example.com' } })
-    fireEvent.change(messageInput, { target: { value: 'Hello, this is a test message.' } })
+    const contactFormData = {
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      message: 'Hello, this is a test message.',
+    }
+
+    fireEvent.change(nameInput, { target: { value: contactFormData.name } })
+    fireEvent.change(emailInput, { target: { value: contactFormData.email } })
+    fireEvent.change(messageInput, { target: { value: contactFormData.message } })
 
     await userEvent.click(submitButton)
 
-    //console.log('nameInput:', nameInput)
-    //console.log('emailInput:', emailInput)
-    //console.log('messageInput:', messageInput)
+    expect(globalThis.fetch).toHaveBeenCalledWith(
+      `${apiUrl}/contact`,
+      expect.objectContaining({
+        method: 'POST',
+        headers: expect.objectContaining({
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        }),
+        body: JSON.stringify({
+          token: 'mock-recaptcha-token',
+          name: contactFormData.name,
+          email: contactFormData.email,
+          message: contactFormData.message
+        })
+      })
+    )
   })
 
-  it('renders form when isOpen is false', () => {
+  it('hides form when isOpen is false', () => {
     const { container } = render(
       <ContactForm
         isOpen={false}
