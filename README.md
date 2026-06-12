@@ -1,3 +1,5 @@
+[![Test Build Status](https://github.com/meshu-dev/cv/actions/workflows/ci.yml/badge.svg)](https://github.com/meshu-dev/cv/actions)
+
 A digital version of my CV.
 
 ## Requirements
