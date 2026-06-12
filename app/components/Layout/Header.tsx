@@ -11,7 +11,6 @@ type Props = {
 const Header = ({ pdfUrl }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const googleKey: string = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY || ''
-
   return (
     <>
       <a href="#body-wrapper" className="skip-link">
@@ -22,12 +21,23 @@ const Header = ({ pdfUrl }: Props) => {
           <div id="header-logo">Mesh&apos;s CV</div>
           <div id="header-links">
             {pdfUrl ? (
-              <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="header-link">
+              <a
+                href={pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-link"
+                data-testid="pdf-link"
+              >
                 Download
               </a>
             ) : null}
             {googleKey ? (
-              <button type="button" className="header-link" onClick={onOpen}>
+              <button
+                type="button"
+                className="header-link"
+                onClick={onOpen}
+                data-testid="contact-button"
+              >
                 Contact
               </button>
             ) : null}

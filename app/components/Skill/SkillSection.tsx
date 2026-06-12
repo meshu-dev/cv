@@ -6,7 +6,7 @@ type Props = {
 }
 
 const SkillSection = ({ skills }: Props) => {
-  if (!skills) {
+  if (skills.length === 0) {
     return null
   }
 
