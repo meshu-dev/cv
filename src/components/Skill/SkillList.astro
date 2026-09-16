@@ -1,4 +1,17 @@
 ---
-// Component Script (JavaScript)
+import type { Skill } from '@/types'
+
+interface Props {
+  skill: Skill
+}
+
+const { skill } = Astro.props
 ---
-<!-- Component Template (HTML + JS Expressions) -->
+<div class="skills-section">
+  <h3>{skill.name}</h3>
+  <ul>
+    {skill.technologies?.map((name) => (
+      <li>{name}</li>
+    ))}
+  </ul>
+</div>

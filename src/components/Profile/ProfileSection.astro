@@ -1,4 +1,25 @@
 ---
-// Component Script (JavaScript)
+import ProfileIcon from '@/components/Profile/ProfileIcon.astro'
+import type { Profile } from '@/types'
+
+interface Props {
+  profile: Profile
+}
+
+const { profile } = Astro.props
 ---
-<!-- Component Template (HTML + JS Expressions) -->
+<section id="profile">
+  <div id="profile-info">
+    <h1>{profile.fullname}</h1>
+    <p>{profile.intro}</p>
+    <p>
+      <span>Location:&nbsp;</span>
+      {profile.location}
+    </p>
+    <div id="profile-links">
+      {profile.sites?.map((site) => (
+        <ProfileIcon profileSite={site} />
+      ))}
+    </div>
+  </div>
+</section>

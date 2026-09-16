@@ -12,7 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.2"
+    "astro": "^7.3.2",
+    "dayjs": "^1.11.23"
   },
   "allowScripts": {
     "esbuild": true

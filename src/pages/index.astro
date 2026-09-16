@@ -1,7 +1,10 @@
 ---
 import Header from '@/components/Layout/Header.astro'
+import ProfileSection from '@/components/Profile/ProfileSection.astro'
+import SkillSection from '@/components/Skill/SkillSection.astro'
+import WorkExperienceSection from '@/components/WorkExperience/WorkExperienceSection.astro'
 import PortfolioApiService from '@/services/portfolioApi.service'
-import { Auth, CV } from '@/types'
+import type { Auth, CV } from '@/types'
 
 type Props = {
   cv: CV | null
@@ -14,9 +17,7 @@ let auth: Auth | null = null
 let cv: CV | null = null
 
 try {
-	auth = await PortfolioApiService.login(userEmail, userPassword)
-
-  
+	auth = await PortfolioApiService.login(userEmail, userPassword)  
 
 	if (auth?.token) {
 		cv = await PortfolioApiService.getData(auth.token)
@@ -45,10 +46,9 @@ try {
 			<p>CV content is currently unavailable. Please try again later.</p>
 			) : (
 			<>
-				<div>CV DATA!!!</div>
-				{ /*cv.profile && <ProfileSection profile={cv.profile} />}
+				{ cv.profile && <ProfileSection profile={cv.profile} />}
 				{cv.skills && <SkillSection skills={cv.skills} />}
-				{cv.work_experiences && <WorkExperienceSection workExperiences={cv.work_experiences} /> */ } 
+				{cv.work_experiences && <WorkExperienceSection workExperiences={cv.work_experiences} /> } 
 			</>
 			)}
 		</main>

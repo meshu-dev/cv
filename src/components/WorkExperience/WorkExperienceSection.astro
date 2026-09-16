@@ -1,4 +1,20 @@
 ---
-// Component Script (JavaScript)
+import WorkExperienceEntry from '@/components/WorkExperience/WorkExperienceEntry.astro'
+import type { WorkExperience } from '@/types'
+
+interface Props {
+  workExperiences: WorkExperience[]
+}
+
+const { workExperiences } = Astro.props
 ---
-<!-- Component Template (HTML + JS Expressions) -->
+{
+  workExperiences.length > 0 ? (
+    <section id="workexp">
+      <h2>Work Experience</h2>
+      {workExperiences.map((workExperience) => (
+        <WorkExperienceEntry workExperience={workExperience} />
+      ))}
+    </section>
+  ) : null
+}

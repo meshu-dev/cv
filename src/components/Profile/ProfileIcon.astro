@@ -1,4 +1,18 @@
 ---
-// Component Script (JavaScript)
+import type { ProfileSite } from '@/types'
+
+interface Props {
+  profileSite: ProfileSite
+}
+
+const { profileSite } = Astro.props
 ---
-<!-- Component Template (HTML + JS Expressions) -->
+<a
+    href={profileSite.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    title={profileSite.name}
+    aria-label={profileSite.name}
+>
+  <span>{profileSite.icon}</span>
+</a>

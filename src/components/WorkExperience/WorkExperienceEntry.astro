@@ -1,4 +1,31 @@
 ---
-// Component Script (JavaScript)
+import type { WorkExperience } from '@/types'
+import dayjs from 'dayjs'
+
+interface Props {
+  workExperience: WorkExperience
+}
+
+const { workExperience } = Astro.props
 ---
-<!-- Component Template (HTML + JS Expressions) -->
+<div class="workexp-entry">
+  <div class="workexp-entry-header">
+    <h3 class="workexp-entry-title">{workExperience.title}</h3>
+    <div class="workexp-entry-datelocation">
+      <span class="workexp-entry-location">{workExperience.location}</span>
+      &nbsp;
+      <span>
+        {dayjs(workExperience.start_date).format('MMM YY')}&nbsp;-&nbsp;
+        {workExperience.end_date ? dayjs(workExperience.end_date).format('MMM YY') : 'Present'}
+      </span>
+    </div>
+  </div>
+  <div class="workexp-entry-info">{workExperience.description}</div>
+  <div class="workexp-entry-tasks">
+    <ul>
+      {workExperience.responsibilities?.map((responsibility) => (
+        <li>{responsibility}</li>
+      ))}
+    </ul>
+  </div>
+</div>

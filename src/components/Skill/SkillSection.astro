@@ -1,4 +1,22 @@
 ---
-// Component Script (JavaScript)
+import SkillList from '@/components/Skill/SkillList.astro'
+import type { Skill } from '@/types'
+
+interface Props {
+  skills: Skill[]
+}
+
+const { skills } = Astro.props
 ---
-<!-- Component Template (HTML + JS Expressions) -->
+{
+  skills.length > 0 ? (
+    <section id="skills">
+      <h2>Skills</h2>
+      <div id="skills-sections">
+        {skills.map((skill) => (
+          <SkillList skill={skill} />
+        ))}
+      </div>
+    </section>
+  ) : null
+}
