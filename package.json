@@ -13,9 +13,14 @@
   },
   "dependencies": {
     "astro": "^7.3.2",
+    "astro-icon": "^1.2.0",
     "dayjs": "^1.11.23"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@iconify-json/codicon": "^1.2.73",
+    "@iconify-json/simple-icons": "^1.2.96"
   }
 }

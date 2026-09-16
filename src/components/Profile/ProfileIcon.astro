@@ -1,5 +1,6 @@
 ---
 import type { ProfileSite } from '@/types'
+import { Icon } from 'astro-icon/components'
 
 interface Props {
   profileSite: ProfileSite
@@ -14,5 +15,5 @@ const { profileSite } = Astro.props
     title={profileSite.name}
     aria-label={profileSite.name}
 >
-  <span>{profileSite.icon}</span>
+  <Icon name={profileSite.icon} />
 </a>
