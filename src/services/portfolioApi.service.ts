@@ -1,5 +1,5 @@
 import ApiService from '@/services/api.service'
-import { ApiResponse, Auth, ContactResponse, CV } from '@/types'
+import type { ApiResponse, Auth, ContactResponse, CV } from '@/types'
 
 const login = async (email: string, password: string): Promise<Auth | null> => {
   const apiUrl: string = import.meta.env.PUBLIC_PORTFOLIO_API_URL as string
