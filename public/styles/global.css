@@ -2,6 +2,7 @@
   --page-width: 700px;
   --border-style: 1px solid #ccc;
   --theme-colour: #211e2f;
+  --theme-text-colour: #FFF;
 }
 
 body {
@@ -114,17 +115,45 @@ h3 {
   width: 100%;
 }
 
-.chakra-modal__content {
-  border-radius: 12px !important;
+#contactform {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  min-width: 400px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25),
+              0 8px 10px -6px rgba(0, 0, 0, 0.1); 
 }
 
-.chakra-modal__content header {
-  border-radius: 6px 6px 0 0;
+#contactform-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--theme-colour);
+  color: var(--theme-text-colour);
+  padding: 16px;
 }
 
-.chakra-modal__content textarea {
+#contactform form {
+  padding: 16px;
+}
+
+#contactform form label {
+  display: block;
+}
+
+#contactform form input[type="text"] {
+  margin-bottom: 15px;
+  min-height: 25px;
+  width: 98%;
+  border-radius: 5px;
+  border: 1px solid #D3D3D3;
+}
+
+#contactform form textarea {
   resize: none;
   min-height: 200px;
+  width: 98%;
+  border-radius: 5px;
+  border: 1px solid #D3D3D3;
 }
 
 .chakra-modal__close-btn {

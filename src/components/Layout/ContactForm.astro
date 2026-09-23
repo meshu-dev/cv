@@ -1,0 +1,19 @@
+---
+console.log('Contact form!')
+---
+<dialog id="contactform">
+    <div id="contactform-header">
+        <span>Send me a message</span>
+        <span>X</span>
+    </div>
+    <form method="dialog">
+        <label for="contactform-name">Name</label>
+        <input type="text" id="contactform-name" name="name" />
+        <label for="contactform-email">Email:</label>
+        <input type="text" id="contactform-email" name="email" />
+        <label for="contactform-message">Message</label>
+        <textarea id="contactform-message" name="message"></textarea>
+    </form>
+    <p>This dialog was opened using an invoker command.</p>
+    <button commandfor="my-dialog" command="close">Close</button>
+</dialog>

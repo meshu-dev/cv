@@ -1,6 +1,8 @@
 ---
 const { pdfUrl } = Astro.props
-const googleKey: string|null = null
+const googleKey: string|null = import.meta.env.PUBLIC_GOOGLE_RECAPTCHA_KEY as string
+
+console.log('Google Key', googleKey)
 ---
 <>
   <a href="#body-wrapper" class="skip-link">
@@ -23,10 +25,9 @@ const googleKey: string|null = null
         ) : null}
         {googleKey ? (
           <button
-            type="button"
             class="header-link"
-            onClick=""
-            data-testid="contact-button"
+            command="show-modal"
+            commandfor="contactform"
           >
             Contact
           </button>
