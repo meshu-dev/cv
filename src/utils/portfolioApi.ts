@@ -1,4 +1,4 @@
-import { sendRequest } from '@/services/request'
+import { sendRequest } from '@/utils/request'
 import type { ApiResponse, Auth, ContactResponse, CV } from '@/types'
 
 export const login = async (email: string, password: string): Promise<Auth | null> => {

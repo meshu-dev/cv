@@ -4,8 +4,8 @@ import { Icon } from 'astro-icon/components'
 console.log('Contact form!')
 ---
 <script>
-import { sendMessage } from "@/services/portfolioApi"
-import { showToast } from "@/services/toast"
+import { sendMessage } from "@/utils/portfolioApi"
+import { showToast } from "@/utils/toast"
 
 const form: HTMLFormElement | null = document.querySelector("#contactform-form")
 
