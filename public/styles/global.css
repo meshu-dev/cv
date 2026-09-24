@@ -213,6 +213,22 @@ h3 {
   transform: translateY(0);
 }
 
+#toast.success {
+  background-color: #38A169;
+}
+
+#toast.error {
+  background-color: #E53E3E;
+}
+
+#toast.warning {
+  background-color: #DD6B20;
+}
+
+#toast.info {
+  background-color: #3182CE;
+}
+
 #profile {
   display: flex;
   flex-direction: row;

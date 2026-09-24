@@ -41,8 +41,6 @@ export type ApiResponse<T = unknown> = {
 }
 
 export type ContactResponse = {
-  success?: boolean
-  message?: string
+  success: boolean
+  message: string
 }
-
-export type ToastStatus = 'success' | 'error' | 'warning' | 'info' | 'loading'

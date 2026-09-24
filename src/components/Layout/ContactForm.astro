@@ -4,67 +4,13 @@ import { Icon } from 'astro-icon/components'
 console.log('Contact form!')
 ---
 <script>
-import { sendMessage } from "@/utils/portfolioApi"
-import { showToast } from "@/utils/toast"
+import { submitForm } from "@/utils/contactForm"
 
 const form: HTMLFormElement | null = document.querySelector("#contactform-form")
 
-async function sendData() {
-    if (form) {
-        const token: string = import.meta.env.PUBLIC_GOOGLE_RECAPTCHA_KEY as string
-        const formData = new FormData(form)
-
-        console.log('formData', Object.fromEntries(formData), form, formData.values(), formData.get('name'))
-
-        showToast('Bing!');
-
-        try {
-            const response = await sendMessage(
-                token,
-                formData.get('name') as string,
-                formData.get('email') as string,
-                formData.get('message') as string
-            )
-
-            if (response.success) {
-                let toastMessage = 'Message sent! You will receive a reply shortly'
-                let toastStatus: string = 'success'
-                //closeForm()
-            } else if (response.message) {
-                //toastMessage = response.message
-            }
-        } catch (e) {
-
-        }
-
-
-
-        /*
-        let toastMessage: string = 'Error occurred, please try again later'
-        let toastStatus: ToastStatus = 'error'
-
-        try {
-        const response = await sendMessage(token, name, email, message)
-
-        if (response.success) {
-            toastMessage = 'Message sent! You will receive a reply shortly'
-            toastStatus = 'success'
-            closeForm()
-        } else if (response.message) {
-            toastMessage = response.message
-        }
-        } catch (e) {
-        toastMessage = (e as Error).message
-        } finally {
-        setIsSubmitting(false)
-        } */
-    }
-}
-
-// Take over form submission
 form?.addEventListener("submit", (event) => {
   event.preventDefault()
-  sendData()
+  submitForm()
 })
 </script>
 <dialog id="contactform">
