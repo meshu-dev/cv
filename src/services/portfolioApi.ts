@@ -1,7 +1,7 @@
-import ApiService from '@/services/api.service'
+import { sendRequest } from '@/services/request'
 import type { ApiResponse, Auth, ContactResponse, CV } from '@/types'
 
-const login = async (email: string, password: string): Promise<Auth | null> => {
+export const login = async (email: string, password: string): Promise<Auth | null> => {
   const apiUrl: string = import.meta.env.PUBLIC_PORTFOLIO_API_URL as string
   const requestInit: RequestInit = {
     method: 'POST',
@@ -16,11 +16,11 @@ const login = async (email: string, password: string): Promise<Auth | null> => {
   }
   const loginUrl = `${apiUrl}/auth/login`
 
-  const response = await ApiService.sendRequest<ApiResponse<Auth>>(loginUrl, requestInit)
+  const response = await sendRequest<ApiResponse<Auth>>(loginUrl, requestInit)
   return response.data ?? null
 }
 
-const getData = async (token: string): Promise<CV | null> => {
+export const getData = async (token: string): Promise<CV | null> => {
   const apiUrl: string = import.meta.env.PUBLIC_PORTFOLIO_API_URL as string
   const requestInit: RequestInit = {
     method: 'GET',
@@ -32,11 +32,11 @@ const getData = async (token: string): Promise<CV | null> => {
   }
   const cvUrl = `${apiUrl}/cv`
 
-  const response = await ApiService.sendRequest<ApiResponse<CV>>(cvUrl, requestInit)
+  const response = await sendRequest<ApiResponse<CV>>(cvUrl, requestInit)
   return response.data ?? null
 }
 
-const sendMessage = async (
+export const sendMessage = async (
   token: string,
   name: string,
   email: string,
@@ -52,13 +52,5 @@ const sendMessage = async (
     body: JSON.stringify({ token, name, email, message }),
   }
   const contactUrl = `${apiUrl}/contact`
-  return await ApiService.sendRequest<ContactResponse>(contactUrl, requestInit)
+  return await sendRequest<ContactResponse>(contactUrl, requestInit)
 }
-
-const PortfolioApiService = {
-  login,
-  getData,
-  sendMessage,
-}
-
-export default PortfolioApiService

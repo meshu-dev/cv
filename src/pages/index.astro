@@ -5,7 +5,7 @@ import Toast from '@/components/Layout/Toast.astro'
 import ProfileSection from '@/components/Profile/ProfileSection.astro'
 import SkillSection from '@/components/Skill/SkillSection.astro'
 import WorkExperienceSection from '@/components/WorkExperience/WorkExperienceSection.astro'
-import PortfolioApiService from '@/services/portfolioApi.service'
+import { login, getData } from '@/services/portfolioApi'
 import type { Auth, CV } from '@/types'
 
 type Props = {
@@ -19,12 +19,12 @@ let auth: Auth | null = null
 let cv: CV | null = null
 
 try {
-	auth = await PortfolioApiService.login(userEmail, userPassword)  
+	auth = await login(userEmail, userPassword)  
 
 	if (auth?.token) {
-		cv = await PortfolioApiService.getData(auth.token)
+		cv = await getData(auth.token)
 
-    console.log('cv', cv)
+    	console.log('cv', cv)
 	}
 } catch (e) {
 	console.error('Failed to fetch CV data:', e)

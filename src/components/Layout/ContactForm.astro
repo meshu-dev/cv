@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon/components'
 console.log('Contact form!')
 ---
 <script>
-import PortfolioApiService from "@/services/portfolioApi.service"
+import { sendMessage } from "@/services/portfolioApi"
 import { showToast } from "@/services/toast"
 
 const form: HTMLFormElement | null = document.querySelector("#contactform-form")
@@ -19,7 +19,7 @@ async function sendData() {
         showToast('Bing!');
 
         try {
-            const response = await PortfolioApiService.sendMessage(
+            const response = await sendMessage(
                 token,
                 formData.get('name') as string,
                 formData.get('email') as string,
@@ -44,7 +44,7 @@ async function sendData() {
         let toastStatus: ToastStatus = 'error'
 
         try {
-        const response = await PortfolioApiService.sendMessage(token, name, email, message)
+        const response = await sendMessage(token, name, email, message)
 
         if (response.success) {
             toastMessage = 'Message sent! You will receive a reply shortly'

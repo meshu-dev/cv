@@ -1,4 +1,4 @@
-const sendRequest = async <TypedResponse>(
+export const sendRequest = async <TypedResponse>(
   url: string,
   config?: RequestInit
 ): Promise<TypedResponse> => {
@@ -15,9 +15,3 @@ const sendRequest = async <TypedResponse>(
 
   return data as TypedResponse
 }
-
-const ApiService = {
-  sendRequest,
-}
-
-export default ApiService
