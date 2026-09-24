@@ -1,19 +1,115 @@
 ---
+import { Icon } from 'astro-icon/components'
+
 console.log('Contact form!')
 ---
+<script>
+import PortfolioApiService from "@/services/portfolioApi.service"
+import { showToast } from "@/services/toast"
+
+const form: HTMLFormElement | null = document.querySelector("#contactform-form")
+
+async function sendData() {
+    if (form) {
+        const token: string = import.meta.env.PUBLIC_GOOGLE_RECAPTCHA_KEY as string
+        const formData = new FormData(form)
+
+        console.log('formData', Object.fromEntries(formData), form, formData.values(), formData.get('name'))
+
+        showToast('Bing!');
+
+        try {
+            const response = await PortfolioApiService.sendMessage(
+                token,
+                formData.get('name') as string,
+                formData.get('email') as string,
+                formData.get('message') as string
+            )
+
+            if (response.success) {
+                let toastMessage = 'Message sent! You will receive a reply shortly'
+                let toastStatus: string = 'success'
+                //closeForm()
+            } else if (response.message) {
+                //toastMessage = response.message
+            }
+        } catch (e) {
+
+        }
+
+
+
+        /*
+        let toastMessage: string = 'Error occurred, please try again later'
+        let toastStatus: ToastStatus = 'error'
+
+        try {
+        const response = await PortfolioApiService.sendMessage(token, name, email, message)
+
+        if (response.success) {
+            toastMessage = 'Message sent! You will receive a reply shortly'
+            toastStatus = 'success'
+            closeForm()
+        } else if (response.message) {
+            toastMessage = response.message
+        }
+        } catch (e) {
+        toastMessage = (e as Error).message
+        } finally {
+        setIsSubmitting(false)
+        } */
+    }
+}
+
+// Take over form submission
+form?.addEventListener("submit", (event) => {
+  event.preventDefault()
+  sendData()
+})
+</script>
 <dialog id="contactform">
     <div id="contactform-header">
         <span>Send me a message</span>
-        <span>X</span>
+        <button type="button" class="unstyled-button" command="close" commandfor="contactform">
+            <Icon name="codicon:close-small" />
+        </button>
     </div>
-    <form method="dialog">
-        <label for="contactform-name">Name</label>
-        <input type="text" id="contactform-name" name="name" />
-        <label for="contactform-email">Email:</label>
-        <input type="text" id="contactform-email" name="email" />
-        <label for="contactform-message">Message</label>
-        <textarea id="contactform-message" name="message"></textarea>
+    <form id="contactform-form" method="dialog">
+        <label for="contactform-name">
+            Name
+        </label>
+        <input
+            type="text"
+            id="contactform-name"
+            name="name"
+            required
+            minlength="2"
+            maxlength="50"
+        />
+        <label for="contactform-email">
+            Email
+        </label>
+        <input
+            type="email"
+            id="contactform-email"
+            name="email"
+            required
+            minlength="2"
+            maxlength="50"
+        />
+        <label for="contactform-message">
+            Message
+        </label>
+        <textarea
+            id="contactform-message"
+            name="message"
+            required
+            minlength="3"
+            maxlength="500"
+        ></textarea>
+        <div id="contactform-buttons">
+            <button type="submit">Submit</button>
+            <button type="button" command="close" commandfor="contactform">Close</button>
+        </div>
     </form>
-    <p>This dialog was opened using an invoker command.</p>
-    <button commandfor="my-dialog" command="close">Close</button>
 </dialog>

@@ -1,6 +1,7 @@
 ---
 import ContactForm from '@/components/Layout/ContactForm.astro'
 import Header from '@/components/Layout/Header.astro'
+import Toast from '@/components/Layout/Toast.astro'
 import ProfileSection from '@/components/Profile/ProfileSection.astro'
 import SkillSection from '@/components/Skill/SkillSection.astro'
 import WorkExperienceSection from '@/components/WorkExperience/WorkExperienceSection.astro'
@@ -43,16 +44,18 @@ try {
 	<body>
     	<Header pdfUrl={cv?.pdf || null} />
 		<main id="body-wrapper">
+			<button onclick="showToast()">Show Notification</button>
 			{!cv ? (
-			<p>CV content is currently unavailable. Please try again later.</p>
+				<p>CV content is currently unavailable. Please try again later.</p>
 			) : (
-			<>
-				{ cv.profile && <ProfileSection profile={cv.profile} />}
-				{cv.skills && <SkillSection skills={cv.skills} />}
-				{cv.work_experiences && <WorkExperienceSection workExperiences={cv.work_experiences} /> } 
-			</>
+				<>
+					{ cv.profile && <ProfileSection profile={cv.profile} />}
+					{cv.skills && <SkillSection skills={cv.skills} />}
+					{cv.work_experiences && <WorkExperienceSection workExperiences={cv.work_experiences} /> } 
+				</>
 			)}
 		</main>
 		<ContactForm />
+		<Toast />
 	</body>
 </html>
