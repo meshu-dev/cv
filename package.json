@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "astro": "^7.3.2",
@@ -24,6 +25,8 @@
   "devDependencies": {
     "@iconify-json/codicon": "^1.2.73",
     "@iconify-json/simple-icons": "^1.2.96",
+    "@vitest/coverage-v8": "^5.0.3",
+    "typescript": "^7.0.2",
     "vitest": "^5.0.3"
   }
 }

@@ -2,5 +2,12 @@
 import { getViteConfig } from 'astro/config';
 
 export default getViteConfig({
-  test: {},
+  test: {
+    typecheck: { enabled: true, ignoreSourceErrors: true },
+    coverage: {
+      provider: 'v8',
+      include: ['src/**/*.{ts,astro}'],
+      exclude: ['src/**/*.test.ts'],
+    },
+  },
 });
