@@ -7,7 +7,7 @@ export default getViteConfig({
     coverage: {
       provider: 'v8',
       include: ['src/**/*.{ts,astro}'],
-      exclude: ['src/**/*.test.ts'],
+      exclude: ['src/**/*.test.ts', 'src/**/*.test-d.ts', 'src/types.ts'],
     },
   },
 });
