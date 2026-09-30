@@ -15,11 +15,10 @@ type Props = {
 const userEmail: string = import.meta.env.PORTFOLIO_API_EMAIL as string
 const userPassword: string = import.meta.env.PORTFOLIO_API_PASSWORD as string
 
-let auth: Auth | null = null
 let cv: CV | null = null
 
 try {
-	auth = await login(userEmail, userPassword)  
+	const auth: Auth | null = await login(userEmail, userPassword)  
 
 	if (auth?.token) {
 		cv = await getData(auth.token)
