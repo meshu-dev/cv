@@ -8,6 +8,7 @@ interface Props {
 
 const { workExperience } = Astro.props
 ---
+
 <div class="workexp-entry">
   <div class="workexp-entry-header">
     <h3 class="workexp-entry-title">{workExperience.title}</h3>
@@ -16,7 +17,9 @@ const { workExperience } = Astro.props
       &nbsp;
       <span>
         {dayjs(workExperience.start_date).format('MMM YY')}&nbsp;-&nbsp;
-        {workExperience.end_date ? dayjs(workExperience.end_date).format('MMM YY') : 'Present'}
+        {workExperience.end_date
+          ? dayjs(workExperience.end_date).format('MMM YY')
+          : 'Present'}
       </span>
     </div>
   </div>

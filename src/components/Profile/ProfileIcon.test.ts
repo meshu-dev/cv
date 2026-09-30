@@ -6,10 +6,16 @@ const container = await AstroContainer.create()
 
 test('renders an external link with accessible labels', async () => {
   // Arrange
-  const profileSite = { name: 'GitHub', url: 'https://github.com/x', icon: 'simple-icons:github' }
+  const profileSite = {
+    name: 'GitHub',
+    url: 'https://github.com/x',
+    icon: 'simple-icons:github',
+  }
 
   // Act
-  const html = await container.renderToString(ProfileIcon, { props: { profileSite } })
+  const html = await container.renderToString(ProfileIcon, {
+    props: { profileSite },
+  })
 
   // Assert
   expect(html).toContain('href="https://github.com/x"')

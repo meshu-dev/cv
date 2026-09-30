@@ -8,12 +8,13 @@ interface Props {
 
 const { profileSite } = Astro.props
 ---
+
 <a
-    href={profileSite.url}
-    target="_blank"
-    rel="noopener noreferrer"
-    title={profileSite.name}
-    aria-label={profileSite.name}
+  href={profileSite.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  title={profileSite.name}
+  aria-label={profileSite.name}
 >
   <Icon name={profileSite.icon} />
 </a>

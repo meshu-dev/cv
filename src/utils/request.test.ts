@@ -2,7 +2,9 @@ import { afterEach, describe, expect, test, vi } from 'vitest'
 import { sendRequest } from './request'
 
 const mockFetch = (body: unknown, init: { ok: boolean; status: number }) => {
-  const fetchMock = vi.fn().mockResolvedValue({ ...init, json: async () => body })
+  const fetchMock = vi
+    .fn()
+    .mockResolvedValue({ ...init, json: async () => body })
   vi.stubGlobal('fetch', fetchMock)
   return fetchMock
 }

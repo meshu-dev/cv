@@ -24,11 +24,17 @@ describe('login', () => {
     await login('a@b.com', 'secret')
 
     // Assert
-    expect(sendRequestMock).toHaveBeenCalledWith('https://api.test/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ email: 'a@b.com', password: 'secret' }),
-    })
+    expect(sendRequestMock).toHaveBeenCalledWith(
+      'https://api.test/auth/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ email: 'a@b.com', password: 'secret' }),
+      },
+    )
   })
 
   test('returns the auth data', async () => {
@@ -108,8 +114,16 @@ describe('sendMessage', () => {
     // Assert
     expect(sendRequestMock).toHaveBeenCalledWith('https://api.test/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ token: 'token', name: 'Jane', email: 'j@x.com', message: 'Hello' }),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        token: 'token',
+        name: 'Jane',
+        email: 'j@x.com',
+        message: 'Hello',
+      }),
     })
   })
 

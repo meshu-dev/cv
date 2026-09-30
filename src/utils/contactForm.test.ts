@@ -35,7 +35,12 @@ describe('submitForm', () => {
     await submitForm()
 
     // Assert
-    expect(sendMessageMock).toHaveBeenCalledWith('site-key', 'Jane', 'jane@x.com', 'Hello')
+    expect(sendMessageMock).toHaveBeenCalledWith(
+      'site-key',
+      'Jane',
+      'jane@x.com',
+      'Hello',
+    )
   })
 
   test('closes the dialog and shows a success toast on success', async () => {

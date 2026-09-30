@@ -1,9 +1,9 @@
-import type { ToastType } from "@/enums"
+import type { ToastType } from '@/enums'
 
-let toastTimeout: number;
+let toastTimeout: number
 
 export const showToast = (type: ToastType, message: string) => {
-  const toast: HTMLElement | null = document.getElementById("toast")
+  const toast: HTMLElement | null = document.getElementById('toast')
 
   if (toast) {
     clearTimeout(toastTimeout)
@@ -13,12 +13,9 @@ export const showToast = (type: ToastType, message: string) => {
     toast.classList.remove('success', 'error')
     toast.classList.add('show', type)
 
-    toastTimeout = setTimeout(
-      () => {
-        toast.classList.remove('show')
-      },
-      3000
-    )
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show')
+    }, 3000)
   }
 }
 

@@ -3,59 +3,62 @@ import { Icon } from 'astro-icon/components'
 
 console.log('Contact form!')
 ---
+
 <script>
-import { submitForm } from "@/utils/contactForm"
+  import { submitForm } from '@/utils/contactForm'
 
-const form: HTMLFormElement | null = document.querySelector("#contactform-form")
+  const form: HTMLFormElement | null =
+    document.querySelector('#contactform-form')
 
-form?.addEventListener("submit", (event) => {
-  event.preventDefault()
-  submitForm()
-})
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault()
+    submitForm()
+  })
 </script>
 <dialog id="contactform">
-    <div id="contactform-header">
-        <span>Send me a message</span>
-        <button type="button" class="unstyled-button" command="close" commandfor="contactform">
-            <Icon name="codicon:close-small" />
-        </button>
+  <div id="contactform-header">
+    <span>Send me a message</span>
+    <button
+      type="button"
+      class="unstyled-button"
+      command="close"
+      commandfor="contactform"
+    >
+      <Icon name="codicon:close-small" />
+    </button>
+  </div>
+  <form id="contactform-form" method="dialog">
+    <label for="contactform-name">Name</label>
+    <input
+      type="text"
+      id="contactform-name"
+      name="name"
+      required
+      minlength="2"
+      maxlength="50"
+    />
+    <label for="contactform-email">Email</label>
+    <input
+      type="email"
+      id="contactform-email"
+      name="email"
+      required
+      minlength="2"
+      maxlength="50"
+    />
+    <label for="contactform-message">Message</label>
+    <textarea
+      id="contactform-message"
+      name="message"
+      required
+      minlength="3"
+      maxlength="500"
+    ></textarea>
+    <div id="contactform-buttons">
+      <button type="submit">Submit</button>
+      <button type="button" command="close" commandfor="contactform">
+        Close
+      </button>
     </div>
-    <form id="contactform-form" method="dialog">
-        <label for="contactform-name">
-            Name
-        </label>
-        <input
-            type="text"
-            id="contactform-name"
-            name="name"
-            required
-            minlength="2"
-            maxlength="50"
-        />
-        <label for="contactform-email">
-            Email
-        </label>
-        <input
-            type="email"
-            id="contactform-email"
-            name="email"
-            required
-            minlength="2"
-            maxlength="50"
-        />
-        <label for="contactform-message">
-            Message
-        </label>
-        <textarea
-            id="contactform-message"
-            name="message"
-            required
-            minlength="3"
-            maxlength="500"
-        ></textarea>
-        <div id="contactform-buttons">
-            <button type="submit">Submit</button>
-            <button type="button" command="close" commandfor="contactform">Close</button>
-        </div>
-    </form>
+  </form>
 </dialog>

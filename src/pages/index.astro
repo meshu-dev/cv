@@ -18,42 +18,44 @@ const userPassword: string = import.meta.env.PORTFOLIO_API_PASSWORD as string
 let cv: CV | null = null
 
 try {
-	const auth: Auth | null = await login(userEmail, userPassword)  
+  const auth: Auth | null = await login(userEmail, userPassword)
 
-	if (auth?.token) {
-		cv = await getData(auth.token)
+  if (auth?.token) {
+    cv = await getData(auth.token)
 
-    	console.log('cv', cv)
-	}
+    console.log('cv', cv)
+  }
 } catch (e) {
-	console.error('Failed to fetch CV data:', e)
+  console.error('Failed to fetch CV data:', e)
 }
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<link rel="stylesheet" href="/styles/global.css" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-    	<Header pdfUrl={cv?.pdf || null} />
-		<main id="body-wrapper">
-			{!cv ? (
-				<p>CV content is currently unavailable. Please try again later.</p>
-			) : (
-				<>
-					{ cv.profile && <ProfileSection profile={cv.profile} />}
-					{cv.skills && <SkillSection skills={cv.skills} />}
-					{cv.work_experiences && <WorkExperienceSection workExperiences={cv.work_experiences} /> } 
-				</>
-			)}
-		</main>
-		<ContactForm />
-		<Toast />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Header pdfUrl={cv?.pdf || null} />
+    <main id="body-wrapper">
+      {!cv ? (
+        <p>CV content is currently unavailable. Please try again later.</p>
+      ) : (
+        <>
+          {cv.profile && <ProfileSection profile={cv.profile} />}
+          {cv.skills && <SkillSection skills={cv.skills} />}
+          {cv.work_experiences && (
+            <WorkExperienceSection workExperiences={cv.work_experiences} />
+          )}
+        </>
+      )}
+    </main>
+    <ContactForm />
+    <Toast />
+  </body>
 </html>

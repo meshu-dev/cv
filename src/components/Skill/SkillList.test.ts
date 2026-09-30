@@ -6,7 +6,9 @@ const container = await AstroContainer.create()
 
 test('renders the skill name and technologies', async () => {
   // Arrange
-  const props = { skill: { name: 'Languages', technologies: ['TypeScript', 'Go'] } }
+  const props = {
+    skill: { name: 'Languages', technologies: ['TypeScript', 'Go'] },
+  }
 
   // Act
   const html = await container.renderToString(SkillList, { props })

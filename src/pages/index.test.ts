@@ -12,7 +12,12 @@ const loginMock = vi.mocked(login)
 const getDataMock = vi.mocked(getData)
 
 const cv: CV = {
-  profile: { fullname: 'Jane Doe', intro: 'Engineer', location: 'London', sites: [] },
+  profile: {
+    fullname: 'Jane Doe',
+    intro: 'Engineer',
+    location: 'London',
+    sites: [],
+  },
   skills: [{ name: 'Languages', technologies: ['TypeScript'] }],
   work_experiences: [
     {
@@ -147,6 +152,9 @@ describe('index page', () => {
 
     // Assert
     expect(html).toContain(unavailable)
-    expect(console.error).toHaveBeenCalledWith('Failed to fetch CV data:', error)
+    expect(console.error).toHaveBeenCalledWith(
+      'Failed to fetch CV data:',
+      error,
+    )
   })
 })

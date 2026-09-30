@@ -8,13 +8,12 @@ interface Props {
 
 const { workExperiences } = Astro.props
 ---
-{
-  workExperiences.length > 0 ? (
-    <section id="workexp">
-      <h2>Work Experience</h2>
-      {workExperiences.map((workExperience) => (
-        <WorkExperienceEntry workExperience={workExperience} />
-      ))}
-    </section>
-  ) : null
-}
+
+{workExperiences.length > 0 ? (
+  <section id="workexp">
+    <h2>Work Experience</h2>
+    {workExperiences.map((workExperience) => (
+      <WorkExperienceEntry workExperience={workExperience} />
+    ))}
+  </section>
+) : null}

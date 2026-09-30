@@ -1,7 +1,10 @@
 import { sendRequest } from '@/utils/request'
 import type { ApiResponse, Auth, ContactResponse, CV } from '@/types'
 
-export const login = async (email: string, password: string): Promise<Auth | null> => {
+export const login = async (
+  email: string,
+  password: string,
+): Promise<Auth | null> => {
   const apiUrl: string = import.meta.env.PUBLIC_PORTFOLIO_API_URL as string
   const requestInit: RequestInit = {
     method: 'POST',
@@ -40,7 +43,7 @@ export const sendMessage = async (
   token: string,
   name: string,
   email: string,
-  message: string
+  message: string,
 ): Promise<ContactResponse> => {
   const apiUrl: string = import.meta.env.PUBLIC_PORTFOLIO_API_URL as string
   const requestInit: RequestInit = {

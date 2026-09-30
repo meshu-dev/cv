@@ -2,7 +2,7 @@
   --page-width: 700px;
   --border-style: 1px solid #ccc;
   --theme-colour: #211e2f;
-  --theme-text-colour: #FFF;
+  --theme-text-colour: #fff;
 }
 
 body {
@@ -116,8 +116,9 @@ h3 {
   border-radius: 12px;
   padding: 0;
   min-width: 400px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25),
-              0 8px 10px -6px rgba(0, 0, 0, 0.1); 
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.25),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 #contactform-header {
@@ -141,13 +142,13 @@ h3 {
   display: block;
 }
 
-#contactform form input[type="text"],
-#contactform form input[type="email"] {
+#contactform form input[type='text'],
+#contactform form input[type='email'] {
   margin-bottom: 15px;
   min-height: 25px;
   width: 98%;
   border-radius: 5px;
-  border: 1px solid #D3D3D3;
+  border: 1px solid #d3d3d3;
 }
 
 #contactform form textarea {
@@ -155,7 +156,7 @@ h3 {
   min-height: 200px;
   width: 98%;
   border-radius: 5px;
-  border: 1px solid #D3D3D3;
+  border: 1px solid #d3d3d3;
 }
 
 #contactform-buttons {
@@ -172,7 +173,7 @@ h3 {
   cursor: pointer;
 }
 
-#contactform-buttons button[type="submit"] {
+#contactform-buttons button[type='submit'] {
   background-color: #3182ce;
   color: #fff;
 }
@@ -204,7 +205,10 @@ h3 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s;
 }
 
 #toast.show {
@@ -214,19 +218,19 @@ h3 {
 }
 
 #toast.success {
-  background-color: #38A169;
+  background-color: #38a169;
 }
 
 #toast.error {
-  background-color: #E53E3E;
+  background-color: #e53e3e;
 }
 
 #toast.warning {
-  background-color: #DD6B20;
+  background-color: #dd6b20;
 }
 
 #toast.info {
-  background-color: #3182CE;
+  background-color: #3182ce;
 }
 
 #profile {

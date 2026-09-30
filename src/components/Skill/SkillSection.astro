@@ -8,15 +8,14 @@ interface Props {
 
 const { skills } = Astro.props
 ---
-{
-  skills.length > 0 ? (
-    <section id="skills">
-      <h2>Skills</h2>
-      <div id="skills-sections">
-        {skills.map((skill) => (
-          <SkillList skill={skill} />
-        ))}
-      </div>
-    </section>
-  ) : null
-}
+
+{skills.length > 0 ? (
+  <section id="skills">
+    <h2>Skills</h2>
+    <div id="skills-sections">
+      {skills.map((skill) => (
+        <SkillList skill={skill} />
+      ))}
+    </div>
+  </section>
+) : null}

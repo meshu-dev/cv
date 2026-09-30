@@ -1,9 +1,11 @@
 ---
 const { pdfUrl } = Astro.props
-const googleKey: string|null = import.meta.env.PUBLIC_GOOGLE_RECAPTCHA_KEY as string
+const googleKey: string | null = import.meta.env
+  .PUBLIC_GOOGLE_RECAPTCHA_KEY as string
 
 console.log('Google Key', googleKey)
 ---
+
 <>
   <a href="#body-wrapper" class="skip-link">
     Skip to content

@@ -50,7 +50,9 @@ describe('showToast', () => {
     vi.advanceTimersByTime(3000)
 
     // Assert
-    expect(document.getElementById('toast')!.classList.contains('show')).toBe(false)
+    expect(document.getElementById('toast')!.classList.contains('show')).toBe(
+      false,
+    )
   })
 
   test('restarts the timer when called again', () => {

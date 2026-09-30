@@ -9,8 +9,16 @@ const profile = {
   intro: 'Software engineer',
   location: 'London',
   sites: [
-    { name: 'GitHub', url: 'https://github.com/x', icon: 'simple-icons:github' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/x', icon: 'simple-icons:linkedin' },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/x',
+      icon: 'simple-icons:github',
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://linkedin.com/in/x',
+      icon: 'simple-icons:linkedin',
+    },
   ],
 }
 

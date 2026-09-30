@@ -1,6 +1,6 @@
 export const sendRequest = async <TypedResponse>(
   url: string,
-  config?: RequestInit
+  config?: RequestInit,
 ): Promise<TypedResponse> => {
   const response = await fetch(url, config)
   const data = await response.json()
