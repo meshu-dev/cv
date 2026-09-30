@@ -8,6 +8,7 @@ export default getViteConfig({
       provider: 'v8',
       include: ['src/**/*.{ts,astro}'],
       exclude: ['src/**/*.test.ts', 'src/**/*.test-d.ts', 'src/types.ts'],
+      thresholds: { statements: 80, branches: 80, functions: 80, lines: 80 },
     },
   },
 });
