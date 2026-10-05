@@ -9,25 +9,20 @@ console.log('Google Key', googleKey)
 <>
   <a
     href="#body-wrapper"
-    class="skip-link absolute -left-[9999px] top-auto z-100 size-px overflow-hidden bg-theme px-4 py-2 font-bold text-white no-underline focus:fixed focus:top-4 focus:left-4 focus:h-auto focus:w-auto focus:overflow-visible focus:rounded"
+    class="absolute -left-[9999px] top-auto z-100 size-px overflow-hidden bg-theme px-4 py-2 font-bold text-white no-underline focus:fixed focus:top-4 focus:left-4 focus:h-auto focus:w-auto focus:overflow-visible focus:rounded"
   >
     Skip to content
   </a>
   <header class="min-h-[50px] bg-theme text-white">
-    <div
-      id="header-wrapper"
-      class="mx-auto flex max-w-page justify-between px-5"
-    >
-      <div id="header-logo" class="text-[30px]">
-        Mesh&apos;s CV
-      </div>
-      <div id="header-links" class="mt-2.5">
+    <div class="mx-auto flex max-w-page justify-between px-5">
+      <div class="text-[30px]">Mesh&apos;s CV</div>
+      <div class="mt-2.5">
         {pdfUrl ? (
           <a
             href={pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="header-link text-white p-[5px] mx-[5px] no-underline hover:bg-gray-200 hover:text-black hover:rounded-[5px] hover:cursor-pointer"
+            class="text-white p-[5px] mx-[5px] no-underline hover:bg-gray-200 hover:text-black hover:rounded-[5px] hover:cursor-pointer"
             data-testid="pdf-link"
           >
             Download
@@ -35,7 +30,7 @@ console.log('Google Key', googleKey)
         ) : null}
         {googleKey ? (
           <button
-            class="header-link text-white p-[5px] mx-[5px] no-underline hover:bg-gray-200 hover:text-black hover:rounded-[5px] hover:cursor-pointer [font:inherit] border-0 bg-transparent cursor-pointer"
+            class="text-white p-[5px] mx-[5px] no-underline hover:bg-gray-200 hover:text-black hover:rounded-[5px] hover:cursor-pointer [font:inherit] border-0 bg-transparent cursor-pointer"
             command="show-modal"
             commandfor="contactform"
           >

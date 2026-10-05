@@ -9,15 +9,15 @@ interface Props {
 const { profile } = Astro.props
 ---
 
-<section id="profile" class="mt-20 flex flex-row max-[800px]:flex-col">
-  <div id="profile-info" class="m-0 flex-2 max-[800px]:mt-10">
+<section class="mt-20 flex flex-row max-[800px]:flex-col">
+  <div class="m-0 flex-2 max-[800px]:mt-10">
     <h1 class="mt-0 mb-2.5 text-[48px]">{profile.fullname}</h1>
     <p class="text-[rgb(45,70,101)]">{profile.intro}</p>
     <p class="text-[rgb(45,70,101)]">
       <span class="font-bold">Location:&nbsp;</span>
       {profile.location}
     </p>
-    <div id="profile-links" class="flex flex-row gap-[18px]">
+    <div class="flex flex-row gap-[18px]">
       {profile.sites?.map((site) => (
         <ProfileIcon profileSite={site} />
       ))}
