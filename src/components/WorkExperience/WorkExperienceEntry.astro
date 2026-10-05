@@ -11,13 +11,10 @@ const { workExperience } = Astro.props
 
 <div class="workexp-entry mb-5 border-b border-[#ccc] pb-5 last:border-b-0">
   <div class="mb-5 flex justify-between">
-    <h3 class="m-0 text-[22px]">{workExperience.title}</h3>
-    <div class="h-[25px] rounded bg-[#a1a1a1] px-2.5 py-[5px] font-bold text-white max-[800px]:h-[52px] max-[800px]:min-w-[160px] max-[800px]:text-center">
-      <span class="inline-block text-center after:content-['_|'] max-[800px]:block max-[800px]:after:content-['']">
-        {workExperience.location}
-      </span>
-      &nbsp;
-      <span>
+    <h3 class="m-0 text-xl">{workExperience.title}</h3>
+    <div class="flex shrink-0 flex-col items-start self-start rounded bg-slate-700 px-3 py-1.5 text-sm leading-snug text-white max-md:min-w-40 max-md:items-start">
+      <span class="font-semibold">{workExperience.location}</span>
+      <span class="text-slate-200">
         {dayjs(workExperience.start_date).format('MMM YY')}&nbsp;-&nbsp;
         {workExperience.end_date
           ? dayjs(workExperience.end_date).format('MMM YY')
@@ -26,7 +23,7 @@ const { workExperience } = Astro.props
     </div>
   </div>
   <div class="">{workExperience.description}</div>
-  <div class="mt-5 ml-10 max-[800px]:ml-5">
+  <div class="mt-5 ml-10 max-md:ml-5">
     <ul>
       {workExperience.responsibilities?.map((responsibility) => (
         <li class="mb-2.5">{responsibility}</li>
