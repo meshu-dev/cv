@@ -30,7 +30,7 @@ test('renders profile details', async () => {
   const html = await container.renderToString(ProfileSection, { props })
 
   // Assert
-  expect(html).toContain('<h1>Jane Doe</h1>')
+  expect(html).toMatch(/<h1[^>]*>Jane Doe<\/h1>/)
   expect(html).toContain('Software engineer')
   expect(html).toContain('London')
 })

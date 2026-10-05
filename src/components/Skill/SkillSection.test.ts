@@ -17,8 +17,8 @@ test('renders heading and a list per skill', async () => {
   const html = await container.renderToString(SkillSection, { props })
 
   // Assert
-  expect(html).toContain('<h2>Skills</h2>')
-  expect(html.match(/class="skills-section"/g)).toHaveLength(2)
+  expect(html).toMatch(/<h2[^>]*>Skills<\/h2>/)
+  expect(html.match(/class="skills-section /g)).toHaveLength(2)
 })
 
 test('renders nothing when empty', async () => {

@@ -10,8 +10,10 @@ const { workExperiences } = Astro.props
 ---
 
 {workExperiences.length > 0 ? (
-  <section id="workexp">
-    <h2>Work Experience</h2>
+  <section id="workexp" class="mt-20">
+    <h2 class="mb-2.5 border-b border-[#ccc] pb-2.5 text-[30px]">
+      Work Experience
+    </h2>
     {workExperiences.map((workExperience) => (
       <WorkExperienceEntry workExperience={workExperience} />
     ))}

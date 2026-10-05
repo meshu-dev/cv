@@ -70,9 +70,9 @@ describe('index page', () => {
     const html = await container.renderToString(Index)
 
     // Assert
-    expect(html).toContain('<h1>Jane Doe</h1>')
-    expect(html).toContain('<h2>Skills</h2>')
-    expect(html).toContain('<h2>Work Experience</h2>')
+    expect(html).toMatch(/<h1[^>]*>Jane Doe<\/h1>/)
+    expect(html).toMatch(/<h2[^>]*>Skills<\/h2>/)
+    expect(html).toMatch(/<h2[^>]*>Work Experience<\/h2>/)
     expect(html).not.toContain(unavailable)
   })
 
@@ -112,9 +112,9 @@ describe('index page', () => {
     const html = await container.renderToString(Index)
 
     // Assert
-    expect(html).not.toContain('<h1>')
-    expect(html).not.toContain('<h2>Skills</h2>')
-    expect(html).not.toContain('<h2>Work Experience</h2>')
+    expect(html).not.toMatch(/<h1[\s>]/)
+    expect(html).not.toMatch(/<h2[^>]*>Skills<\/h2>/)
+    expect(html).not.toMatch(/<h2[^>]*>Work Experience<\/h2>/)
     expect(html).not.toContain(unavailable)
   })
 

@@ -18,9 +18,11 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.2",
     "astro-icon": "^1.2.0",
-    "dayjs": "^1.11.23"
+    "dayjs": "^1.11.23",
+    "tailwindcss": "^4.3.3"
   },
   "allowScripts": {
     "esbuild": true

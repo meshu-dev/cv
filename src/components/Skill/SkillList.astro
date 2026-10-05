@@ -8,11 +8,11 @@ interface Props {
 const { skill } = Astro.props
 ---
 
-<div class="skills-section">
+<div class="skills-section max-w-[200px] min-w-[180px] flex-1">
   <h3>{skill.name}</h3>
   <ul>
     {skill.technologies?.map((name) => (
-      <li>{name}</li>
+      <li class="mb-[5px]">{name}</li>
     ))}
   </ul>
 </div>

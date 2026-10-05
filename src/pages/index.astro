@@ -7,6 +7,7 @@ import SkillSection from '@/components/Skill/SkillSection.astro'
 import WorkExperienceSection from '@/components/WorkExperience/WorkExperienceSection.astro'
 import { login, getData } from '@/utils/portfolioApi'
 import type { Auth, CV } from '@/types'
+import '@/styles/global.css'
 
 type Props = {
   cv: CV | null
@@ -35,14 +36,13 @@ try {
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/styles/global.css" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body>
+  <body class="m-0 text-[16px] leading-[1.6] font-normal text-[rgb(3,6,11)]">
     <Header pdfUrl={cv?.pdf || null} />
-    <main id="body-wrapper">
+    <main id="body-wrapper" class="mx-auto max-w-page px-5">
       {!cv ? (
         <p>CV content is currently unavailable. Please try again later.</p>
       ) : (

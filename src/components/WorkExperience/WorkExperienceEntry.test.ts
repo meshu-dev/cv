@@ -25,8 +25,8 @@ describe('WorkExperienceEntry', () => {
     expect(html).toContain('Developer')
     expect(html).toContain('Remote')
     expect(html).toContain('Built things')
-    expect(html).toContain('<li>Wrote code</li>')
-    expect(html).toContain('<li>Reviewed code</li>')
+    expect(html).toMatch(/<li[^>]*>Wrote code<\/li>/)
+    expect(html).toMatch(/<li[^>]*>Reviewed code<\/li>/)
   })
 
   test('formats the date range', async () => {

@@ -15,6 +15,7 @@ const { profileSite } = Astro.props
   rel="noopener noreferrer"
   title={profileSite.name}
   aria-label={profileSite.name}
+  class="no-underline"
 >
-  <Icon name={profileSite.icon} />
+  <Icon name={profileSite.icon} class="size-[25px] text-black" />
 </a>

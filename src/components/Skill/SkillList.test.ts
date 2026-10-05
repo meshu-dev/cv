@@ -14,9 +14,9 @@ test('renders the skill name and technologies', async () => {
   const html = await container.renderToString(SkillList, { props })
 
   // Assert
-  expect(html).toContain('<h3>Languages</h3>')
-  expect(html).toContain('<li>TypeScript</li>')
-  expect(html).toContain('<li>Go</li>')
+  expect(html).toMatch(/<h3[^>]*>Languages<\/h3>/)
+  expect(html).toMatch(/<li[^>]*>TypeScript<\/li>/)
+  expect(html).toMatch(/<li[^>]*>Go<\/li>/)
 })
 
 test('renders an empty list without technologies', async () => {
@@ -27,5 +27,5 @@ test('renders an empty list without technologies', async () => {
   const html = await container.renderToString(SkillList, { props })
 
   // Assert
-  expect(html).not.toContain('<li>')
+  expect(html).not.toMatch(/<li[\s>]/)
 })

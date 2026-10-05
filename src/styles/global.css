@@ -1,0 +1,7 @@
+@import 'tailwindcss/theme';
+@import 'tailwindcss/utilities';
+
+@theme {
+  --color-theme: #211e2f;
+  --container-page: 700px;
+}

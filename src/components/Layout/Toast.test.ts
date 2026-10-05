@@ -9,5 +9,5 @@ test('renders the toast container', async () => {
   const html = await container.renderToString(Toast)
 
   // Assert
-  expect(html).toContain('<div id="toast"></div>')
+  expect(html).toMatch(/<div id="toast"[^>]*><\/div>/)
 })
