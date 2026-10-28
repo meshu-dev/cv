@@ -7,27 +7,44 @@ interface Props {
 }
 
 const { workExperience } = Astro.props
+
+const isCurrent = !workExperience.end_date
+const start = dayjs(workExperience.start_date)
+const end = isCurrent ? null : dayjs(workExperience.end_date)
 ---
 
-<div class="workexp-entry mb-5 border-b border-[#ccc] pb-5 last:border-b-0">
-  <div class="mb-5 flex justify-between">
-    <h3 class="m-0 text-xl">{workExperience.title}</h3>
-    <div class="flex shrink-0 flex-col items-start self-start rounded bg-slate-700 px-3 py-1.5 text-sm leading-snug text-white max-md:min-w-40 max-md:items-start">
-      <span class="font-semibold">{workExperience.location}</span>
-      <span class="text-slate-200">
-        {dayjs(workExperience.start_date).format('MMM YY')}&nbsp;-&nbsp;
-        {workExperience.end_date
-          ? dayjs(workExperience.end_date).format('MMM YY')
-          : 'Present'}
+<li class="workexp-entry avoid-break grid gap-x-10 gap-y-3 border-b border-rule py-8 last:border-b-0 sm:grid-cols-[10.5rem_1fr]">
+  <div class="font-sans text-[0.9375rem] leading-snug tabular-nums">
+    <p class:list={['font-medium', isCurrent ? 'text-accent' : 'text-ink']}>
+      <span class="whitespace-nowrap">
+        <time datetime={start.format('YYYY-MM')}>
+          {start.format('MMM YYYY')}
+        </time>
+        {' –'}
+      </span>{' '}
+      <span class="whitespace-nowrap">
+        {end ? (
+          <time datetime={end.format('YYYY-MM')}>{end.format('MMM YYYY')}</time>
+        ) : (
+          'Present'
+        )}
       </span>
-    </div>
+    </p>
+    <p class="mt-0.5 text-ink-soft">{workExperience.location}</p>
   </div>
-  <div class="">{workExperience.description}</div>
-  <div class="mt-5 ml-10 max-md:ml-5">
-    <ul>
-      {workExperience.responsibilities?.map((responsibility) => (
-        <li class="mb-2.5">{responsibility}</li>
-      ))}
-    </ul>
+  <div>
+    <h3 class="font-sans text-xl leading-snug font-semibold tracking-tight">
+      {workExperience.title}
+    </h3>
+    {workExperience.description && (
+      <p class="mt-2 text-ink-soft">{workExperience.description}</p>
+    )}
+    {workExperience.responsibilities?.length ? (
+      <ul class="mt-4 grid list-disc gap-2 pl-5 marker:text-accent">
+        {workExperience.responsibilities.map((responsibility) => (
+          <li class="pl-1">{responsibility}</li>
+        ))}
+      </ul>
+    ) : null}
   </div>
-</div>
+</li>

@@ -10,9 +10,9 @@ const { skills } = Astro.props
 ---
 
 {skills.length > 0 ? (
-  <section class="mt-20">
-    <h2 class="mb-2.5 border-b border-[#ccc] pb-2.5 text-3xl">Skills</h2>
-    <div class="flex flex-row flex-nowrap justify-between max-md:flex-wrap">
+  <section class="border-t border-ink pt-6 pb-14 sm:pb-20">
+    <h2 class="font-sans text-2xl font-semibold tracking-tight">Skills</h2>
+    <div class="mt-6 grid gap-4">
       {skills.map((skill) => (
         <SkillList skill={skill} />
       ))}

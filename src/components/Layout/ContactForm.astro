@@ -1,7 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-console.log('Contact form!')
+const field =
+  'w-full rounded-md border border-rule bg-white px-3 py-2 font-serif text-base text-ink transition-colors outline-none focus:border-accent focus:ring-3 focus:ring-accent-soft'
 ---
 
 <script>
@@ -17,72 +18,85 @@ console.log('Contact form!')
 </script>
 <dialog
   id="contactform"
-  class="w-full max-w-md rounded-xl border-none p-0 shadow-xl"
+  aria-labelledby="contactform-title"
+  class="no-print m-auto w-[min(30rem,calc(100%-2rem))] rounded-lg bg-paper p-0 text-ink shadow-2xl backdrop:bg-ink/60"
 >
-  <div class="flex justify-between bg-theme p-4 text-white">
-    <span>Send me a message</span>
+  <div class="flex items-center justify-between border-b border-rule px-5 py-4">
+    <h2 id="contactform-title" class="font-sans text-lg font-semibold">
+      Send me a message
+    </h2>
     <button
       type="button"
-      class="cursor-pointer [all:unset]"
+      aria-label="Close"
+      class="grid size-8 cursor-pointer place-items-center rounded-md text-ink-soft hover:bg-white hover:text-ink"
       command="close"
       commandfor="contactform"
     >
-      <Icon
-        name="codicon:close-small"
-        class="size-6.25 cursor-pointer text-white"
-      />
+      <Icon name="codicon:close" class="size-5" aria-hidden="true" />
     </button>
   </div>
-  <form id="contactform-form" method="dialog" class="p-4">
-    <label class="block" for="contactform-name">
-      Name
-    </label>
-    <input
-      type="text"
-      class="mb-3.75 min-h-6.25 w-full rounded-sm border border-[#d3d3d3]"
-      id="contactform-name"
-      name="name"
-      required
-      minlength="2"
-      maxlength="50"
-    />
-    <label class="block" for="contactform-email">
-      Email
-    </label>
-    <input
-      type="email"
-      class="mb-3.75 min-h-6.25 w-full rounded-sm border border-[#d3d3d3]"
-      id="contactform-email"
-      name="email"
-      required
-      minlength="2"
-      maxlength="50"
-    />
-    <label class="block" for="contactform-message">
-      Message
-    </label>
-    <textarea
-      class="min-h-50 w-full resize-none rounded-sm border border-[#d3d3d3]"
-      id="contactform-message"
-      name="message"
-      required
-      minlength="3"
-      maxlength="500"
-    ></textarea>
-    <div class="mt-3.75 flex justify-center gap-2.5">
+  <form
+    id="contactform-form"
+    method="dialog"
+    class="grid gap-4 px-5 pt-4 pb-5 font-sans text-[0.9375rem]"
+  >
+    <div class="grid gap-1.5">
+      <label class="font-medium" for="contactform-name">
+        Name
+      </label>
+      <input
+        type="text"
+        class={field}
+        id="contactform-name"
+        name="name"
+        autocomplete="name"
+        required
+        minlength="2"
+        maxlength="50"
+      />
+    </div>
+    <div class="grid gap-1.5">
+      <label class="font-medium" for="contactform-email">
+        Email
+      </label>
+      <input
+        type="email"
+        class={field}
+        id="contactform-email"
+        name="email"
+        autocomplete="email"
+        required
+        minlength="2"
+        maxlength="50"
+      />
+    </div>
+    <div class="grid gap-1.5">
+      <label class="font-medium" for="contactform-message">
+        Message
+      </label>
+      <textarea
+        class:list={[field, 'min-h-40 resize-y']}
+        id="contactform-message"
+        name="message"
+        required
+        minlength="3"
+        maxlength="500"
+      ></textarea>
+    </div>
+    <div class="mt-1 flex flex-row-reverse justify-start gap-2">
       <button
         type="submit"
-        class="cursor-pointer rounded-sm border-0 px-3.75 py-2.5 bg-[#3182ce] text-white"
+        class="cursor-pointer rounded-md bg-accent px-4 py-2 font-medium text-white transition-colors hover:bg-ink"
       >
-        Submit
+        Send message
       </button>
       <button
         type="button"
-        class="cursor-pointer rounded-sm border-0 px-3.75 py-2.5"
+        class="cursor-pointer rounded-md px-4 py-2 font-medium text-ink-soft hover:bg-white hover:text-ink"
         command="close"
         commandfor="contactform"
       >
-        Close
+        Cancel
       </button>
     </div>
   </form>

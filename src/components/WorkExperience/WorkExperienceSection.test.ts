@@ -21,7 +21,7 @@ test('renders heading and an entry per experience', async () => {
   const html = await container.renderToString(WorkExperienceSection, { props })
 
   // Assert
-  expect(html).toMatch(/<h2[^>]*>Work Experience<\/h2>/)
+  expect(html).toMatch(/<h2[^>]*>\s*Work experience\s*<\/h2>/)
   expect(html.match(/class="workexp-entry /g)).toHaveLength(2)
   expect(html).toContain('First')
   expect(html).toContain('Second')

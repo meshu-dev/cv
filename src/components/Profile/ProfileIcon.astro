@@ -15,7 +15,7 @@ const { profileSite } = Astro.props
   rel="noopener noreferrer"
   title={profileSite.name}
   aria-label={profileSite.name}
-  class="no-underline"
+  class="no-print grid size-10 place-items-center rounded-md text-ink transition-colors hover:bg-white hover:text-accent"
 >
-  <Icon name={profileSite.icon} class="size-6.25 text-black" />
+  <Icon name={profileSite.icon} class="size-5.5" aria-hidden="true" />
 </a>

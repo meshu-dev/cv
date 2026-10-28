@@ -1,40 +1,46 @@
 ---
+import { Icon } from 'astro-icon/components'
+
 const { pdfUrl } = Astro.props
 const googleKey: string | null = import.meta.env
   .PUBLIC_GOOGLE_RECAPTCHA_KEY as string
-
-console.log('Google Key', googleKey)
 ---
 
 <>
   <a
     href="#body-wrapper"
-    class="sr-only bg-theme px-4 py-2 font-bold text-white no-underline focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded"
+    class="sr-only bg-ink px-4 py-2 font-sans font-semibold text-white focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded"
   >
     Skip to content
   </a>
-  <header class="min-h-12.5 pt-2.5 bg-theme text-white">
-    <div class="mx-auto flex max-w-page items-center justify-between px-5">
-      <div class="text-3xl">Mesh&apos;s CV</div>
-      <div>
+  <header class="no-print border-b border-rule">
+    <div class="mx-auto flex h-16 max-w-page items-center justify-between gap-4 px-5 font-sans sm:px-8">
+      <p class="text-lg font-semibold tracking-tight">Mesh&apos;s CV</p>
+      <div class="flex items-center gap-1 text-[0.9375rem] font-medium">
         {pdfUrl ? (
           <a
             href={pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-white p-1.25 mx-1.25 no-underline hover:bg-gray-200 hover:text-black hover:rounded-sm hover:cursor-pointer"
+            class="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-ink-soft transition-colors hover:bg-white hover:text-ink"
             data-testid="pdf-link"
           >
-            Download
+            <Icon
+              name="codicon:cloud-download"
+              class="size-4"
+              aria-hidden="true"
+            />
+            Download PDF
           </a>
         ) : null}
         {googleKey ? (
           <button
-            class="text-white p-1.25 mx-1.25 no-underline hover:bg-gray-200 hover:text-black hover:rounded-sm hover:cursor-pointer [font:inherit] border-0 bg-transparent cursor-pointer"
+            type="button"
+            class="cursor-pointer rounded-md bg-ink px-3 py-1.5 text-white transition-colors hover:bg-accent"
             command="show-modal"
             commandfor="contactform"
           >
-            Contact
+            Contact me
           </button>
         ) : null}
       </div>

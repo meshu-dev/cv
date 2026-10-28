@@ -8,11 +8,13 @@ interface Props {
 const { skill } = Astro.props
 ---
 
-<div class="skills-section max-w-50 min-w-45 flex-1">
-  <h3>{skill.name}</h3>
-  <ul>
+<div class="skills-section avoid-break grid items-baseline gap-x-10 gap-y-1 sm:grid-cols-[10.5rem_1fr]">
+  <h3 class="font-sans text-base font-semibold">{skill.name}</h3>
+  <ul class="text-ink-soft">
     {skill.technologies?.map((name) => (
-      <li class="mb-1.25">{name}</li>
+      <li class="inline after:content-[',_'] last:after:content-none">
+        {name}
+      </li>
     ))}
   </ul>
 </div>

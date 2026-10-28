@@ -32,7 +32,7 @@ const cv: CV = {
   pdf: 'https://example.com/cv.pdf',
 }
 
-const unavailable = 'CV content is currently unavailable'
+const unavailable = "The CV can't be shown right now"
 
 beforeEach(() => {
   vi.stubEnv('PORTFOLIO_API_EMAIL', 'a@b.com')
@@ -72,7 +72,7 @@ describe('index page', () => {
     // Assert
     expect(html).toMatch(/<h1[^>]*>Jane Doe<\/h1>/)
     expect(html).toMatch(/<h2[^>]*>Skills<\/h2>/)
-    expect(html).toMatch(/<h2[^>]*>Work Experience<\/h2>/)
+    expect(html).toMatch(/<h2[^>]*>\s*Work experience\s*<\/h2>/)
     expect(html).not.toContain(unavailable)
   })
 
@@ -114,7 +114,7 @@ describe('index page', () => {
     // Assert
     expect(html).not.toMatch(/<h1[\s>]/)
     expect(html).not.toMatch(/<h2[^>]*>Skills<\/h2>/)
-    expect(html).not.toMatch(/<h2[^>]*>Work Experience<\/h2>/)
+    expect(html).not.toMatch(/<h2[^>]*>\s*Work experience\s*<\/h2>/)
     expect(html).not.toContain(unavailable)
   })
 

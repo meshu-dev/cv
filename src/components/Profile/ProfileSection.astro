@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components'
 import ProfileIcon from '@/components/Profile/ProfileIcon.astro'
 import type { Profile } from '@/types'
 
@@ -7,20 +8,39 @@ interface Props {
 }
 
 const { profile } = Astro.props
+
+// On paper the icons can't be clicked, so print shows the addresses instead.
+const printableUrl = (url: string) =>
+  url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
 ---
 
-<section class="mt-20 flex flex-row max-md:flex-col">
-  <div class="m-0 flex-2 max-md:mt-10">
-    <h1 class="mt-0 mb-2.5 text-5xl">{profile.fullname}</h1>
-    <p class="text-[rgb(45,70,101)]">{profile.intro}</p>
-    <p class="text-[rgb(45,70,101)]">
-      <span class="font-bold">Location:&nbsp;</span>
-      {profile.location}
-    </p>
-    <div class="flex flex-row gap-4.5">
-      {profile.sites?.map((site) => (
-        <ProfileIcon profileSite={site} />
-      ))}
-    </div>
+<section class="pt-14 pb-14 sm:pt-24 sm:pb-20">
+  <h1 class="font-sans text-[clamp(3rem,10vw,5.25rem)] leading-[0.92] font-bold tracking-[-0.04em] text-balance">
+    {profile.fullname}
+  </h1>
+  <p class="mt-6 max-w-[36rem] text-xl leading-relaxed text-ink-soft sm:text-[1.375rem]">
+    {profile.intro}
+  </p>
+  <div class="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 font-sans text-[0.9375rem]">
+    {profile.location && (
+      <p class="inline-flex items-center gap-1.5 text-ink-soft">
+        <Icon name="codicon:location" class="size-4.5" aria-hidden="true" />
+        {profile.location}
+      </p>
+    )}
+    {profile.sites?.length ? (
+      <div class="flex items-center gap-1">
+        {profile.sites.map((site) => (
+          <ProfileIcon profileSite={site} />
+        ))}
+      </div>
+    ) : null}
   </div>
+  {profile.sites?.length ? (
+    <ul class="mt-4 hidden flex-wrap gap-x-6 font-sans text-sm text-ink-soft print:flex">
+      {profile.sites.map((site) => (
+        <li>{printableUrl(site.url)}</li>
+      ))}
+    </ul>
+  ) : null}
 </section>

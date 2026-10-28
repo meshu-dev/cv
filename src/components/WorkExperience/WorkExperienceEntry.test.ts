@@ -37,8 +37,8 @@ describe('WorkExperienceEntry', () => {
     const html = await container.renderToString(WorkExperienceEntry, { props })
 
     // Assert
-    expect(html).toContain('Mar 20')
-    expect(html).toContain('Jul 22')
+    expect(html).toContain('Mar 2020')
+    expect(html).toContain('Jul 2022')
     expect(html).not.toContain('Present')
   })
 

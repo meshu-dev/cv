@@ -10,12 +10,14 @@ const { workExperiences } = Astro.props
 ---
 
 {workExperiences.length > 0 ? (
-  <section class="mt-20">
-    <h2 class="mb-2.5 border-b border-[#ccc] pb-2.5 text-3xl">
-      Work Experience
+  <section class="border-t border-ink pt-6">
+    <h2 class="font-sans text-2xl font-semibold tracking-tight">
+      Work experience
     </h2>
-    {workExperiences.map((workExperience) => (
-      <WorkExperienceEntry workExperience={workExperience} />
-    ))}
+    <ol class="mt-2">
+      {workExperiences.map((workExperience) => (
+        <WorkExperienceEntry workExperience={workExperience} />
+      ))}
+    </ol>
   </section>
 ) : null}

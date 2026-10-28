@@ -1,7 +1,60 @@
-@import 'tailwindcss/theme';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
 
+/* The same type and colours as the portfolio site, so the CV reads as part of it. */
 @theme {
-  --color-theme: #211e2f;
-  --container-page: 700px;
+  --font-sans: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', ui-serif, Georgia, serif;
+
+  --color-paper: #f4f7fa;
+  --color-ink: #0c1424;
+  --color-ink-soft: #4b586f;
+  --color-rule: #d5dde7;
+  --color-accent: #2b44ff;
+  --color-accent-soft: #e0e5ff;
+  --color-danger: #c4242f;
+
+  --container-page: 52rem;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    font-feature-settings: 'kern';
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* A CV is often printed or saved as a PDF: drop the controls and keep each role on one page where it fits. */
+@media print {
+  html,
+  body {
+    background: white;
+    font-size: 11pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .avoid-break {
+    break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }

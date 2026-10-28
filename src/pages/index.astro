@@ -36,15 +36,26 @@ try {
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{cv?.profile?.fullname ? `${cv.profile.fullname} | CV` : 'CV'}</title>
+    {cv?.profile?.intro && (
+      <meta name="description" content={cv.profile.intro} />
+    )}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&display=swap"
+    />
   </head>
-  <body class="m-0 text-base leading-[1.6] font-normal text-[rgb(3,6,11)]">
+  <body>
     <Header pdfUrl={cv?.pdf || null} />
-    <main id="body-wrapper" class="mx-auto max-w-page px-5">
+    <main id="body-wrapper" class="mx-auto max-w-page px-5 pb-24 sm:px-8">
       {!cv ? (
-        <p>CV content is currently unavailable. Please try again later.</p>
+        <p class="py-24 text-ink-soft">
+          The CV can't be shown right now. Try again in a few minutes.
+        </p>
       ) : (
         <>
           {cv.profile && <ProfileSection profile={cv.profile} />}
