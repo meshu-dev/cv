@@ -25,4 +25,7 @@ pnpm-debug.log*
 .idea/
 
 # coverage
-coverage/
+coverage
+
+# cloudflare
+.wrangler
