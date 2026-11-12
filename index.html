@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Harmesh Uppal - CV</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/styles/sweetalert2.min.css" />
+    <link rel="stylesheet" href="/assets/styles/main.css" />
+    <script
+      type="application/javascript"
+      src="https://www.google.com/recaptcha/api.js?render=6LfRZrUhAAAAAJ5O2p0hgsE0uFStSIeOz1aemopm"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/assets/scripts/sweetalert2.all.min.js"
+    ></script>
+    <script type="text/javascript" src="/assets/scripts/recaptcha.js"></script>
+    <script type="text/javascript" src="/assets/scripts/contact.js"></script>
+    <script type="text/javascript" src="/assets/scripts/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <div id="header-wrapper">
+        <div id="header-logo">Mesh's CV</div>
+        <div id="header-links">
+          <a href="/assets/pdfs/cv.pdf" target="_blank" class="header-link"
+            >Download</a
+          >
+          <span class="header-link" onclick="showContactPopup()">Contact</span>
+        </div>
+      </div>
+    </header>
+    <main id="body-wrapper">
+      <section id="profile">
+        <div id="profile-pic-wrapper" style="display: none">
+          <img id="profile-pic" src="/assets/images/profile-picture.jpg" />
+        </div>
+        <div id="profile-info">
+          <h1>Harmesh Uppal</h1>
+          <p>
+            Full-stack developer with over 12 years experience in PHP and
+            JavaScript
+          </p>
+          <p><span>Location:&nbsp;</span>West Bromwich, UK</p>
+          <div id="profile-links">
+            <a
+              href="https://github.com/meshu-dev"
+              target="_blank"
+              title="Github"
+            >
+              <img src="/assets/images/github-icon.png" />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/harmeshuppal"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <img src="/assets/images/linkedin-icon.png" />
+            </a>
+
+            <a
+              href="https://portfolio.meshu.app"
+              target="_blank"
+              title="Portfolio"
+            >
+              <img src="/assets/images/site-icon.png" />
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="skills">
+        <h2>Skills</h2>
+        <div id="skills-sections">
+          <div class="skills-section">
+            <h3>Backend</h3>
+            <ul>
+              <li>PHP</li>
+
+              <li>MySQL</li>
+
+              <li>NodeJS</li>
+
+              <li>Java</li>
+            </ul>
+          </div>
+
+          <div class="skills-section">
+            <h3>Frontend</h3>
+            <ul>
+              <li>Angular</li>
+
+              <li>Backbone.js</li>
+
+              <li>jQuery</li>
+
+              <li>SASS</li>
+            </ul>
+          </div>
+
+          <div class="skills-section">
+            <h3>Frameworks</h3>
+            <ul>
+              <li>Laravel</li>
+
+              <li>Symfony</li>
+
+              <li>Express.js</li>
+
+              <li>Legacy</li>
+            </ul>
+          </div>
+
+          <div class="skills-section">
+            <h3>Other</h3>
+            <ul>
+              <li>Amazon AWS</li>
+
+              <li>Mobile app development</li>
+
+              <li>Unit testing</li>
+
+              <li>Docker</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="workexp">
+        <h2>Work Experience</h2>
+
+        <div id="workexp-entry-tucasi" class="workexp-entry">
+          <div class="workexp-entry-header">
+            <h3 class="workexp-entry-title">Software Developer - Tucasi</h3>
+            <div class="workexp-entry-datelocation">
+              <span class="workexp-entry-location">Eastleigh</span>
+              <span>Nov 20 – Present</span>
+            </div>
+          </div>
+          <div class="workexp-entry-info">
+            Currently working on school payment apps, previously worked on a
+            seat planner app.
+          </div>
+          <div class="workexp-entry-tasks">
+            <ul>
+              <li>
+                Majority of work has been on the seat planner app built in a
+                custom PHP framework.
+              </li>
+
+              <li>Worked on a laravel REST API to centralise school data.</li>
+
+              <li>
+                Developed Angular frontend school apps which interact with API.
+              </li>
+
+              <li>
+                Built an Android / iOS homework web app using Ionic framework.
+              </li>
+
+              <li>
+                Recently switched to Java as school payment apps are built with
+                it.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="workexp-entry-mri" class="workexp-entry">
+          <div class="workexp-entry-header">
+            <h3 class="workexp-entry-title">PHP Developer - MRI Software</h3>
+            <div class="workexp-entry-datelocation">
+              <span class="workexp-entry-location">Sutton Coldfield</span>
+              <span>Jul 19 – Oct 20</span>
+            </div>
+          </div>
+          <div class="workexp-entry-info">
+            Worked in the housing repair services team for MRI software.
+          </div>
+          <div class="workexp-entry-tasks">
+            <ul>
+              <li>
+                Worked on the House repairs PHP system which provides services
+                to multiple clients.
+              </li>
+
+              <li>
+                Developed a REST API in PHP using Laravel to modernise and
+                migrate functionality off of the legacy system.
+              </li>
+
+              <li>
+                Trained in and worked with C# and Angular to support other apps.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="workexp-entry-moreniche" class="workexp-entry">
+          <div class="workexp-entry-header">
+            <h3 class="workexp-entry-title">Senior Developer - MoreNiche</h3>
+            <div class="workexp-entry-datelocation">
+              <span class="workexp-entry-location">Nottingham</span>
+              <span>Jan 18 – Jul 19</span>
+            </div>
+          </div>
+          <div class="workexp-entry-info">
+            MoreNiche is an affiliate network that specialise in fitness
+            products.
+          </div>
+          <div class="workexp-entry-tasks">
+            <ul>
+              <li>
+                Developed a Laravel API to manage data, also included API
+                testing.
+              </li>
+
+              <li>
+                Worked on a high traffic tracking server built with the Silex
+                PHP framework.
+              </li>
+
+              <li>Worked with both Scrum and Kanban.</li>
+
+              <li>
+                Been on-call outside of work hours to maintain uptime of
+                servers.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="workexp-entry-fps" class="workexp-entry">
+          <div class="workexp-entry-header">
+            <h3 class="workexp-entry-title">
+              Web Developer - FPS Distribution
+            </h3>
+            <div class="workexp-entry-datelocation">
+              <span class="workexp-entry-location">Stratford-upon-Avon</span>
+              <span>Jun 16 – Jan 18</span>
+            </div>
+          </div>
+          <div class="workexp-entry-info">
+            FPS distribution is a b2b company providing car parts to their
+            clients.
+          </div>
+          <div class="workexp-entry-tasks">
+            <ul>
+              <li>
+                Built and migrated features to a new Laravel API to replace the
+                previous one built in NodeJS and Express.
+              </li>
+
+              <li>
+                Worked on Drupal PHP modules for the company's ticketing system
+                and company portal.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="workexp-entry-carphone" class="workexp-entry">
+          <div class="workexp-entry-header">
+            <h3 class="workexp-entry-title">
+              Software Developer - Carphone Warehouse
+            </h3>
+            <div class="workexp-entry-datelocation">
+              <span class="workexp-entry-location">Loughborough</span>
+              <span>Jun 15 – Apr 16</span>
+            </div>
+          </div>
+          <div class="workexp-entry-info">
+            This carphone Warehouse branch involved work with TalkTalk, E2Save
+            and Mobiles.
+          </div>
+          <div class="workexp-entry-tasks">
+            <ul>
+              <li>Worked on PHP e-commerce and backend management systems.</li>
+
+              <li>
+                Also worked on an in-store BackboneJS SPA app providing phone
+                deals.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="workexp-entry-twist" class="workexp-entry">
+          <div class="workexp-entry-header">
+            <h3 class="workexp-entry-title">Web Developer - Twist Digital</h3>
+            <div class="workexp-entry-datelocation">
+              <span class="workexp-entry-location">Nottingham</span>
+              <span>Apr 13 – Jun 15</span>
+            </div>
+          </div>
+          <div class="workexp-entry-info">
+            Twist Digital was an affiliate network that provided health, beauty,
+            fitness and adult products.
+          </div>
+          <div class="workexp-entry-tasks">
+            <ul>
+              <li>
+                Worked on the company’s dashboard and tracking apps built with
+                Zend, Silex and MongoDB.
+              </li>
+
+              <li>Maintained uptime of live servers.</li>
+
+              <li>Supported and mentored junior web developers.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="contactform-content">
+      <div class="contactform">
+        <div class="contactform-row">
+          <span>Name:</span>
+          <input
+            type="text"
+            name="name"
+            minlength="3"
+            maxlength="100"
+            value=""
+            required
+          />
+        </div>
+        <div class="contactform-row">
+          <span>Email:</span>
+          <input
+            type="email"
+            name="email"
+            minlength="5"
+            maxlength="100"
+            value=""
+            required
+          />
+        </div>
+        <div class="contactform-row">
+          <span>Message:</span>
+          <textarea
+            name="message"
+            minlength="5"
+            maxlength="500"
+            required
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
